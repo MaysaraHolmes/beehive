@@ -2,14 +2,19 @@ var express = require('express');
 var path = require('path');
 var favicon = require('static-favicon');
 var bodyParser = require('body-parser');
+var hbs = require('express-hbs');
+ 
+// Use `.hbs` for extensions and find partials in `views/partials`.
 
 var routes = require('./routes/index');
 
 var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.engine('hbs', hbs.express4({
+  partialsDir: __dirname + '/views'
+}));
+app.set('view engine', 'hbs');
+app.set('views', __dirname + '/views');
 
 app.use(favicon());
 app.use(bodyParser.json());
