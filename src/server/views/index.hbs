@@ -11,35 +11,74 @@
 
   <link rel="stylesheet" href="stylesheets/style.css">
 
-  
+  <script>
+  window.onload = function () {
+
+  //Better to construct options first and then pass it as a parameter
+  var options = {
+    title: {
+      text: "Beehive Data"
+    },
+    responsive: true,
+    animationEnabled: true,
+    exportEnabled: true,
+    data: [
+    {
+      type: "line", //change it to line, area, column, pie, etc
+      dataPoints: [
+        { x: 10, y: 10 },
+        { x: 20, y: 12 },
+        { x: 30, y: 8 },
+        { x: 40, y: 14 },
+        { x: 50, y: 6 },
+        { x: 60, y: 24 },
+        { x: 70, y: -4 },
+        { x: 80, y: 10 }
+      ],
+      lineColor:"orange"
+    }, {
+      type: "line", //change it to line, area, column, pie, etc
+      dataPoints: [
+        { x: 10, y: 1 },
+        { x: 20, y: 1 },
+        { x: 30, y: 1 },
+        { x: 40, y: 1 },
+        { x: 50, y: 1 },
+        { x: 60, y: 1 },
+        { x: 70, y: 1 },
+        { x: 80, y: 1 }
+      ],
+      lineColor:"black"
+    }
+    ],
+  };
+  $("#beehivetemp").CanvasJSChart(options);
+  $("#beehivehumidity").CanvasJSChart(options);
+  $("#beehiveweight").CanvasJSChart(options);
+
+  }
+  </script>
+
+
 </head>
 
 <body>
+<center><h1>Embedded Programming Coursework</h1></center>
+<br/>
+<br/>
 
 <div class="row">
   <div class="hex slide snow">
     <div class="front">
-      <i class="fa fa-snowflake-o" aria-hidden="true"></i>Outside temperature
-    </div>
-
-    <div class="back">
-      <i class="fa fa-snowflake-o" aria-hidden="true"></i> {{data.ot}}°C
+      <h5>Outside temperature</h5>
+      <h3>{{data.ot}}°C</h3>
     </div>
   </div>
 
   <div class="hex slide storm">
     <div class="front">
-      <i class="fa fa-bolt" aria-hidden="true"></i>
-      Inside temperature
-    </div>
-
-    <div class="back">
-      <i class="fa fa-bolt" aria-hidden="true"></i> 67°F
-
-      <ul>
-        <li>Storms</li>
-        <li>NE 18 mph</li>
-      </ul>
+      <h5>Inside temperature</h5>
+      <h3>{{data.ot}}°C</h3>
     </div>
   </div>
 </div>
@@ -47,56 +86,42 @@
 <div class="row">
   <div class="hex slide rain">
     <div class="front">
-      <i class="fa fa-umbrella" aria-hidden="true"></i>
-
-      Outside humidity
-    </div>
-
-    <div class="back">
-      <i class="fa fa-umbrella" aria-hidden="true"></i> 55°F
-
-      <ul>
-        <li>Rain</li>
-        <li>N 2 mph</li>
-      </ul>
+      <h5>Outside humidity</h5>
+      <h3>{{data.oh}}°C</h3>
     </div>
   </div>
   
   <div class="hex slide moon">
     <div class="front">
-      <i class="fa fa-moon-o" aria-hidden="true"></i>
-
-      Inside humidity
-    </div>
-
-    <div class="back">
-      <i class="fa fa-moon-o" aria-hidden="true"></i> 23°F
-
-      <ul>
-        <li>Clear</li>
-        <li>NE 2 mph</li>
-      </ul>
+      <h5>Inside humidity</h5>
+      <h3>{{data.ih}}°C</h3>
     </div>
   </div>
 
   <div class="hex slide sunny">
     <div class="front">
-      <i class="fa fa-sun-o" aria-hidden="true"></i>
-
-      beehive weight
-    </div>
-
-    <div class="back">
-      <i class="fa fa-sun-o" aria-hidden="true"></i> 67°F
-
-      <ul>
-        <li>Sunny</li>
-        <li>S 6 mph</li>
-      </ul>
+      <h5>Beehive weight</h5>
+      <h3>{{data.iw}}°C</h3>
     </div>
   </div>
 </div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
+
+<center><div id="beehivetemp" style="height: 370px; width: 50%;"></div></center>
+<br>
+<br>
+<center><div id="beehivehumidity" style="height: 370px; width: 50%;"></div></center>
+<br>
+<br>
+<center><div id="beehiveweight" style="height: 370px; width: 50%;"></div></center>
+<br>
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 <script src='https://use.fontawesome.com/97152d9c6b.js'></script>
 
   
