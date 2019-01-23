@@ -2,8 +2,8 @@
 
 
 int main(){
-
+  I2C bus;
   printf("The program is running\n");
 
-  I2C bus;
+
 }

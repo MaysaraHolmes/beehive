@@ -1,0 +1,41 @@
+
+
+- DATASHEET:
+- How many bytes to read
+- how many bytes to write - one byte?
+- do we need to change this numbers?
+
+
+- SQLite?
+
+
+- Threads
+- Create one thread for every sensor
+- every thread uses the poll. Sleep until new measurement
+
+
+- Polling system
+- alarm in the sensors: ADC and the Temp&Humidity
+
+
+
+#include <thread>
+#include <vector>
+#include <mutex>
+
+//set the crawler_threads variable
+int crawler_threads = 2;
+
+std::thread t[crawler_threads];
+
+  for (int i = 0; i<crawler_threads; i++){
+    std::string s = "thread " + std::to_string(i);
+    t[i] = std::thread(threadFunction, s);
+  }
+  //std::thread t1(threadFunction);
+  //std::thread t2(threadFunction);
+
+
+  for (int i = 0; i<crawler_threads; i++){
+    t[i].join();
+  }
