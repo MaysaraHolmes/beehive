@@ -12,7 +12,7 @@ I2C::I2C(){
 	if ((file_i2c = open(filename, O_RDWR)) < 0)
 	{
 		//ERROR HANDLING: you can check errno to see what went wrong
-		printf("Failed to open the i2c bus");
+		printf("Failed to open the I2C bus\n");
 		return;
 	}
 
@@ -58,6 +58,7 @@ int I2C::writeI2C(){
 		printf("Failed to write to the i2c bus.\n");
 		return -1;
 	}
+	printf("Succeeded writing");
 	return 1;
 
 }
