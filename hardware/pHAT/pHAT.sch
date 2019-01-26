@@ -7,7 +7,7 @@ encoding utf-8
 Sheet 1 1
 Title "Beehive pHAT"
 Date "2019-01-21"
-Rev "v1.1"
+Rev "v2.0"
 Comp "University of Glasgow"
 Comment1 ""
 Comment2 ""

@@ -5,17 +5,19 @@ Qt	Code		Price	Description
 1	103-4126	 3.25	220nF 0805 Capacitors (x50)
 2	874-4666	23.80	HIH6131-021 Temperature and humidity sensor
 1	749-8271	 2.29	ADC101C021CIMK ADC, I2C bus, 6-pin
-1	510-831		 4.35	NXP, I2C Multiplexer Single 2:1 (x5)
+4	483-6960	3.60	NXP P82B96TD I2C level shifter
 -	--------	-----	--------------------------------------------
-	Subtotal:	38.62	GBP
+	Subtotal:		GBP
 
 1	amazon		13.39	Force sensitive resistor
 1			 8.00	Pressure sensor
 -	--------	-----	--------------------------------------------
-	Subtotal:	60.01	GBP
+	Subtotal:		GBP
 
 1			 7.00	IP65 enclosure
 1			 4.00	Epoxy glue
 -	--------	-----	--------------------------------------------
-	Total:		71.01	GBP
+	Total:			GBP
 
+
+First order code : OD-07748
