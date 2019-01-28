@@ -36,7 +36,7 @@ Project is created with:
 * MySQl database.
 	
 ## Setup
-*server setup
+Server setup
 
 you should have Node Js installed on your machine as well as NPM.
 ```
