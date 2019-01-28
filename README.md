@@ -14,6 +14,8 @@ We want to help beekepers to keep an eye on their bees. By giving them insight o
 
 Monitoring your beehive and get real-time meassurement on the [website](https://beehiveproject.herokuapp.com/)
 
+This project is done in partnership with the [Glasgow University Beekeeping Society](https://www.facebook.com/GUBeekeepingSociety/)
+
 
 ## Table of contents
 * [General info](#general-info)
