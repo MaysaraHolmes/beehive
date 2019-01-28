@@ -1,6 +1,6 @@
 ** This repository is under construction**
 
-<a href="https://beehiveproject.herokuapp.com/"><img src="https://github.com/MaysaraHolmes/beehive/blob/master/bee_pic.jpg" title="Bee" alt="FVCproductions" width="400" height="200" ></a>
+<a href="https://beehiveproject.herokuapp.com/"><img src="https://github.com/MaysaraHolmes/beehive/blob/master/bee_pic.jpg" title="Bee" alt="FVCproductions" width="500" height="500" ></a>
 
 <!-- [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com) -->
 
