@@ -50,7 +50,7 @@ $ npm start
 
 ## Authors
 
-* **Rêmy Chatel**  - [Github](https://github.com/RemyChatel)
+* **Remy Chatel**  - [Github](https://github.com/RemyChatel)
 
 * **Maysara Alhindi**  - [Github](https://github.com/MaysaraHolmes)
 
