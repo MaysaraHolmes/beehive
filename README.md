@@ -4,13 +4,10 @@
 
 <!-- [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com) -->
 
-***INSERT GRAPHIC HERE (include hyperlink in image)***
-
 # Real-Time Beehive Monitoring
 
 Monitoring your beehive and get real-time meassurement on the webpage
 https://beehiveproject.herokuapp.com/
-
 
 
 ## Table of contents
@@ -21,7 +18,8 @@ https://beehiveproject.herokuapp.com/
 * [Authors](#authors)
 
 ## General info
-This project is simple Lorem ipsum dolor generator.
+This projects architecture diagram:
+https://github.com/MaysaraHolmes/beehive/blob/master/ArchitectureDiagram.png
 	
 ## Technologies / Prerequisites
 
