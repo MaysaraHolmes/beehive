@@ -14,7 +14,6 @@ https://beehiveproject.herokuapp.com/
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
-* [Getting Started](#getting_started)
 * [Authors](#authors)
 
 ## General info
