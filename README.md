@@ -1,7 +1,9 @@
 ** This repository is under construction**
 
 <p align="center">
-	<a href="https://beehiveproject.herokuapp.com/"><img src="https://github.com/MaysaraHolmes/beehive/blob/master/bee_pic.jpg" title="Bee" alt="FVCproductions" width="500" height="500" ></a><\p>
+	<a href="https://beehiveproject.herokuapp.com/">
+	<img src="https://github.com/MaysaraHolmes/beehive/blob/master/bee_pic.jpg" 
+	 title="Bee" alt="FVCproductions" width="500" height="500" ></a></p>
 
 
 
