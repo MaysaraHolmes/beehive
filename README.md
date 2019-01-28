@@ -19,7 +19,8 @@ https://beehiveproject.herokuapp.com/
 
 ## General info
 This projects architecture diagram:
-https://github.com/MaysaraHolmes/beehive/blob/master/ArchitectureDiagram.png
+
+<img src="https://github.com/MaysaraHolmes/beehive/blob/master/ArchitectureDiagram.png" title="Architecture" ></a>
 	
 ## Technologies / Prerequisites
 
