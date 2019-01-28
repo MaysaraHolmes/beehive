@@ -36,8 +36,10 @@ Project is created with:
 * MySQl database.
 	
 ## Setup
+* server setup
+you should have Node Js installed on your machine as well as NPM.
 ```
-$ cd ../lorem
+$ cd src/server
 $ npm install
 $ npm start
 ```
