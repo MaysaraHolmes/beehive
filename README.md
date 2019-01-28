@@ -42,11 +42,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Authors
 
-* **Rêmy Chatel** 
+* **Rêmy Chatel**  - [Github](https://github.com/RemyChatel)
 
-* **Maysara Alhindi** 
+* **Maysara Alhindi**  - [Github](https://github.com/MaysaraHolmes)
 
-* **Trine Ødegård Olsen** 
-
+* **Trine Ødegård Olsen**  - [Github](https://github.com/trineoo)
 
 
