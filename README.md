@@ -10,8 +10,7 @@
 
 # Real-Time Beehive Monitoring
 
-Monitoring your beehive and get real-time meassurement on the webpage
-https://beehiveproject.herokuapp.com/
+Monitoring your beehive and get real-time meassurement on the [website](https://beehiveproject.herokuapp.com/)
 
 
 ## Table of contents
