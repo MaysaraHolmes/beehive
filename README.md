@@ -24,23 +24,18 @@ This projects architecture diagram:
 	
 ## Technologies 
 
-What things you need to install the software and how to install them
-
 Project is created with:
 * Raspberry pi 3.0
-* sensorts
-	* ADC101C021
-	* FSR400_ForceResistor
-	* HIH6131_T-and-RH x2
-	* MPL115A2_Barometer
-	* P82B96_I2C_Shifter
-	* PCA9540B_I2Cmultiplexer
+* Sensors
+	* ADC101C021 ADC
+	* FSR400 ForceResistor
+	* HIH6131 Temperatur & Humidity x2
+	* MPL115A2 Barometer
+	* P82B96 I2C Shifter
 * Node Js/express Js server
 * MySQl database.
 	
 ## Setup
-To run this project, install it locally using npm:
-
 ```
 $ cd ../lorem
 $ npm install
