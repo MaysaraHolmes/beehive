@@ -22,14 +22,21 @@ This projects architecture diagram:
 
 <img src="https://github.com/MaysaraHolmes/beehive/blob/master/ArchitectureDiagram.png" title="Architecture" ></a>
 	
-## Technologies / Prerequisites
+## Technologies 
 
 What things you need to install the software and how to install them
 
 Project is created with:
-* Lorem version: 12.3
-* Ipsum version: 2.33
-* Ament library version: 999
+* Raspberry pi 3.0
+* sensorts
+	* ADC101C021
+	* FSR400_ForceResistor
+	* HIH6131_T-and-RH x2
+	* MPL115A2_Barometer
+	* P82B96_I2C_Shifter
+	* PCA9540B_I2Cmultiplexer
+* Node Js/express Js server
+* MySQl database.
 	
 ## Setup
 To run this project, install it locally using npm:
@@ -39,9 +46,6 @@ $ cd ../lorem
 $ npm install
 $ npm start
 ```
-
-## Getting Started
-
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 
