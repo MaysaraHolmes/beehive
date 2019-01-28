@@ -1,7 +1,6 @@
 ** This repository is under construction**
 
-<center><a href="https://beehiveproject.herokuapp.com/"><img src="https://github.com/MaysaraHolmes/beehive/blob/master/bee_pic.jpg" title="Bee" alt="FVCproductions" width="500" height="500" ></a>
-</center>
+<center><a href="https://beehiveproject.herokuapp.com/"><img src="https://github.com/MaysaraHolmes/beehive/blob/master/bee_pic.jpg" title="Bee" alt="FVCproductions" width="500" height="500" ></a></center>
 <!-- [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com) -->
 
 # Real-Time Beehive Monitoring
