@@ -10,9 +10,9 @@
 
 # Real-Time Beehive Monitoring
 
-We want to help beekepers to keep an eye on their bees. By giving them insight on critical measurements we can monitor different events such as too low-temperature, too high moisture, sufficient weight to harvest honey, as well as giving an estimate of how may bees went out harvesting. 
+We want to help beekeepers to keep an eye on their bees. By giving them insight on critical measurements we can monitor different events such as too low temperature, too high moisture, sufficient weight to harvest honey, as well as giving an estimate of how many bees went out of the beehive harvesting. 
 
-Monitoring your beehive and get real-time meassurement on the [website](https://beehiveproject.herokuapp.com/)
+Monitoring your beehive and get real-time measurements on the [website](https://beehiveproject.herokuapp.com/)
 
 This project is done in partnership with the [Glasgow University Beekeeping Society](https://www.facebook.com/GUBeekeepingSociety/)
 
