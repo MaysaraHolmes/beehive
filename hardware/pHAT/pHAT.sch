@@ -6,8 +6,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Beehive pHAT"
-Date "2019-01-21"
-Rev "v2.0"
+Date "2019-01-29"
+Rev "v2.1"
 Comp "University of Glasgow"
 Comment1 ""
 Comment2 ""
@@ -439,28 +439,6 @@ F 3 "" H 6450 1500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x04 J_Air1
-U 1 1 5C4706C5
-P 8000 2600
-F 0 "J_Air1" H 8080 2592 50  0000 L CNN
-F 1 "Conn_01x04" H 8080 2501 50  0000 L CNN
-F 2 "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical" H 8000 2600 50  0001 C CNN
-F 3 "~" H 8000 2600 50  0001 C CNN
-	1    8000 2600
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_01x04 J_Hive1
-U 1 1 5C470742
-P 8000 2050
-F 0 "J_Hive1" H 8080 2042 50  0000 L CNN
-F 1 "Conn_01x04" H 8080 1951 50  0000 L CNN
-F 2 "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical" H 8000 2050 50  0001 C CNN
-F 3 "~" H 8000 2050 50  0001 C CNN
-	1    8000 2050
-	1    0    0    -1  
-$EndComp
-$Comp
 L Connector_Generic:Conn_01x02 J_Weight1
 U 1 1 5C4707D9
 P 6650 800
@@ -523,23 +501,23 @@ $EndComp
 $Comp
 L power:GND #PWR0120
 U 1 1 5C47784F
-P 7800 1950
-F 0 "#PWR0120" H 7800 1700 50  0001 C CNN
-F 1 "GND" V 7805 1822 50  0000 R CNN
-F 2 "" H 7800 1950 50  0001 C CNN
-F 3 "" H 7800 1950 50  0001 C CNN
-	1    7800 1950
+P 7800 1850
+F 0 "#PWR0120" H 7800 1600 50  0001 C CNN
+F 1 "GND" V 7805 1722 50  0000 R CNN
+F 2 "" H 7800 1850 50  0001 C CNN
+F 3 "" H 7800 1850 50  0001 C CNN
+	1    7800 1850
 	0    1    1    0   
 $EndComp
 $Comp
 L power:GND #PWR0121
 U 1 1 5C4780F6
-P 7800 2500
-F 0 "#PWR0121" H 7800 2250 50  0001 C CNN
-F 1 "GND" V 7805 2372 50  0000 R CNN
-F 2 "" H 7800 2500 50  0001 C CNN
-F 3 "" H 7800 2500 50  0001 C CNN
-	1    7800 2500
+P 7800 2400
+F 0 "#PWR0121" H 7800 2150 50  0001 C CNN
+F 1 "GND" V 7805 2272 50  0000 R CNN
+F 2 "" H 7800 2400 50  0001 C CNN
+F 3 "" H 7800 2400 50  0001 C CNN
+	1    7800 2400
 	0    1    1    0   
 $EndComp
 Text Label 6100 900  0    50   ~ 0
@@ -789,4 +767,42 @@ Wire Wire Line
 	2000 1800 2400 1800
 Text Label 2050 1800 0    50   ~ 0
 ADC_Alert
+$Comp
+L Connector_Generic:Conn_01x05 J_Hive1
+U 1 1 5C50B69B
+P 8000 2050
+F 0 "J_Hive1" H 8080 2092 50  0000 L CNN
+F 1 "Conn_01x05" H 8080 2001 50  0000 L CNN
+F 2 "Connector_Molex:Molex_KK-254_AE-6410-05A_1x05_P2.54mm_Vertical" H 8000 2050 50  0001 C CNN
+F 3 "~" H 8000 2050 50  0001 C CNN
+	1    8000 2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x05 J_Air1
+U 1 1 5C50B707
+P 8000 2600
+F 0 "J_Air1" H 8080 2642 50  0000 L CNN
+F 1 "Conn_01x05" H 8080 2551 50  0000 L CNN
+F 2 "Connector_Molex:Molex_KK-254_AE-6410-05A_1x05_P2.54mm_Vertical" H 8000 2600 50  0001 C CNN
+F 3 "~" H 8000 2600 50  0001 C CNN
+	1    8000 2600
+	1    0    0    -1  
+$EndComp
+Text Label 7400 2500 0    50   ~ 0
+alarm_air
+Text Label 7400 1950 0    50   ~ 0
+alarm_hive
+Wire Wire Line
+	7800 2500 7400 2500
+Wire Wire Line
+	7800 1950 7400 1950
+Text Label 2000 2200 0    50   ~ 0
+alarm_hive
+Wire Wire Line
+	2400 2200 2000 2200
+Text Label 2000 2100 0    50   ~ 0
+alarm_air
+Wire Wire Line
+	2400 2100 2000 2100
 $EndSCHEMATC
