@@ -13,12 +13,10 @@ clean:
 
 #-------------------------------------------------------------
 
-# run: out.out
-# 	./out.out
-#
-# clean:
-# 	rm -f *.o
-# 	rm -f *.out
+run: main
+	./main
+
+
 #
 # build: clean out.out
 #
