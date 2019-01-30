@@ -31,6 +31,8 @@ I2C::I2C(){
 
 void I2C::readI2C(int nbOfBytes){ //NOTE set default = length?
 
+	//bitset<32> bitset1;
+
 	//----- READ BYTES -----
 	length = nbOfBytes;			//<<< Number of bytes to read
 	if (read(file_i2c, buffer, length) != length)		//read() returns the number of bytes actually read, if it doesn't match then an error occurred (e.g. no response from the device)
@@ -42,7 +44,15 @@ void I2C::readI2C(int nbOfBytes){ //NOTE set default = length?
 	{
 		printf("\nData size buffer read: %d\n", sizeof(buffer));
 		//printf("Data read: %s\n", buffer);
-		std::cout << std::hex << buffer << '\n';
+		//std::cout << std::hex << buffer << '\n';
+		bitset<8> bitset1(buffer[0])
+		bitset<8> bitset2(buffer[1])
+		bitset<8> bitset3(buffer[2])
+		bitset<8> bitset4(buffer[3])
+		std::cout << "bitset1" << bitset1 << std::endl;
+		std::cout << "bitset2" << bitset2 << std::endl;
+		std::cout << "bitset3" << bitset3 << std::endl;
+		std::cout << "bitset4" << bitset4 << std::endl; 
 	}
 
 }
