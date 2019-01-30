@@ -13,7 +13,7 @@
 //Do we need to OPEN THE I2C BUS and tell the kernel which I2C address it is many times. Or can I just put it in the constructor of the class?
 
 //NOTE
-// To&RH 0x27
+// To&RH 0x27     times two
 // Pressure 0x60
 // ADC 0x84
 // Multiplexer 0x112 ??REMOVE?
