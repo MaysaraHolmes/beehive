@@ -17,7 +17,7 @@ I2C::I2C(){
 	}
 
 	//NOTE lec: //tell the kernel which I2C address it is
-	int addr = 0x5a;          //<<<<<The I2C address of the slave NOTE Lec addr=0x58
+	int addr = 0x27;          //<<<<<The I2C address of the slave NOTE Lec addr=0x58
 	if (ioctl(file_i2c, I2C_SLAVE, addr) < 0)
 	{
 		printf("Failed to acquire bus access and/or talk to slave.\n");
@@ -40,7 +40,9 @@ void I2C::readI2C(int nbOfBytes){ //NOTE set default = length?
 	}
 	else
 	{
-		printf("Data read: %s\n", buffer);
+		printf("\nData size buffer read: %d\n", sizeof(buffer));
+		//printf("Data read: %s\n", buffer);
+		std::cout << std::hex << buffer << '\n';
 	}
 
 }

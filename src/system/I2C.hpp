@@ -7,6 +7,7 @@
 #include <linux/i2c-dev.h>		//Needed for I2C port
 
 #include <stdio.h>
+#include <iostream>
 
 
 //NOTE
