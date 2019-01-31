@@ -11,29 +11,21 @@
 #include <bitset>
 
 
-//NOTE
-//Do we need to OPEN THE I2C BUS and tell the kernel which I2C address it is many times. Or can I just put it in the constructor of the class?
-
-//NOTE
-// To&RH 0x27     times two
-// Pressure 0x60
-// ADC 0x84
-// Multiplexer 0x112 ??REMOVE?
-
 class I2C{
 
 	public:
 
 		int file_i2c;
-		//number of bytes to read
-		int length;
+
 		//data buffer
 		unsigned char buffer[60] = {0}; //NOTE in lec: char buf[2];
 
+		//Constructor to open the I2C bus
+		//and tell the kernel the I2C address of the slave
+    I2C(char* portI2C, int addrI2C);
 
-    I2C();
-    void readI2C(int nbOfBytes);
-    int writeI2C();
+    void readI2C(int bytesToRead);
+    int writeI2C(int length); //NOTE instead overload function?
 
 };
 
