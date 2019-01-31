@@ -57,7 +57,7 @@ double TemperatureAndHumidity::getHum(){
     humBits[i] = buffer[i+16]; //NOTE eller motsatt?
   }
 
-  double hum = ((humBits.to_ulong() / (2^14 - 2)) * 165 ) - 40;
+  double hum = ((humBits.to_ulong() / (2^14 - 2)) * 100 );
 
   return hum;
 
