@@ -30,7 +30,7 @@ int main(){
 
   std::cout<< "testing bitset: " << b << std::endl;
 
-  std::cout << "unsinged int: " << th1.getStatus(b) << std::endl;
+  //std::cout << "unsinged int: " << th1.getStatus(b) << std::endl;
 
 
 

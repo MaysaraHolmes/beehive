@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <bitset>
+#include <cstring>  // strlen()
 
 
 class TemperatureAndHumidity{
@@ -17,13 +18,14 @@ class TemperatureAndHumidity{
     I2C* bus;
 
 		//data buffer
-		unsigned char buffer[4] = {0};
-
+		//unsigned char buffer[4] = {0};
+		//unsigned char* buffer;
+		std::bitset<32> bitsetI2C;
 
     TemperatureAndHumidity(char* portI2C, int addrI2C);
     void readI2C();
     int writeI2C();
-    int getStatus(std::bitset<8> first8Bits);
+    int getStatus();
     double getTemp();
     double getHum();
 

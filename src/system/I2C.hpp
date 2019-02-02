@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 #include <iostream>
-#include <bitset>
+#include <bitset> //remove?
 
 
 class I2C{

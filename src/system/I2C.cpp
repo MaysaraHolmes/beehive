@@ -33,6 +33,7 @@ unsigned char* I2C::readI2C(int bytesToRead){
 	{
 		//ERROR HANDLING: i2c transaction failed
 		printf("Failed to read from the i2c bus.\n");
+		return (unsigned char*)"-1"; //NOTE change?
 	}
 	else
 	{

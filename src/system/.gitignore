@@ -2,3 +2,4 @@ I2C.o
 main.o
 main
 TemperatureAndHumidity.o
+ADC.o

@@ -1,6 +1,9 @@
 
-main: main.o I2C.o TemperatureAndHumidity.o
-	g++ -o main main.o I2C.o TemperatureAndHumidity.o
+main: main.o I2C.o TemperatureAndHumidity.o ADC.o
+	g++ -o main main.o I2C.o TemperatureAndHumidity.o ADC.o
+
+ADC.o: ADC.hpp ADC.cpp
+	g++ -o ADC.o -c ADC.cpp
 
 I2C.o: I2C.hpp I2C.cpp
 	g++ -o I2C.o -c I2C.cpp
