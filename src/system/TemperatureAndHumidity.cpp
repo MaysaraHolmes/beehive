@@ -1,9 +1,5 @@
 #include "TemperatureAndHumidity.hpp"
 
-
-
-
-
 //int portI2C;
 //int addrI2C;
 //int bytesToRead = 4;

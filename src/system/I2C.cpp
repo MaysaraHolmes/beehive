@@ -25,7 +25,7 @@ I2C::I2C(char* portI2C, int addrI2C){
 
 
 
-void I2C::readI2C(int bytesToRead){
+unsigned char* I2C::readI2C(int bytesToRead){
 
 	//----- READ BYTES -----
 	//length = bytesToRead;			//<<< Number of bytes to read
@@ -36,7 +36,7 @@ void I2C::readI2C(int bytesToRead){
 	}
 	else
 	{
-		printf("\nData size buffer read: %d\n", sizeof(buffer));
+		//printf("\nData size buffer read: %d\n", sizeof(buffer));
 		//printf("Data read: %s\n", buffer);
 		//std::cout << std::hex << buffer << '\n';
 		std::bitset<8> bitset1(buffer[0]);
@@ -48,6 +48,7 @@ void I2C::readI2C(int bytesToRead){
 		std::cout << "bitset3: " << bitset3 << std::endl;
 		std::cout << "bitset4: " << bitset4 << std::endl;
 		//return bitset? or buffer?
+		return buffer;//return a copy?
 	}
 
 }

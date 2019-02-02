@@ -11,9 +11,6 @@
 class TemperatureAndHumidity{
 
 	public:
-    //NOTE remove?
-		//int portI2C;
-    //int addrI2C;
 		int bytesToRead = 4;
     int bytesToWrite = 2;
 

@@ -18,13 +18,12 @@ class I2C{
 		int file_i2c;
 
 		//data buffer
-		unsigned char buffer[60] = {0}; //NOTE in lec: char buf[2];
+		unsigned char buffer[60] = {0}; //NOTE change to 4?
 
-		//Constructor to open the I2C bus
-		//and tell the kernel the I2C address of the slave
+		//Constructor, open the I2C bus and tell the kernel the address of the slave
     I2C(char* portI2C, int addrI2C);
 
-    void readI2C(int bytesToRead);
+    unsigned char* readI2C(int bytesToRead);
     int writeI2C(int length); //NOTE instead overload function?
 
 };
