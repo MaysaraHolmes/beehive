@@ -14,7 +14,7 @@ namespace {
 };
 */
 
-unsigned char global_buffer[60]={0};
+unsigned char global_buffer[4]={0};
 int main(){
 
   TemperatureAndHumidity th1(I2C_PORT1, ADDR_TEMP_AND_HUM);
