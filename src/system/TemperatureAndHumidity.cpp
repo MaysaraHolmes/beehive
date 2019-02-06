@@ -33,15 +33,12 @@ void TemperatureAndHumidity::readI2C(unsigned char* global_buffer){
 		std::bitset<8> bitset3(bytes[2]);
 		std::bitset<8> bitset4(bytes[3]);
 
-    std::bitset<32> bits;
+    std::string s1 = bitset1.to_string();
+    std::string s2 = bitset2.to_string();
+    std::string s3 = bitset3.to_string();
+    std::string s4 = bitset4.to_string();
+    std::bitset<32> bits( s1 + s2 + s3 + s4 );
 
-    int result = 0;
-    result = (result)&(int)(bitset1.to_ulong());
-    result = (result<<8)&(int)(bitset2.to_ulong());
-    result = (result<<16)&(int)(bitset3.to_ulong());
-    result = (result<<24)&(int)(bitset4.to_ulong());
-
-    std::cout << result << std::endl;
 
     this->bitsetI2C = bits;
     std::cout << "print bitset: " << bits << std::endl;
