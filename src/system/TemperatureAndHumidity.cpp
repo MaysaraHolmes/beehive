@@ -59,11 +59,12 @@ int TemperatureAndHumidity::getStatus(){
 double TemperatureAndHumidity::getTemp(){
 
   std::bitset<14> tempBits;
-  std::cout << "print tempbitset: " << tempBits << std::endl;
+
 
   for (int i=0; i <14; i++){
     tempBits[i] = this->bitsetI2C[i+16]; //NOTE eller motsatt?
   }
+  std::cout << "print tempbitset: " << tempBits << std::endl;
   double temp = (( tempBits.to_ulong() / (2^14 - 2)) * 165 ) - 40;
   return temp;
 }
