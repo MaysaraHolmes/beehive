@@ -33,7 +33,6 @@ void I2C::readI2C(int bytesToRead, unsigned char* global_buffer){
 	//std::cout << "read bytes: " << read(file_i2c, buffer, bytesToRead) << std::endl;
 	if (read(file_i2c, global_buffer, bytesToRead) != bytesToRead)		//read() returns the number of bytes actually read, if it doesn't match then an error occurred (e.g. no response from the device)
 	{
-		//ERROR HANDLING: i2c transaction failed
 
 		printf("Failed to read from the i2c bus.\n");
 		//return (unsigned char*)"-1"; //NOTE change?
@@ -43,10 +42,10 @@ void I2C::readI2C(int bytesToRead, unsigned char* global_buffer){
 		//printf("\nData size buffer read: %d\n", sizeof(buffer));
 		//printf("Data read: %s\n", buffer);
 		//std::cout << std::hex << buffer << '\n';
-		std::bitset<8> bitset1(buffer[0]);
-		std::bitset<8> bitset2(buffer[1]);
-		std::bitset<8> bitset3(buffer[2]);
-		std::bitset<8> bitset4(buffer[3]);
+		std::bitset<8> bitset1(*buffer[0]);
+		std::bitset<8> bitset2(*buffer[1]);
+		std::bitset<8> bitset3(*buffer[2]);
+		std::bitset<8> bitset4(*buffer[3]);
 		std::cout << "bitset1: " << bitset1 << std::endl;
 		std::cout << "bitset2: " << bitset2 << std::endl;
 		std::cout << "bitset3: " << bitset3 << std::endl;
