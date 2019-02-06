@@ -20,9 +20,9 @@ int main(){
   TemperatureAndHumidity th1(I2C_PORT1, ADDR_TEMP_AND_HUM);
   int i = th1.writeI2C();
   th1.readI2C(global_buffer);
-  //std::cout << "status: " << th1.getStatus() << std::endl;
-  //std::cout << "temp: " << th1.getTemp() << std::endl;
-  //std::cout << "humidity: " << th1.getHum() << std::endl;
+  std::cout << "status: " << th1.getStatus() << std::endl;
+  std::cout << "temp: " << th1.getTemp() << std::endl;
+  std::cout << "humidity: " << th1.getHum() << std::endl;
 
   //std::bitset<8> b;
   //b[7] = 0;
