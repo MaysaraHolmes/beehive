@@ -16,10 +16,10 @@ class ADC{
     int bytesToWrite = 2;
 
     I2C* bus;
-		std::bitset<32> bitsetI2C;
+		std::bitset<16> bitsetI2C;
 
     ADC(char* portI2C, int addrI2C);
-    void readI2C();
+    void readI2C(unsigned char* global_buffer);
     int writeI2C();
     //int getStatus();
     //double getTemp();

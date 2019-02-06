@@ -23,7 +23,7 @@ class I2C{
 		//Constructor, open the I2C bus and tell the kernel the address of the slave
     I2C(char* portI2C, int addrI2C);
 
-    unsigned char* readI2C(int bytesToRead);
+    void readI2C(int bytesToRead, unsigned char* global_buffer);
     int writeI2C(int length); //NOTE instead overload function?
 
 };

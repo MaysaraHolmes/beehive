@@ -12,22 +12,23 @@ int ADC::writeI2C(){
 }
 
 
-void ADC::readI2C(){
+void ADC::readI2C(unsigned char* global_buffer){
 
-  unsigned char* buffer = bus->readI2C(this->bytesToRead);
+  //unsigned char* buffer =
+  bus->readI2C(this->bytesToRead, global_buffer);
 
-  int nbOfBytes = strlen((char*)buffer);
-  if (nbOfBytes >=4 ){
-    unsigned char bytes[4];
-    for (int i=0; i<4; i++){
-      bytes[i] = buffer[i];   //NOTE CHange the order?
+  int nbOfBytes = strlen((char*)global_buffer);
+  if (nbOfBytes >=2 ){
+    unsigned char bytes[2];
+    for (int i=0; i<2; i++){
+      bytes[i] = global_buffer[i];   //NOTE CHange the order?
     }
-    std::bitset<32> bits(bytes);
+    std::bitset<16> bits(bytes);
     this->bitsetI2C = bits;
     std::cout << "print bitset: " << bits << std::endl;
   }
   std::cout << "size of buffer: " << nbOfBytes << std::endl;
-  std::cout << "print buffer: " << buffer << std::endl;
+  std::cout << "print buffer: " << global_buffer << std::endl;
 
 }
 

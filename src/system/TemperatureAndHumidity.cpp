@@ -12,23 +12,24 @@ int TemperatureAndHumidity::writeI2C(){
 }
 
 
-void TemperatureAndHumidity::readI2C(){
+void TemperatureAndHumidity::readI2C(unsigned char* global_buffer){
 
-  unsigned char* buffer = bus->readI2C(this->bytesToRead);
+  //unsigned char* buffer =
+  bus->readI2C(this->bytesToRead, global_buffer);
   std::cout << "Succeeded reeding from buffer" <<std::endl;
 
-  int nbOfBytes = strlen((char*)buffer);
+  int nbOfBytes = strlen((char*)global_buffer);
   if (nbOfBytes >=4 ){
     unsigned char bytes[4];
     for (int i=0; i<4; i++){
-      bytes[i] = buffer[i];   //NOTE CHange the order?
+      bytes[i] = global_buffer[i];   //NOTE CHange the order?
     }
     std::bitset<32> bits(bytes);
     this->bitsetI2C = bits;
     std::cout << "print bitset: " << bits << std::endl;
   }
   std::cout << "size of buffer: " << nbOfBytes << std::endl;
-  std::cout << "print buffer: " << buffer << std::endl;
+  std::cout << "print buffer: " << global_buffer << std::endl;
 
 }
 
