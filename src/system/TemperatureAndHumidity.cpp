@@ -15,6 +15,7 @@ int TemperatureAndHumidity::writeI2C(){
 void TemperatureAndHumidity::readI2C(){
 
   unsigned char* buffer = bus->readI2C(this->bytesToRead);
+  std::cout << "Succeeded reeding from buffer" <<std::endl;
 
   int nbOfBytes = strlen((char*)buffer);
   if (nbOfBytes >=4 ){
