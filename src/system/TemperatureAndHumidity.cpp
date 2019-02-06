@@ -26,9 +26,10 @@ void TemperatureAndHumidity::readI2C(unsigned char* global_buffer){
     for (int i=0; i<4; i++){
       bytes[i] = global_buffer[i];   //NOTE CHange the order?
     }
-    std::cout << "working " << std::endl;
-    std::bitset<32> bits(*bytes);
-    std::cout << "is it still running? " << std::endl;
+
+    std::bitset<32> bits(bytes);
+
+
     this->bitsetI2C = bits;
     std::cout << "print bitset: " << bits << std::endl;
   }
