@@ -23,6 +23,7 @@ int main(){
   std::cout << "status: " << th1.getStatus() << std::endl;
   std::cout << "temp: " << th1.getTemp() << std::endl;
   std::cout << "humidity: " << th1.getHum() << std::endl;
+  
 
   //std::bitset<8> b;
   //b[7] = 0;

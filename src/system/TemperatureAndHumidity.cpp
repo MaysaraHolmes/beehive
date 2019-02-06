@@ -60,6 +60,8 @@ double TemperatureAndHumidity::getTemp(){
 
   std::bitset<14> tempBits;
 
+  std::string s = this->bitsetI2C.to_string();
+  
 
   for (int i=0; i <14; i++){
     tempBits[i] = this->bitsetI2C[i+16]; //NOTE eller motsatt?
