@@ -27,8 +27,21 @@ void TemperatureAndHumidity::readI2C(unsigned char* global_buffer){
       bytes[i] = global_buffer[i];   //NOTE CHange the order?
     }
 
-    std::bitset<32> bits(bytes);
+    //std::bitset<32> bits(bytes);
+    std::bitset<8> bitset1(bytes[0]);
+		std::bitset<8> bitset2(bytes[1]);
+		std::bitset<8> bitset3(bytes[2]);
+		std::bitset<8> bitset4(bytes[3]);
 
+    std::bitset<32> bits;
+
+    int result = 0;
+    result = (result)&(int)(bitset1.to_ulong());
+    result = (result<<8)&(int)(bitset2.to_ulong());
+    result = (result<<16)&(int)(bitset3.to_ulong());
+    result = (result<<24)&(int)(bitset4.to_ulong());
+
+    std::cout << result << std::endl;
 
     this->bitsetI2C = bits;
     std::cout << "print bitset: " << bits << std::endl;

@@ -7,6 +7,7 @@
 #include <iostream>
 #include <bitset>
 #include <cstring>  // strlen()
+#include <string>
 
 
 class TemperatureAndHumidity{
