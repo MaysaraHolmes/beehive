@@ -29,7 +29,8 @@ void I2C::readI2C(int bytesToRead, unsigned char* global_buffer){
 
 	//----- READ BYTES -----
 	//length = bytesToRead;			//<<< Number of bytes to read
-	std::cout << "read bytes: " << read(file_i2c, global_buffer, bytesToRead) << std::endl;
+	//std::cout << "read bytes: " << read(file_i2c, global_buffer, bytesToRead) << std::endl;
+	std::cout << "read bytes: " << read(file_i2c, buffer, bytesToRead) << std::endl;
 	if (read(file_i2c, global_buffer, bytesToRead) != bytesToRead)		//read() returns the number of bytes actually read, if it doesn't match then an error occurred (e.g. no response from the device)
 	{
 		//ERROR HANDLING: i2c transaction failed
