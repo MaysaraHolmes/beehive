@@ -96,8 +96,10 @@ double TemperatureAndHumidity::getHum(){
     humBits[i] = this->bitsetI2C[i+16]; //NOTE eller motsatt?
   }
 */
-  std::cout << "print humidity: " << this->humidity << std::endl;
-  double hum = (((unsigned int)this->humidity / (2^14 - 2)) * 100 );
+
+  unsigned int humidity = this->humidity;
+  std::cout << "print humidity: " << humidity << std::endl;
+  double hum = (humidity /(2^14 - 2)) * 100 ;
   return hum;
 }
 
