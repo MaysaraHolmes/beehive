@@ -51,9 +51,14 @@ void TemperatureAndHumidity::readI2C(unsigned char* global_buffer){
 
     this->bitsetI2C = bits;
     std::cout << "print bitset: " << bits << std::endl;
-    std::cout << "print status : " << status << std::endl;
-    std::cout << "print hum : " << hum << std::endl;
-    std::cout << "print temp : " << temp << std::endl;
+    std::bitset<8> stat(status);
+    std::bitset<16> humidit(hum);
+    std::bitset<16> tem(temp);
+
+    std::cout << "print status : " << stat << std::endl;
+    std::cout << "print hum : " << humidit << std::endl;
+    std::cout << "print temp : " << tem << std::endl;
+
     std::cout << "print status : " << (unsigned int)status << std::endl;
     std::cout << "print hum : " << (unsigned int)hum << std::endl;
     std::cout << "print temp : " << (unsigned int)temp << std::endl;
