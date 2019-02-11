@@ -8,6 +8,7 @@
 #include <bitset>
 #include <cstring>  // strlen()
 #include <string>
+#include <cmath>
 
 
 class TemperatureAndHumidity{

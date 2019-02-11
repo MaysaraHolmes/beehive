@@ -47,7 +47,7 @@ void I2C::readI2C(int bytesToRead, unsigned char* global_buffer){
 		std::bitset<8> bitset2(global_buffer[1]);
 		std::bitset<8> bitset3(global_buffer[2]);
 		std::bitset<8> bitset4(global_buffer[3]);
-		std::cout << "bitset1: " << bitset1 << std::endl;
+		std::cout << "\nbitset1: " << bitset1 << std::endl;
 		std::cout << "bitset2: " << bitset2 << std::endl;
 		std::cout << "bitset3: " << bitset3 << std::endl;
 		std::cout << "bitset4: " << bitset4 << std::endl;

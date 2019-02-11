@@ -23,20 +23,7 @@ int main(){
   std::cout << "status: " << th1.getStatus() << std::endl;
   std::cout << "temp: " << th1.getTemp() << std::endl;
   std::cout << "humidity: " << th1.getHum() << std::endl;
-  
 
-  //std::bitset<8> b;
-  //b[7] = 0;
-  //b[6] = 1;
-  //b[5] = 0;
-  //b[4] = 1;
-  //b[3] = 0;
-  //b[2] = 1;
-  //b[1] = 0;
-  //b[0] = 0;
-  //std::cout<< "testing bitset: " << b << std::endl;
-
-  //std::cout << "unsinged int: " << th1.getStatus(b) << std::endl;
 
 
 
