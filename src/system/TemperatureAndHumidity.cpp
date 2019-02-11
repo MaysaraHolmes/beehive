@@ -3,7 +3,8 @@
 
 
 TemperatureAndHumidity::TemperatureAndHumidity(char* portI2C, int addrI2C){
-  bus = new I2C(portI2C, addrI2C);
+  int addr[1] = {addrI2C};
+  bus = new I2C(portI2C, addr,1);
 }
 
 
@@ -13,10 +14,8 @@ int TemperatureAndHumidity::writeI2C(){
 
 
 void TemperatureAndHumidity::readI2C(unsigned char* global_buffer){
-  //unsigned char* buffer =
+  //unsigned char* buffer = make copy?
   bus->readI2C(this->bytesToRead, global_buffer);
-  std::cout << "Succeeded reeding from buffer" <<std::endl;
-
   int nbOfBytes = strlen((char*)global_buffer);
   std::cout << "nbOfBytes " << nbOfBytes << std::endl;
 
@@ -36,10 +35,10 @@ double TemperatureAndHumidity::getTemp(){
   return (double)(( ((unsigned int)this->temperature) / (pow(2,14) - 2)) * 165 ) - 40;
 }
 
+
 double TemperatureAndHumidity::getHum(){
   return (double)(this->humidity /(pow(2,14) - 2)) * 100 ;
 }
-
 
 
 TemperatureAndHumidity::~TemperatureAndHumidity(){

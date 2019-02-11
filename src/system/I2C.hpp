@@ -21,7 +21,7 @@ class I2C{
 		unsigned char buffer[60] = {0}; //NOTE change to 4?
 
 		//Constructor, open the I2C bus and tell the kernel the address of the slave
-    I2C(char* portI2C, int addrI2C);
+		I2C(char* portI2C, int slaveAddr[], int length);
 
     void readI2C(int bytesToRead, unsigned char* global_buffer);
     int writeI2C(int length); //NOTE instead overload function?

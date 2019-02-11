@@ -13,21 +13,19 @@
 
 class TemperatureAndHumidity{
 
-	public:
+private:
 		int bytesToRead = 4;
     int bytesToWrite = 2;
 
-    I2C* bus;
 
-		//data buffer
-		//unsigned char buffer[4] = {0};
-		//unsigned char* buffer;
-		std::bitset<32> bitsetI2C;
-		//unsigned int i;
+    I2C* bus; //remove
+
+
 		uint8_t status;
 		uint16_t humidity;
 		uint16_t temperature;
 
+public:
     TemperatureAndHumidity(char* portI2C, int addrI2C);
     void readI2C(unsigned char* global_buffer);
     int writeI2C();
@@ -36,7 +34,6 @@ class TemperatureAndHumidity{
     double getHum();
 
     ~TemperatureAndHumidity();
-
 };
 
 #endif // TEMPERATUREANDHUMIDITY_HPP
