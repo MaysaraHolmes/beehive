@@ -43,7 +43,7 @@ void TemperatureAndHumidity::readI2C(unsigned char* global_buffer){
 
     uint8_t status = ((uint8_t) (global_buffer[0] & 0xC0) >> 6);
     uint16_t hum = ((uint16_t) (global_buffer[0] & 0x3f) << 8)  | ((uint16_t) global_buffer[1] );
-    uint16_t temp = ((uint16_t) (global_buffer[2]) << 8)  | ((uint16_t) (global_buffer[3] & 0xFC) );
+    uint16_t temp = (((uint16_t) (global_buffer[2]) << 8)  | ((uint16_t) (global_buffer[3] & 0xFC) )) >>2;
 
 
     //std::cout << "unsigned int : " << i << std::endl;
