@@ -22,6 +22,7 @@ class TemperatureAndHumidity{
 		//unsigned char buffer[4] = {0};
 		//unsigned char* buffer;
 		std::bitset<32> bitsetI2C;
+		unsigned int i;
 
     TemperatureAndHumidity(char* portI2C, int addrI2C);
     void readI2C(unsigned char* global_buffer);

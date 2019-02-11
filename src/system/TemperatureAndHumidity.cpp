@@ -39,6 +39,9 @@ void TemperatureAndHumidity::readI2C(unsigned char* global_buffer){
     std::string s4 = bitset4.to_string();
     std::bitset<32> bits( s1 + s2 + s3 + s4 );
 
+    unsigned int i = *global_buffer;
+    std::cout << "unsigned int : " << i << std::endl;
+
 
     this->bitsetI2C = bits;
     std::cout << "print bitset: " << bits << std::endl;
@@ -61,7 +64,7 @@ double TemperatureAndHumidity::getTemp(){
   std::bitset<14> tempBits;
 
   std::string s = this->bitsetI2C.to_string();
-  
+
 
   for (int i=0; i <14; i++){
     tempBits[i] = this->bitsetI2C[i+16]; //NOTE eller motsatt?
