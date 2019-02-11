@@ -99,7 +99,7 @@ double TemperatureAndHumidity::getHum(){
 
   unsigned int humidity = this->humidity;
   std::cout << "print humidity: " << humidity << std::endl;
-  double hum = (humidity /(2^14 - 2)) * 100 ;
+  double hum = (humidity /(2^(14) - 2)) * 100 ;
   return hum;
 }
 
