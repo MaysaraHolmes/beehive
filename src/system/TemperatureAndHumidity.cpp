@@ -66,6 +66,7 @@ unsigned int TemperatureAndHumidity::getStatus(){
   //std::bitset<2> status;
   //status[0] = this->bitsetI2C[0]; //NOTE endre til MOST significant bit??
   //status[1] = this->bitsetI2C[1];
+  std::cout << "print status bits : " << this->status << std::endl;
   return (unsigned int)this->status;
 
 }
@@ -80,9 +81,10 @@ double TemperatureAndHumidity::getTemp(){
   for (int i=0; i <14; i++){
     tempBits[i] = this->bitsetI2C[i+16]; //NOTE eller motsatt?
   }
-  std::cout << "print tempbitset: " << tempBits << std::endl;
 */
-  double temp = (( (unsigned int)this->temperature / (2^14 - 2)) * 165 ) - 40;
+  std::cout << "print tempbitset: " << this->temperature << std::endl;
+
+  double temp = (( ((unsigned int)this->temperature) / (2^14 - 2)) * 165 ) - 40;
   return temp;
 }
 
@@ -94,6 +96,7 @@ double TemperatureAndHumidity::getHum(){
     humBits[i] = this->bitsetI2C[i+16]; //NOTE eller motsatt?
   }
 */
+  std::cout << "print humidity: " << this->humidity << std::endl;
   double hum = (((unsigned int)this->humidity / (2^14 - 2)) * 100 );
   return hum;
 }
