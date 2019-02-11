@@ -39,15 +39,27 @@ void TemperatureAndHumidity::readI2C(unsigned char* global_buffer){
     std::string s4 = bitset4.to_string();
     std::bitset<32> bits( s1 + s2 + s3 + s4 );
 
-    unsigned int i = *global_buffer;
-    std::cout << "unsigned int : " << i << std::endl;
+    //unsigned int i = *global_buffer;
+
+    uint8_t status = ((uint8_t) (global_buffer[0] & 0xC0) >> 6);
+    uint16_t hum = ((uint16_t) (global_buffer[0] & 0x3f) << 8)  | ((uint16_t) global_buffer[1] );
+    uint16_t temp = ((uint16_t) (global_buffer[2]) << 8)  | ((uint16_t) (global_buffer[3] & 0xFC) );
+
+
+    //std::cout << "unsigned int : " << i << std::endl;
 
 
     this->bitsetI2C = bits;
     std::cout << "print bitset: " << bits << std::endl;
+    std::cout << "print status : " << status << std::endl;
+    std::cout << "print hum : " << hum << std::endl;
+    std::cout << "print temp : " << temp << std::endl;
+    std::cout << "print status : " << (unsigned int)status << std::endl;
+    std::cout << "print hum : " << (unsigned int)hum << std::endl;
+    std::cout << "print temp : " << (unsigned int)temp << std::endl;
   }
   std::cout << "size of buffer: " << nbOfBytes << std::endl;
-  std::cout << "print buffer: " << *global_buffer << std::endl;
+  //std::cout << "print buffer: " << *global_buffer << std::endl;
 
 }
 
