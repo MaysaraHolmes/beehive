@@ -28,20 +28,15 @@ void TemperatureAndHumidity::readI2C(unsigned char* global_buffer){
 
 
 unsigned int TemperatureAndHumidity::getStatus(){
-  //std::cout << "print status bits : " << (unsigned int)this->status << std::endl;
   return (unsigned int)this->status;
 }
 
 
 double TemperatureAndHumidity::getTemp(){
-  //std::cout << "print tempbitset: " << (unsigned int)this->temperature << std::endl;
   return (double)(( ((unsigned int)this->temperature) / (pow(2,14) - 2)) * 165 ) - 40;
 }
 
 double TemperatureAndHumidity::getHum(){
-
-  //unsigned int humidity = this->humidity;
-  //std::cout << "print humidity: " << humidity << std::endl;
   return (double)(this->humidity /(pow(2,14) - 2)) * 100 ;
 }
 
