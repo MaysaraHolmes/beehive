@@ -19,6 +19,7 @@ class TemperatureAndHumidity{
 
 		//data buffer
 		//unsigned char buffer[4] = {0};
+		unsigned int i;
 		//unsigned char* buffer;
 		std::bitset<32> bitsetI2C;
 
