@@ -3,7 +3,7 @@
   (general
     (thickness 1.6)
     (drawings 7)
-    (tracks 97)
+    (tracks 96)
     (zones 0)
     (modules 10)
     (nets 13)
@@ -598,7 +598,6 @@
   (gr_line (start 141 90) (end 134 102) (layer Dwgs.User) (width 0.2))
 
   (via (at 146.715 95.08) (size 0.8) (drill 0.4) (layers F.Cu B.Cu) (net 1))
-  (segment (start 139.928636 102.065) (end 141.628636 99.120514) (width 2.2) (layer F.Cu) (net 1) (tstamp 5C51D14C))
   (segment (start 133.205 87.88) (end 132.805 88.28) (width 0.5) (layer F.Cu) (net 1))
   (segment (start 135.54 87.88) (end 133.205 87.88) (width 0.55) (layer F.Cu) (net 1))
   (via (at 146.715 84.92) (size 0.8) (drill 0.4) (layers F.Cu B.Cu) (net 1))
