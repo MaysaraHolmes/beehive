@@ -17,6 +17,44 @@
   //Better to construct options first and then pass it as a parameter
   var options = {
     title: {
+      text: "Temperature Data"
+    },
+    responsive: true,
+    animationEnabled: true,
+    exportEnabled: true,
+    data: [
+    {
+      type: "line", //change it to line, area, column, pie, etc
+      dataPoints: [
+        { x: 10, y: 10 },
+        { x: 20, y: 12 },
+        { x: 30, y: 8 },
+        { x: 40, y: 14 },
+        { x: 50, y: 6 },
+        { x: 60, y: 24 },
+        { x: 70, y: -4 },
+        { x: 80, y: 10 }
+      ],
+      lineColor:"orange"
+    }, {
+      type: "line", //change it to line, area, column, pie, etc
+      dataPoints: [
+        { x: 10, y: 1 },
+        { x: 20, y: 1 },
+        { x: 30, y: 1 },
+        { x: 40, y: 1 },
+        { x: 50, y: 1 },
+        { x: 60, y: 1 },
+        { x: 70, y: 1 },
+        { x: 80, y: 1 }
+      ],
+      lineColor:"black"
+    }
+    ],
+  };
+
+  var options = {
+    title: {
       text: "Beehive Data"
     },
     responsive: true,
@@ -52,6 +90,81 @@
     }
     ],
   };
+    var options = {
+    title: {
+      text: "Beehive Data"
+    },
+    responsive: true,
+    animationEnabled: true,
+    exportEnabled: true,
+    data: [
+    {
+      type: "line", //change it to line, area, column, pie, etc
+      dataPoints: [
+        { x: 10, y: 10 },
+        { x: 20, y: 12 },
+        { x: 30, y: 8 },
+        { x: 40, y: 14 },
+        { x: 50, y: 6 },
+        { x: 60, y: 24 },
+        { x: 70, y: -4 },
+        { x: 80, y: 10 }
+      ],
+      lineColor:"orange"
+    }, {
+      type: "line", //change it to line, area, column, pie, etc
+      dataPoints: [
+        { x: 10, y: 1 },
+        { x: 20, y: 1 },
+        { x: 30, y: 1 },
+        { x: 40, y: 1 },
+        { x: 50, y: 1 },
+        { x: 60, y: 1 },
+        { x: 70, y: 1 },
+        { x: 80, y: 1 }
+      ],
+      lineColor:"black"
+    }
+    ],
+  };
+  var options = {
+    title: {
+      text: "Beehive Data"
+    },
+    responsive: true,
+    animationEnabled: true,
+    exportEnabled: true,
+    data: [
+    {
+      type: "line", //change it to line, area, column, pie, etc
+      dataPoints: [
+        { x: 10, y: 10 },
+        { x: 20, y: 12 },
+        { x: 30, y: 8 },
+        { x: 40, y: 14 },
+        { x: 50, y: 6 },
+        { x: 60, y: 24 },
+        { x: 70, y: -4 },
+        { x: 80, y: 10 }
+      ],
+      lineColor:"orange"
+    }, {
+      type: "line", //change it to line, area, column, pie, etc
+      dataPoints: [
+        { x: 10, y: 1 },
+        { x: 20, y: 1 },
+        { x: 30, y: 1 },
+        { x: 40, y: 1 },
+        { x: 50, y: 1 },
+        { x: 60, y: 1 },
+        { x: 70, y: 1 },
+        { x: 80, y: 1 }
+      ],
+      lineColor:"black"
+    }
+    ],
+  };
+
   $("#beehivetemp").CanvasJSChart(options);
   $("#beehivehumidity").CanvasJSChart(options);
   $("#beehiveweight").CanvasJSChart(options);
