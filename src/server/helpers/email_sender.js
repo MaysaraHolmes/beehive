@@ -38,7 +38,7 @@ create_test_account.then((account)=>{
 
 	// setup email data with unicode symbols
 	var mailOptions = {
-	from: '"someonewanttohackyou@gmail.com', // sender address
+	from: '', // sender address
 	to: "maysaradeveloper@gmail.com", // list of receivers
 	subject: "Hello ✔", // Subject line
 	text: "Hello world?", // plain text body
