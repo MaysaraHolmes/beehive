@@ -6,8 +6,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Beehive pHAT"
-Date "2019-01-29"
-Rev "v2.1"
+Date "2019-02-13"
+Rev "v3.2"
 Comp "University of Glasgow"
 Comment1 ""
 Comment2 ""
@@ -292,12 +292,12 @@ $EndComp
 $Comp
 L power:GND #PWR0121
 U 1 1 5C4780F6
-P 7800 2400
-F 0 "#PWR0121" H 7800 2150 50  0001 C CNN
-F 1 "GND" V 7805 2272 50  0000 R CNN
-F 2 "" H 7800 2400 50  0001 C CNN
-F 3 "" H 7800 2400 50  0001 C CNN
-	1    7800 2400
+P 7800 2500
+F 0 "#PWR0121" H 7800 2250 50  0001 C CNN
+F 1 "GND" V 7805 2372 50  0000 R CNN
+F 2 "" H 7800 2500 50  0001 C CNN
+F 3 "" H 7800 2500 50  0001 C CNN
+	1    7800 2500
 	0    1    1    0   
 $EndComp
 Text Label 2250 1600 0    50   ~ 0
@@ -420,29 +420,10 @@ F 3 "" H 4450 3050 50  0001 C CNN
 	1    4450 3050
 	1    0    0    -1  
 $EndComp
-$Comp
-L Connector_Generic:Conn_01x05 J_Air1
-U 1 1 5C50B707
-P 8000 2600
-F 0 "J_Air1" H 8080 2642 50  0000 L CNN
-F 1 "Conn_01x05" H 8080 2551 50  0000 L CNN
-F 2 "Connector_Molex:Molex_KK-254_AE-6410-05A_1x05_P2.54mm_Vertical" H 8000 2600 50  0001 C CNN
-F 3 "~" H 8000 2600 50  0001 C CNN
-	1    8000 2600
-	1    0    0    -1  
-$EndComp
-Text Label 7400 2500 0    50   ~ 0
-alarm_air
-Wire Wire Line
-	7800 2500 7400 2500
 Text Label 2000 1400 0    50   ~ 0
 alarm_hive
 Wire Wire Line
 	2400 1400 2000 1400
-Text Label 2000 2900 0    50   ~ 0
-alarm_air
-Wire Wire Line
-	2400 2900 2000 2900
 $Comp
 L honeywell:HIHxx3x-021 U2
 U 1 1 5C630BFF
@@ -551,4 +532,85 @@ Text Label 3300 2150 0    50   ~ 0
 Vcore
 Wire Wire Line
 	3550 2150 3300 2150
+$Comp
+L Connector_Generic:Conn_01x04 J0
+U 1 1 5C646ECB
+P 8000 2600
+F 0 "J0" H 8080 2592 50  0000 L CNN
+F 1 "Conn_01x04" H 8080 2501 50  0000 L CNN
+F 2 "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical" H 8000 2600 50  0001 C CNN
+F 3 "~" H 8000 2600 50  0001 C CNN
+	1    8000 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x02 J1
+U 1 1 5C648B5C
+P 8000 2100
+F 0 "J1" H 8080 2092 50  0000 L CNN
+F 1 "Conn_01x02" H 8080 2001 50  0000 L CNN
+F 2 "Connector_Molex:Molex_KK-254_AE-6410-02A_1x02_P2.54mm_Vertical" H 8000 2100 50  0001 C CNN
+F 3 "~" H 8000 2100 50  0001 C CNN
+	1    8000 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0101
+U 1 1 5C648C36
+P 7800 2100
+F 0 "#PWR0101" H 7800 1950 50  0001 C CNN
+F 1 "+5V" H 7815 2273 50  0000 C CNN
+F 2 "" H 7800 2100 50  0001 C CNN
+F 3 "" H 7800 2100 50  0001 C CNN
+	1    7800 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0102
+U 1 1 5C648D8A
+P 2900 1100
+F 0 "#PWR0102" H 2900 950 50  0001 C CNN
+F 1 "+5V" V 2915 1228 50  0000 L CNN
+F 2 "" H 2900 1100 50  0001 C CNN
+F 3 "" H 2900 1100 50  0001 C CNN
+	1    2900 1100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2900 1200 2900 1100
+Connection ~ 2900 1100
+Text Label 7450 2200 0    50   ~ 0
+fan_cmd
+Wire Wire Line
+	7800 2200 7450 2200
+Text Label 2250 2700 0    50   ~ 0
+cmd
+Wire Wire Line
+	2400 2700 2250 2700
+$Comp
+L Device:R R7
+U 1 1 5C66B531
+P 3800 3950
+F 0 "R7" H 3870 3996 50  0000 L CNN
+F 1 "5K" H 3870 3905 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3730 3950 50  0001 C CNN
+F 3 "~" H 3800 3950 50  0001 C CNN
+	1    3800 3950
+	1    0    0    -1  
+$EndComp
+Text Label 3650 3800 0    50   ~ 0
+cmd
+Wire Wire Line
+	3800 3800 3650 3800
+$Comp
+L power:GND #PWR?
+U 1 1 5C6704A6
+P 3800 4100
+F 0 "#PWR?" H 3800 3850 50  0001 C CNN
+F 1 "GND" H 3805 3927 50  0000 C CNN
+F 2 "" H 3800 4100 50  0001 C CNN
+F 3 "" H 3800 4100 50  0001 C CNN
+	1    3800 4100
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
