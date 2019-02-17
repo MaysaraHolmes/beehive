@@ -17,9 +17,7 @@ private:
 		int bytesToRead = 4;
     int bytesToWrite = 2;
 
-
-    I2C* bus; //remove
-
+    I2C* bus; 
 
 		uint8_t status;
 		uint16_t humidity;

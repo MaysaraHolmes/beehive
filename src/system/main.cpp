@@ -25,6 +25,15 @@ int main(){
   std::cout << "temp: " << th1.getTemp() << std::endl;
   std::cout << "humidity: " << th1.getHum() << std::endl;
 
+
+  std::cout << "\n\n\n" << std::endl;
+
+//NOTE:Inside thread:
+  ReadI2CDevices r;
+  r.writeAll();
+  r.readAll();
+
+
   /*
   1.start thread readI2CDevices
       - create two objects of I2C according to the two I2C-buses in use
@@ -41,10 +50,7 @@ int main(){
       - sleep/wait for new interrupt on the pin
   */
 
-  std::cout << "\n\n\n" << std::endl;
 
-  ReadI2CDevices r;
-  r.readAll(global_buffer);
 
 
   printf("The program is running %d\n", i);

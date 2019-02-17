@@ -21,7 +21,6 @@ I2C::I2C(char* portI2C, int slaveAddr[], int length){
 			return;
 		}
 	}
-	//int addr = slaveAddr;
 
 
 }
