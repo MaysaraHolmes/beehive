@@ -1,6 +1,6 @@
 
 main: main.o I2C.o TemperatureAndHumidity.o ReadI2CDevices.o#ADC.o
-	g++ -o main main.o I2C.o TemperatureAndHumidity.o ReadI2CDevices.o #ADC.o
+	g++ -pthread -o main main.o I2C.o TemperatureAndHumidity.o ReadI2CDevices.o #ADC.o 
 
 #ADC.o: ADC.hpp ADC.cpp
 #	g++ -o ADC.o -c ADC.cpp

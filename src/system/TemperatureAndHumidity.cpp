@@ -14,12 +14,12 @@ int TemperatureAndHumidity::writeI2C(){
 
 
 void TemperatureAndHumidity::readI2C(unsigned char* global_buffer){
-  //unsigned char* buffer = make copy?
+
   bus->readI2C(this->bytesToRead, global_buffer);
   int nbOfBytes = strlen((char*)global_buffer);
   std::cout << "nbOfBytes " << nbOfBytes << std::endl;
 
-  //seperate the different bits
+  //seperate the different bits read
   this->status = ((uint8_t) (global_buffer[0] & 0xC0) >> 6);
   this->humidity = ((uint16_t) (global_buffer[0] & 0x3f) << 8)  | ((uint16_t) global_buffer[1] );
   this->temperature = (((uint16_t) (global_buffer[2]) << 8)  | ((uint16_t) (global_buffer[3] & 0xFC) )) >>2;
