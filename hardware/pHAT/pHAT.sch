@@ -6,7 +6,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Beehive pHAT"
-Date "2019-02-13"
+Date "2019-02-18"
 Rev "v3.2"
 Comp "University of Glasgow"
 Comment1 ""
@@ -557,12 +557,12 @@ $EndComp
 $Comp
 L power:+5V #PWR0101
 U 1 1 5C648C36
-P 7800 2100
-F 0 "#PWR0101" H 7800 1950 50  0001 C CNN
-F 1 "+5V" H 7815 2273 50  0000 C CNN
-F 2 "" H 7800 2100 50  0001 C CNN
-F 3 "" H 7800 2100 50  0001 C CNN
-	1    7800 2100
+P 7650 2000
+F 0 "#PWR0101" H 7650 1850 50  0001 C CNN
+F 1 "+5V" H 7665 2173 50  0000 C CNN
+F 2 "" H 7650 2000 50  0001 C CNN
+F 3 "" H 7650 2000 50  0001 C CNN
+	1    7650 2000
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -579,10 +579,10 @@ $EndComp
 Wire Wire Line
 	2900 1200 2900 1100
 Connection ~ 2900 1100
-Text Label 7450 2200 0    50   ~ 0
+Text Label 7300 2300 0    50   ~ 0
 fan_cmd
 Wire Wire Line
-	7800 2200 7450 2200
+	7650 2300 7300 2300
 Text Label 2250 2700 0    50   ~ 0
 cmd
 Wire Wire Line
@@ -603,14 +603,65 @@ cmd
 Wire Wire Line
 	3800 3800 3650 3800
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0103
 U 1 1 5C6704A6
 P 3800 4100
-F 0 "#PWR?" H 3800 3850 50  0001 C CNN
+F 0 "#PWR0103" H 3800 3850 50  0001 C CNN
 F 1 "GND" H 3805 3927 50  0000 C CNN
 F 2 "" H 3800 4100 50  0001 C CNN
 F 3 "" H 3800 4100 50  0001 C CNN
 	1    3800 4100
 	1    0    0    -1  
 $EndComp
+$Comp
+L Transistor_FET:2N7002 Q1
+U 1 1 5C6AACFD
+P 6500 2250
+F 0 "Q1" H 6705 2296 50  0000 L CNN
+F 1 "2N7002" H 6705 2205 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 6700 2175 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7002.pdf" H 6500 2250 50  0001 L CNN
+	1    6500 2250
+	1    0    0    -1  
+$EndComp
+Text Label 6150 2250 0    50   ~ 0
+cmd
+Wire Wire Line
+	6300 2250 6150 2250
+$Comp
+L power:GND #PWR0105
+U 1 1 5C6ABD61
+P 6600 2450
+F 0 "#PWR0105" H 6600 2200 50  0001 C CNN
+F 1 "GND" V 6605 2322 50  0000 R CNN
+F 2 "" H 6600 2450 50  0001 C CNN
+F 3 "" H 6600 2450 50  0001 C CNN
+	1    6600 2450
+	1    0    0    -1  
+$EndComp
+Text Label 6250 2050 0    50   ~ 0
+fan_cmd
+Wire Wire Line
+	6600 2050 6250 2050
+$Comp
+L Diode:1N4007 D1
+U 1 1 5C6AF374
+P 7650 2150
+F 0 "D1" V 7550 2000 50  0000 L CNN
+F 1 "1N4007" V 7650 1800 50  0000 L CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 7650 1975 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 7650 2150 50  0001 C CNN
+	1    7650 2150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7800 2000 7650 2000
+Wire Wire Line
+	7800 2000 7800 2100
+Connection ~ 7650 2000
+Wire Wire Line
+	7800 2200 7800 2300
+Wire Wire Line
+	7800 2300 7650 2300
+Connection ~ 7650 2300
 $EndSCHEMATC
