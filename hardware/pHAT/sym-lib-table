@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name pHAT-rescue)(type Legacy)(uri ${KIPRJMOD}/pHAT-rescue.lib)(options "")(descr ""))
+  (lib (name honeywell)(type Legacy)(uri "C:/Users/rchatel/OneDrive - University of Glasgow/ENG5220-RTP/beehive/hardware/pHAT/honeywell.lib")(options "")(descr ""))
 )

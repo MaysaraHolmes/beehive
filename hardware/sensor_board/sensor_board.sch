@@ -28,12 +28,12 @@ $EndComp
 $Comp
 L power:GND #PWR0101
 U 1 1 5C472C56
-P 8450 5800
-F 0 "#PWR0101" H 8450 5550 50  0001 C CNN
-F 1 "GND" H 8455 5627 50  0000 C CNN
-F 2 "" H 8450 5800 50  0001 C CNN
-F 3 "" H 8450 5800 50  0001 C CNN
-	1    8450 5800
+P 8450 5700
+F 0 "#PWR0101" H 8450 5450 50  0001 C CNN
+F 1 "GND" H 8455 5527 50  0000 C CNN
+F 2 "" H 8450 5700 50  0001 C CNN
+F 3 "" H 8450 5700 50  0001 C CNN
+	1    8450 5700
 	0    1    1    0   
 $EndComp
 $Comp
@@ -373,23 +373,19 @@ Text Label 3350 5400 0    50   ~ 0
 SDA
 Wire Wire Line
 	3550 5400 3350 5400
-$Comp
-L Connector_Generic:Conn_01x05 J0
-U 1 1 5C503B4A
-P 8650 5600
-F 0 "J0" H 8730 5642 50  0000 L CNN
-F 1 "Conn_01x05" H 8730 5551 50  0000 L CNN
-F 2 "Connector_Molex:Molex_KK-254_AE-6410-05A_1x05_P2.54mm_Vertical" H 8650 5600 50  0001 C CNN
-F 3 "~" H 8650 5600 50  0001 C CNN
-	1    8650 5600
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	4650 3900 4950 3900
 Text Label 4700 3900 0    50   ~ 0
 alarm
-Text Label 8200 5700 0    50   ~ 0
-alarm
-Wire Wire Line
-	8450 5700 8200 5700
+$Comp
+L Connector_Generic:Conn_01x04 J0
+U 1 1 5C642F7D
+P 8650 5500
+F 0 "J0" H 8730 5492 50  0000 L CNN
+F 1 "Conn_01x04" H 8730 5401 50  0000 L CNN
+F 2 "Connector_Molex:Molex_KK-254_AE-6410-04A_1x04_P2.54mm_Vertical" H 8650 5500 50  0001 C CNN
+F 3 "~" H 8650 5500 50  0001 C CNN
+	1    8650 5500
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

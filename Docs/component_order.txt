@@ -1,16 +1,16 @@
 Qt	Code		Price	Description
-1	679-1569 	 2.05	5.1KOhm 0805 resistors (x50)
-1	146-4340	 1.20	4.7pF 0805 Tantalum Capacitors (x50)
-1	264-4416	 1.68	100nF 0805 Capacitors (x25)
-1	103-4126	 3.25	220nF 0805 Capacitors (x50)
 2	874-4666	23.80	HIH6131-021 Temperature and humidity sensor
 1	749-8271	 2.29	ADC101C021CIMK ADC, I2C bus, 6-pin
 4	483-6960	3.60	NXP P82B96TD I2C level shifter
--	--------	-----	--------------------------------------------
-	Subtotal:		GBP
-
 1	amazon		13.39	Force sensitive resistor
-1			 8.00	Pressure sensor
+-	--------	-----	--------------------------------------------
+			42.78
+
+1	679-1569 	 2.05	5.1KOhm 0805 resistors (x50)
+1	136-2597	 5.75	4.7uF 0805 Tantalum Capacitors (x25)
+1	264-4416	 1.68	100nF 0805 Capacitors (x25)
+1	103-4126	 3.25	220nF 0805 Capacitors (x50)
+1	750-0847	 4.98	MPL115A2 Pressure sensor
 -	--------	-----	--------------------------------------------
 	Subtotal:		GBP
 
