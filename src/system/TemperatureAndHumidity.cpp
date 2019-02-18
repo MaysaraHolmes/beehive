@@ -2,9 +2,9 @@
 
 
 
-TemperatureAndHumidity::TemperatureAndHumidity(char* portI2C, int addrI2C){
-  int addr[1] = {addrI2C};
-  bus = new I2C(portI2C, addr,1);
+TemperatureAndHumidity::TemperatureAndHumidity(char* portI2C, int addrI2C): Sensor(4,2, portI2C, addrI2C){
+  //int addr[1] = {addrI2C};
+  //bus = new I2C(portI2C, addr,1);
 }
 
 
@@ -14,7 +14,6 @@ int TemperatureAndHumidity::writeI2C(){
 
 
 void TemperatureAndHumidity::readI2C(unsigned char* global_buffer){
-
   bus->readI2C(this->bytesToRead, global_buffer);
   int nbOfBytes = strlen((char*)global_buffer);
   std::cout << "nbOfBytes " << nbOfBytes << std::endl;
@@ -26,21 +25,22 @@ void TemperatureAndHumidity::readI2C(unsigned char* global_buffer){
 }
 
 
-unsigned int TemperatureAndHumidity::getStatus(){
+unsigned int TemperatureAndHumidity::getStatus() {
   return (unsigned int)this->status;
 }
 
 
-double TemperatureAndHumidity::getTemp(){
+double TemperatureAndHumidity::getTemp() {
   return (double)(( ((unsigned int)this->temperature) / (pow(2,14) - 2)) * 165 ) - 40;
 }
 
 
-double TemperatureAndHumidity::getHum(){
+double TemperatureAndHumidity::getHum() {
   return (double)(this->humidity /(pow(2,14) - 2)) * 100 ;
 }
 
 
 TemperatureAndHumidity::~TemperatureAndHumidity(){
-  delete bus;
+  //delete bus;
+  //~Sensor() //?
 }

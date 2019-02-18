@@ -1,8 +1,10 @@
 //#include "I2C.hpp"
 #include "TemperatureAndHumidity.hpp"//remove
 #include "ReadI2CDevices.hpp"
+#include "Sensor.hpp"
 //#include <bitset>
 #include <iostream>
+
 
 
 //#include <ctype.h>

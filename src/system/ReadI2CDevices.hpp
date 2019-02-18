@@ -3,17 +3,20 @@
 
 #include "I2C.hpp" //remove?
 #include "TemperatureAndHumidity.hpp"// remove, include sensors instead
+#include "Sensor.hpp"
 
 #include <stdio.h>
 #include <iostream>
 #include <bitset>
 #include <cstring>  // strlen()
+#include <vector>
 
 #define I2C_PORT1 (char*)"/dev/i2c-1"
 #define I2C_PORT2 (char*)"/dev/i2c-3"
 
 #define NB_DEVICES_PORT1 2
 #define NB_DEVICES_PORT2 1
+#define NB_DEVICES 3
 
 #define PORT1_ADDR_TEMP_AND_HUM 0X27
 #define PORT1_ADDR_PRESSURE 0X00
@@ -34,9 +37,10 @@ private:
 //NOTE above remove
 
   unsigned char global_buffer[4]={0};
-  //liste med alle sensor objektene?
-  //sensor list/vector noe
-  TemperatureAndHumidity* th1;
+  // NOTE Array/vector of all the sensors instead
+  Sensor* th1;
+  //std::vector<Sensor*> sensors;
+  //Sensor* sensors[NB_DEVICES];
 
   void createSensorObjects();
 
