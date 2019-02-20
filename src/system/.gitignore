@@ -3,3 +3,4 @@ main.o
 main
 TemperatureAndHumidity.o
 ADC.o
+ReadI2CDevices.o

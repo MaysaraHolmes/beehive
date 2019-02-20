@@ -1,7 +1,8 @@
 #ifndef TEMPERATUREANDHUMIDITY_HPP
 #define TEMPERATUREANDHUMIDITY_HPP
 
-#include "I2C.hpp"
+//#include "I2C.hpp" //remove?
+#include "Sensor.hpp"
 
 #include <stdio.h>
 #include <iostream>
@@ -11,32 +12,29 @@
 #include <cmath>
 
 
-class TemperatureAndHumidity{
+class TemperatureAndHumidity: public Sensor{
 
-	public:
-		int bytesToRead = 4;
-    int bytesToWrite = 2;
+private:
+		//remove the constants here, only set them in constructor
+		//int bytesToRead = 4;
+    //int bytesToWrite = 2;
 
-    I2C* bus;
+    //I2C* bus;
 
-		//data buffer
-		//unsigned char buffer[4] = {0};
-		//unsigned char* buffer;
-		std::bitset<32> bitsetI2C;
-		//unsigned int i;
 		uint8_t status;
 		uint16_t humidity;
 		uint16_t temperature;
 
+public:
     TemperatureAndHumidity(char* portI2C, int addrI2C);
     void readI2C(unsigned char* global_buffer);
     int writeI2C();
+		//NOTE make const
     unsigned int getStatus();
     double getTemp();
     double getHum();
 
     ~TemperatureAndHumidity();
-
 };
 
 #endif // TEMPERATUREANDHUMIDITY_HPP
