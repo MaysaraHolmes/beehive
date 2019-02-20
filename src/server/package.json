@@ -16,6 +16,7 @@
     "mysql": "^2.16.0",
     "nodemailer": "^5.1.1",
     "promise": "^8.0.2",
+    "socket.io": "^2.2.0",
     "static-favicon": "~1.0.0"
   },
   "engine": {

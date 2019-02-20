@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var sql = require("../helpers/sql");
-
+var socket = require('socket.io')();
 const readings = {
     inside:{
         temp:[1,2,3],
@@ -16,19 +16,12 @@ const readings = {
 
 /* GET home page. */
 router.get('/', function(req, res) {
-    var data = {
-        it:readings.inside.temp[0],
-        ih:readings.inside.humidity[0],
-        ot:readings.outside.temp[0],
-        oh:readings.outside.humidity[0]
-    };
     sql.getData().then((result)=>{
         console.log("done reading data");
-        console.log(result);
+        res.render('index', {data: result[0], title:"BeeHive" });
     }).catch((err)=>{
         console.log(err);
     });
-    res.render('index', {data: data, title:"BeeHive" });
 });
 
 router.post('/alarm',function (req,res) {
@@ -36,6 +29,13 @@ router.post('/alarm',function (req,res) {
     res.send(200); 
 });
 
+router.get('/test',(req,res)=>{
+    console.log("emiting data");
+    console.log(socket);
+    //socket.emit('new_data', { hello: 'world' });
+    console.log("done emiting data");
+    res.send(200);
+});
 
 router.post('/data',(req,res)=>{
     var validData = validateData(req.body);
@@ -45,6 +45,7 @@ router.post('/data',(req,res)=>{
     }
     sql.insertData(validData).then((result)=>{
         console.log("done inserting data");
+        socket.emit('new_data', { hello: 'world' });
     }).catch((err)=>{
         console.log(err);
     });
@@ -58,10 +59,10 @@ function validateData(data) {
     if(data.ihum && Number.isInteger(data.ihum)){
         validData.ihum = data.ihum;
     }
-    if(data.otemp && && Number.isInteger(data.otemp)){
+    if(data.otemp &&Number.isInteger(data.otemp)){
         validData.otemp = data.otemp;
     }
-    if(data.ohum && && Number.isInteger(data.ohum)){
+    if(data.ohum && Number.isInteger(data.ohum)){
         validData.ohum = data.ohum;
     }
     if(validData.otemp && validateData.ohum && validateData.itemp && validateData.ihum){
