@@ -4,6 +4,13 @@ main: main.o I2C.o TemperatureAndHumidity.o ReadI2CDevices.o#ADC.o
 
 #ADC.o: ADC.hpp ADC.cpp
 #	g++ -o ADC.o -c ADC.cpp
+
+#Timer.o: Timer.hpp
+#	g++ -o Timer.o -c
+
+CppTimer.o: CppTimer.hpp
+	g++ -o CppTimer.o -c
+
 Sensor.o: Sensor.hpp
 	g++ -o Sensor.o -c
 

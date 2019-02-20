@@ -2,8 +2,10 @@
 #include "TemperatureAndHumidity.hpp"//remove
 #include "ReadI2CDevices.hpp"
 #include "Sensor.hpp"
+#include "CppTimer.hpp"
 //#include <bitset>
 #include <iostream>
+
 
 
 
@@ -27,9 +29,24 @@ namespace {
 };
 */
 
+
+void start(){
+  ReadI2CDevices* r = new ReadI2CDevices();
+  r->writeAll();
+  std::thread sensorThread(&ReadI2CDevices::readAll, r);
+  sensorThread.join();
+}
+
+class MyTimer : public CppTimer {
+
+	void timerEvent() {
+
+		std::cout << "timer " << std::endl;
+	}
+};
+
 unsigned char global_buffer[4]={0};
 int main(){
-
 
   TemperatureAndHumidity th1(I2C_PORT1, ADDR_TEMP_AND_HUM);
   int i = th1.writeI2C();
@@ -41,13 +58,26 @@ int main(){
 
 
 //NOTE:Inside thread:
-  ReadI2CDevices* r = new ReadI2CDevices();
-  r->writeAll();
-  //r.readAll();
 
-  std::thread sensorThread(&ReadI2CDevices::readAll, r);
-  sensorThread.join();
-  delete r;
+  //r.readAll();
+  MyTimer myTimer;
+  myTimer.start(5000000);
+  // std::thread sensorThread(&ReadI2CDevices::readAll, r);
+  // sensorThread.join();
+
+
+
+
+/*
+ReadI2CDevices* r = new ReadI2CDevices();
+r->writeAll();
+//r.readAll();
+
+std::thread sensorThread(&ReadI2CDevices::readAll, r);
+sensorThread.join();
+delete r;
+
+*/
 
   /*
   1.start thread readI2CDevices
