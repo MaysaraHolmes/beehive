@@ -13,47 +13,37 @@
 
   <script>
   window.onload = function () {
+  var itemp = JSON.parse(decodeURIComponent("{{{itemp}}}"));
+  var otemp = JSON.parse(decodeURIComponent("{{{otemp}}}"));
+  var ihum = JSON.parse(decodeURIComponent("{{{ihum}}}"));
+  var ohum = JSON.parse(decodeURIComponent("{{{ohum}}}"));
 
   //Better to construct options first and then pass it as a parameter
-  var options = {
+  var tempData = {
     title: {
       text: "Temperature Data"
     },
+   
     responsive: true,
     animationEnabled: true,
     exportEnabled: true,
+    
     data: [
-    {
-      type: "line", //change it to line, area, column, pie, etc
-      dataPoints: [
-        { x: 10, y: 10 },
-        { x: 20, y: 12 },
-        { x: 30, y: 8 },
-        { x: 40, y: 14 },
-        { x: 50, y: 6 },
-        { x: 60, y: 24 },
-        { x: 70, y: -4 },
-        { x: 80, y: 10 }
-      ],
-      lineColor:"orange"
-    }, {
-      type: "line", //change it to line, area, column, pie, etc
-      dataPoints: [
-        { x: 10, y: 1 },
-        { x: 20, y: 1 },
-        { x: 30, y: 1 },
-        { x: 40, y: 1 },
-        { x: 50, y: 1 },
-        { x: 60, y: 1 },
-        { x: 70, y: 1 },
-        { x: 80, y: 1 }
-      ],
-      lineColor:"black"
-    }
+      {
+        type: "line", //change it to line, area, column, pie, etc
+        dataPoints: otemp,
+        lineColor:"orange"
+      },
+      {
+        type: "line", //change it to line, area, column, pie, etc
+        dataPoints: itemp,
+        lineColor:"black"
+      }
     ],
+  
   };
 
-  var options = {
+  var HumData = {
     title: {
       text: "Beehive Data"
     },
@@ -63,111 +53,18 @@
     data: [
     {
       type: "line", //change it to line, area, column, pie, etc
-      dataPoints: [
-        { x: 10, y: 10 },
-        { x: 20, y: 12 },
-        { x: 30, y: 8 },
-        { x: 40, y: 14 },
-        { x: 50, y: 6 },
-        { x: 60, y: 24 },
-        { x: 70, y: -4 },
-        { x: 80, y: 10 }
-      ],
+      dataPoints: ihum,
       lineColor:"orange"
     }, {
       type: "line", //change it to line, area, column, pie, etc
-      dataPoints: [
-        { x: 10, y: 1 },
-        { x: 20, y: 1 },
-        { x: 30, y: 1 },
-        { x: 40, y: 1 },
-        { x: 50, y: 1 },
-        { x: 60, y: 1 },
-        { x: 70, y: 1 },
-        { x: 80, y: 1 }
-      ],
+      dataPoints:ohum,
       lineColor:"black"
     }
     ],
   };
-    var options = {
-    title: {
-      text: "Beehive Data"
-    },
-    responsive: true,
-    animationEnabled: true,
-    exportEnabled: true,
-    data: [
-    {
-      type: "line", //change it to line, area, column, pie, etc
-      dataPoints: [
-        { x: 10, y: 10 },
-        { x: 20, y: 12 },
-        { x: 30, y: 8 },
-        { x: 40, y: 14 },
-        { x: 50, y: 6 },
-        { x: 60, y: 24 },
-        { x: 70, y: -4 },
-        { x: 80, y: 10 }
-      ],
-      lineColor:"orange"
-    }, {
-      type: "line", //change it to line, area, column, pie, etc
-      dataPoints: [
-        { x: 10, y: 1 },
-        { x: 20, y: 1 },
-        { x: 30, y: 1 },
-        { x: 40, y: 1 },
-        { x: 50, y: 1 },
-        { x: 60, y: 1 },
-        { x: 70, y: 1 },
-        { x: 80, y: 1 }
-      ],
-      lineColor:"black"
-    }
-    ],
-  };
-  var options = {
-    title: {
-      text: "Beehive Data"
-    },
-    responsive: true,
-    animationEnabled: true,
-    exportEnabled: true,
-    data: [
-    {
-      type: "line", //change it to line, area, column, pie, etc
-      dataPoints: [
-        { x: 10, y: 10 },
-        { x: 20, y: 12 },
-        { x: 30, y: 8 },
-        { x: 40, y: 14 },
-        { x: 50, y: 6 },
-        { x: 60, y: 24 },
-        { x: 70, y: -4 },
-        { x: 80, y: 10 }
-      ],
-      lineColor:"orange"
-    }, {
-      type: "line", //change it to line, area, column, pie, etc
-      dataPoints: [
-        { x: 10, y: 1 },
-        { x: 20, y: 1 },
-        { x: 30, y: 1 },
-        { x: 40, y: 1 },
-        { x: 50, y: 1 },
-        { x: 60, y: 1 },
-        { x: 70, y: 1 },
-        { x: 80, y: 1 }
-      ],
-      lineColor:"black"
-    }
-    ],
-  };
-
-  $("#beehivetemp").CanvasJSChart(options);
-  $("#beehivehumidity").CanvasJSChart(options);
-  $("#beehiveweight").CanvasJSChart(options);
+  
+  $("#beehivetemp").CanvasJSChart(tempData);
+  $("#beehivehumidity").CanvasJSChart(HumData);
 
   }
   </script>
@@ -182,14 +79,14 @@
     <div class="hex slide snow">
       <div class="front">
         <h5>Outside temperature</h5>
-        <h3>{{data.otemp}}°C</h3>
+        <h3>{{recentData.otemp}}°C</h3>
       </div>
     </div>
 
     <div class="hex slide storm">
       <div class="front">
         <h5>Inside temperature</h5>
-        <h3>{{data.itemp}}°C</h3>
+        <h3>{{recentData.itemp}}°C</h3>
       </div>
     </div>
   </div>
@@ -198,14 +95,14 @@
     <div class="hex slide rain">
       <div class="front">
         <h5>Outside humidity</h5>
-        <h3>{{data.ohum}}°C</h3>
+        <h3>{{recentData.ohum}}°C</h3>
       </div>
     </div>
     
     <div class="hex slide moon">
       <div class="front">
         <h5>Inside humidity</h5>
-        <h3>{{data.ihum}}°C</h3>
+        <h3>{{recentData.ihum}}°C</h3>
       </div>
     </div>
 
@@ -227,9 +124,6 @@
   <br>
   <br>
   <center><div id="beehivehumidity" style="height: 370px; width: 50%;"></div></center>
-  <br>
-  <br>
-  <center><div id="beehiveweight" style="height: 370px; width: 50%;"></div></center>
   <br>
   <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
   <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
