@@ -1,6 +1,6 @@
 
 main: main.o I2C.o TemperatureAndHumidity.o ReadI2CDevices.o#ADC.o
-	g++ -pthread -o main main.o I2C.o TemperatureAndHumidity.o ReadI2CDevices.o #ADC.o
+	g++ -pthread -lwiringPi -lwiringPiDev -o main main.o I2C.o TemperatureAndHumidity.o ReadI2CDevices.o #ADC.o
 
 Pressure.o: Pressure.hpp Pressure.cpp
 	g++ -o Pressure.o -c Pressure.cpp

@@ -16,6 +16,10 @@
 #include <thread>
 //#include <mutex>
 
+//FAN:
+#include <stdio.h>
+//#include <WiringPi.h>
+
 #define I2C_PORT1 (char*)"/dev/i2c-1"//remove
 #define I2C_PORT2 (char*)"/dev/i2c-3"//remove
 #define ADDR_TEMP_AND_HUM 0X27//remove
@@ -27,6 +31,12 @@ namespace {
 };
 */
 
+void blink_led(int pin, int time){
+  digitalWrite(led, HIGH);
+  delay(time);
+  digitalWrite(led, LOW);
+  delay(time);
+}
 unsigned char global_buffer[4]={0};
 int main(){
 
@@ -48,6 +58,26 @@ int main(){
   std::thread sensorThread(&ReadI2CDevices::readAll, r);
   sensorThread.join();
   delete r;
+
+
+
+
+/* FAN
+  while(true){
+    //fan on
+    //sleep
+    //fan off//
+    //sleep
+  }
+*/std::signal(SIGINT, my_handler);
+  wiringPiSetupGpio();
+  std::cout << "Controlling the GPIO pins with wiringPI" <<std::endl;
+  int pin = 13;
+  pinMode(pin, OUTPUT);
+  int time = 1000;
+  while (true){
+    blink_led(led, time);
+  }
 
   /*
   1.start thread readI2CDevices
