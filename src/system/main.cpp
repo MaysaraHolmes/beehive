@@ -17,8 +17,7 @@
 //#include <mutex>
 
 //FAN:
-#include <stdio.h>
-//#include <WiringPi.h>
+#include <wiringPi.h>
 
 #define I2C_PORT1 (char*)"/dev/i2c-1"//remove
 #define I2C_PORT2 (char*)"/dev/i2c-3"//remove
@@ -31,10 +30,14 @@ namespace {
 };
 */
 
-void blink_led(int pin, int time){
-  digitalWrite(led, HIGH);
+void blink_led(int led, int time){
+ // digitalWrite(led, 1);
+  pwmWrite(led,600);
+  //std::cout << "led on" <<std::endl;
   delay(time);
-  digitalWrite(led, LOW);
+  //digitalWrite(led, LOW);
+  pwmWrite(led, 1023);
+  //std::cout<<"led off" << std::endl;
   delay(time);
 }
 unsigned char global_buffer[4]={0};
@@ -69,14 +72,14 @@ int main(){
     //fan off//
     //sleep
   }
-*/std::signal(SIGINT, my_handler);
+*///std::signal(SIGINT, my_handler);
   wiringPiSetupGpio();
   std::cout << "Controlling the GPIO pins with wiringPI" <<std::endl;
-  int pin = 13;
-  pinMode(pin, OUTPUT);
-  int time = 1000;
+  int pin = 18;
+  pinMode(pin, PWM_OUTPUT);
+  int time = 5000;
   while (true){
-    blink_led(led, time);
+    blink_led(pin, time);
   }
 
   /*
