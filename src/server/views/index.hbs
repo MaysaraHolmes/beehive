@@ -237,9 +237,10 @@
   <script src="/socket.io/socket.io.js"></script>
   <script>
     var socket = io();
+    console.log("done initing socket");
     socket.on('new_data',(data)=>{
       alert("hello maysara");
-      console.log("hello its me maysara");
+      console.log("hello its me maysara I got the new deta");
     });
   </script>
 </body>

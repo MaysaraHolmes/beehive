@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var sql = require("../helpers/sql");
-var socket = require('socket.io')();
+
 const readings = {
     inside:{
         temp:[1,2,3],
@@ -29,13 +29,11 @@ router.post('/alarm',function (req,res) {
     res.send(200); 
 });
 
-router.get('/test',(req,res)=>{
-    console.log("emiting data");
-    console.log(socket);
-    //socket.emit('new_data', { hello: 'world' });
-    console.log("done emiting data");
-    res.send(200);
-});
+// router.get('/test',(req,res)=>{
+//     var io = require('../helpers/socket')();
+//     io.emit('new_data', { hello: 'world' });
+//     res.sendStatus(200);
+// });
 
 router.post('/data',(req,res)=>{
     var validData = validateData(req.body);
@@ -45,7 +43,7 @@ router.post('/data',(req,res)=>{
     }
     sql.insertData(validData).then((result)=>{
         console.log("done inserting data");
-        socket.emit('new_data', { hello: 'world' });
+        io.emit('new_data', { hello: result });
     }).catch((err)=>{
         console.log(err);
     });
