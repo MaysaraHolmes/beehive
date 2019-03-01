@@ -41,28 +41,22 @@ void ReadI2CDevices::writeAll(){
 
 
 void ReadI2CDevices::readAll(){//make attribute instead
-  //(this->bus1)->readI2C(this->bytesToRead, global_buffer);
-  //(this->bus1)->readI2C(this->bytesToRead, global_buffer);
-  //maybe add one for each device?
-  (this->th1)->readI2C(this->global_buffer);
-  (this->th2)->readI2C(this->global_buffer);
 
-  /*for (Sensor* s : this->sensors){
-    s->readI2C(this->global_buffer);
-  }*/
-  std::cout << "SENSOR I2C 1: \n" <<std::endl;
+  std::cout << "\nSENSOR I2C 1: " <<std::endl;
+  (this->th1)->readI2C(this->global_buffer);
   std::cout << "status: " << ((TemperatureAndHumidity*)th1)->getStatus() << std::endl;
   std::cout << "temp: " << ((TemperatureAndHumidity*)th1)->getTemp() << std::endl;
   std::cout << "humidity: " << ((TemperatureAndHumidity*)th1)->getHum() << std::endl;
-  //std::cout << "status: " << ((TemperatureAndHumidity*)sensors[0])->getStatus() << std::endl;
-  //std::cout << "temp: " << ((TemperatureAndHumidity*)sensors[0])->getTemp() << std::endl;
-  //std::cout << "humidity: " << ((TemperatureAndHumidity*)sensors[0])->getHum() << std::endl;
-  std::cout << "SENSOR I2C 2: \n" <<std::endl;
+
+  std::cout << "\nSENSOR I2C 2: " <<std::endl;
+  (this->th2)->readI2C(this->global_buffer);
   std::cout << "status: " << ((TemperatureAndHumidity*)th2)->getStatus() << std::endl;
   std::cout << "temp: " << ((TemperatureAndHumidity*)th2)->getTemp() << std::endl;
   std::cout << "humidity: " << ((TemperatureAndHumidity*)th2)->getHum() << std::endl;
 
-
+  /*for (Sensor* s : this->sensors){
+    s->readI2C(this->global_buffer);
+  }*/
 }
 
 

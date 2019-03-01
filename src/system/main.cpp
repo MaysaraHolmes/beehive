@@ -63,8 +63,6 @@ int main(){
   delete r;
 
 
-
-
 /* FAN
   while(true){
     //fan on
@@ -74,7 +72,7 @@ int main(){
   }
 *///std::signal(SIGINT, my_handler);
   wiringPiSetupGpio();
-  std::cout << "Controlling the GPIO pins with wiringPI" <<std::endl;
+  std::cout << "\n\nControlling the GPIO pins with wiringPI" <<std::endl;
   int pin = 18;
   pinMode(pin, PWM_OUTPUT);
   int time = 5000;

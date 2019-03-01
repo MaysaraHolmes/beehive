@@ -35,7 +35,8 @@ void I2C::readI2C(int bytesToRead, unsigned char* global_buffer){
 		printf("Failed to read from the i2c bus.\n");
 	}
 	else
-	{
+	{	printf("Succeeded writing\n");
+		/*
 		std::bitset<8> bitset1(global_buffer[0]);
 		std::bitset<8> bitset2(global_buffer[1]);
 		std::bitset<8> bitset3(global_buffer[2]);
@@ -44,6 +45,7 @@ void I2C::readI2C(int bytesToRead, unsigned char* global_buffer){
 		std::cout << "bitset2: " << bitset2 << std::endl;
 		std::cout << "bitset3: " << bitset3 << std::endl;
 		std::cout << "bitset4: " << bitset4 << std::endl;
+		*/
 	}
 }
 
@@ -60,7 +62,7 @@ int I2C::writeI2C(int length){//NOTE set default values if not sent in
 		printf("Failed to write to the i2c bus.\n");
 		return -1;
 	}
-	printf("Succeeded writing");
+	printf("Succeeded writing\n");
 	return 1;
 
 }
