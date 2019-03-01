@@ -35,7 +35,7 @@ void I2C::readI2C(int bytesToRead, unsigned char* global_buffer){
 		printf("Failed to read from the i2c bus.\n");
 	}
 	else
-	{	printf("Succeeded writing\n");
+	{	printf("Succeeded reading\n");
 		/*
 		std::bitset<8> bitset1(global_buffer[0]);
 		std::bitset<8> bitset2(global_buffer[1]);
