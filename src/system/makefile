@@ -1,11 +1,14 @@
 
-main: main.o I2C.o TemperatureAndHumidity.o ReadI2CDevices.o#ADC.o
-	g++ -pthread -o main main.o I2C.o TemperatureAndHumidity.o ReadI2CDevices.o #ADC.o
+main: main.o I2C.o TemperatureAndHumidity.o ReadI2CDevices.o CppTimer.o
+	g++ -pthread -o main main.o I2C.o TemperatureAndHumidity.o ReadI2CDevices.o CppTimer.o
 
 #ADC.o: ADC.hpp ADC.cpp
 #	g++ -o ADC.o -c ADC.cpp
 Sensor.o: Sensor.hpp
 	g++ -o Sensor.o -c
+
+CppTimer.o: CppTimer.h CppTimer.cpp
+	g++ -o CppTimer.o -c CppTimer.cpp
 
 I2C.o: I2C.hpp I2C.cpp
 	g++ -o I2C.o -c I2C.cpp

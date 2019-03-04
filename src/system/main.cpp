@@ -6,7 +6,6 @@
 #include <iostream>
 
 
-
 //#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -26,6 +25,9 @@ namespace {
    const char* I2C_PORT2 = (char*)"/dev/i2c-3";
 };
 */
+
+#include "CppTimer.h"
+#include <unistd.h>
 
 unsigned char global_buffer[4]={0};
 int main(){
