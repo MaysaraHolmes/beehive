@@ -3,6 +3,8 @@ var path = require('path');
 var favicon = require('static-favicon');
 var bodyParser = require('body-parser');
 var hbs = require('express-hbs');
+var results = require('dotenv').config()
+console.log(results);
 require('./helpers/db_connection');
 // Use `.hbs` for extensions and find partials in `views/partials`.
 

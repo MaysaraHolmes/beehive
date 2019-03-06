@@ -34,12 +34,14 @@ router.get('/', function(req, res) {
             ihum.push({x:((i+1)*10),y:result[i].ihum});
         }
     
-        res.render('index', {recentData:recentData,
+        res.render('index', {
+            recentData:recentData,
             otemp: encodeURIComponent(JSON.stringify(otemp)),
             itemp:encodeURIComponent(JSON.stringify(itemp)),
             ihum:encodeURIComponent(JSON.stringify(ihum)),
             ohum:encodeURIComponent(JSON.stringify(ohum)),
-            title:"BeeHive" });
+            title:"BeeHive" 
+        });
     
     }).catch((err)=>{
         console.log(err);
@@ -65,7 +67,8 @@ router.post('/data',(req,res)=>{
     }
     sql.insertData(validData).then((result)=>{
         console.log("done inserting data");
-        io.emit('new_data', { hello: result });
+        io.emit('new_data', { resul:t result });
+        res.sendStatus(200);
     }).catch((err)=>{
         console.log(err);
     });
