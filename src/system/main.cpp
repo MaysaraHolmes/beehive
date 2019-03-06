@@ -18,7 +18,7 @@
 
 //FAN:
 #include <wiringPi.h>
-#include <softPwm.h>
+//#include <softPwm.h>
 
 #define I2C_PORT1 (char*)"/dev/i2c-1"//remove
 #define I2C_PORT2 (char*)"/dev/i2c-3"//remove
@@ -33,13 +33,13 @@ namespace {
 
 void blink_led(int led, int time){
  // digitalWrite(led, 1);
-  //pwmWrite(led,600);
-  softPwmWrite(led, 99);
+  pwmWrite(led,600);
+  //softPwmWrite(led, 99);
   std::cout << "led on" <<std::endl;
   delay(time);
   //digitalWrite(led, LOW);
-  //pwmWrite(led, 1023);
-  softPwmWrite(led, 1);
+  pwmWrite(led, 1023);
+  //softPwmWrite(led, 1);
   std::cout<<"led off" << std::endl;
   delay(time);
 }
@@ -76,12 +76,12 @@ int main(){
 *///std::signal(SIGINT, my_handler);
   wiringPiSetupGpio();
   std::cout << "\n\nControlling the GPIO pins with wiringPI" <<std::endl;
-  int pin = 13;
-  //pinMode(pin, PWM_OUTPUT);
-  int l = softPwmCreate(pin,1,100);
-  if (!l){
+  int pin = 18;
+  pinMode(pin, PWM_OUTPUT);
+  //int l = softPwmCreate(pin,1,100);
+  /*if (!l){
     std::cout << "correct softPwmCreate"<< std::endl;
-  }
+  }*/
   int time = 5000;
   while (true){
     blink_led(pin, time);
