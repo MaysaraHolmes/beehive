@@ -67,7 +67,7 @@ router.post('/data',(req,res)=>{
     }
     sql.insertData(validData).then((result)=>{
         console.log("done inserting data");
-        io.emit('new_data', { resul:t result });
+        io.emit('new_data', { result:result });
         res.sendStatus(200);
     }).catch((err)=>{
         console.log(err);
