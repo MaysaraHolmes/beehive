@@ -4,3 +4,7 @@ main
 TemperatureAndHumidity.o
 ADC.o
 ReadI2CDevices.o
+cmake_install.cmake
+CMakeFiles
+CMakeCache.txt
+Makefile
