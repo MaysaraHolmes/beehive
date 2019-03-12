@@ -6,8 +6,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Beehive pHAT"
-Date "2019-02-18"
-Rev "v3.2"
+Date "2019-03-12"
+Rev "v3.3"
 Comp "University of Glasgow"
 Comment1 ""
 Comment2 ""
@@ -17,27 +17,27 @@ $EndDescr
 $Comp
 L power:GND #PWR02
 U 1 1 580C1D11
-P 3000 3150
-F 0 "#PWR02" H 3000 2900 50  0001 C CNN
-F 1 "GND" H 3000 3000 50  0000 C CNN
-F 2 "" H 3000 3150 50  0000 C CNN
-F 3 "" H 3000 3150 50  0000 C CNN
-	1    3000 3150
+P 3100 3000
+F 0 "#PWR02" H 3100 2750 50  0001 C CNN
+F 1 "GND" H 3100 2850 50  0000 C CNN
+F 2 "" H 3100 3000 50  0000 C CNN
+F 3 "" H 3100 3000 50  0000 C CNN
+	1    3100 3000
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3000 1300 3000 1700
+	3100 1300 3100 1700
 Wire Wire Line
-	3000 2700 2900 2700
+	3100 2700 2900 2700
 Wire Wire Line
-	3000 2500 2900 2500
-Connection ~ 3000 2700
+	3100 2500 2900 2500
+Connection ~ 3100 2700
 Wire Wire Line
-	3000 2000 2900 2000
-Connection ~ 3000 2500
+	3100 2000 2900 2000
+Connection ~ 3100 2500
 Wire Wire Line
-	3000 1700 2900 1700
-Connection ~ 3000 2000
+	3100 1700 2900 1700
+Connection ~ 3100 2000
 $Comp
 L power:GND #PWR03
 U 1 1 580C1E01
@@ -81,8 +81,8 @@ SDA0
 Text Label 2250 1300 0    50   ~ 0
 SCL0
 Wire Wire Line
-	3000 1300 2900 1300
-Connection ~ 3000 1700
+	3100 1300 2900 1300
+Connection ~ 3100 1700
 Text Notes 650  7600 0    50   ~ 0
 ID_SD and ID_SC PINS:\nThese pins are reserved for HAT ID EEPROM.\n\nAt boot time this I2C interface will be\ninterrogated to look for an EEPROM\nthat identifes the attached board and\nallows automagic setup of the GPIOs\n(and optionally, Linux drivers).\n\nDO NOT USE these pins for anything other\nthan attaching an I2C ID EEPROM. Leave\nunconnected if ID EEPROM not required.
 $Comp
@@ -143,17 +143,17 @@ F 3 "" H -2250 1050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3000 2700 3000 3150
+	3100 2700 3100 3000
 Wire Wire Line
-	3000 2500 3000 2700
+	3100 2500 3100 2700
 Wire Wire Line
-	3000 2000 3000 2500
+	3100 2000 3100 2500
 Wire Wire Line
 	2200 1100 2200 1900
 Wire Wire Line
 	2100 2300 2100 3000
 Wire Wire Line
-	3000 1700 3000 2000
+	3100 1700 3100 2000
 $Comp
 L Device:R R3
 U 1 1 5C45F9EB
@@ -583,10 +583,10 @@ Text Label 7300 2300 0    50   ~ 0
 fan_cmd
 Wire Wire Line
 	7650 2300 7300 2300
-Text Label 2250 2700 0    50   ~ 0
+Text Label 2900 1600 0    50   ~ 0
 cmd
 Wire Wire Line
-	2400 2700 2250 2700
+	3050 1600 2900 1600
 $Comp
 L Device:R R7
 U 1 1 5C66B531
