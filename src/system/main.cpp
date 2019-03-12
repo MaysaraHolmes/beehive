@@ -6,7 +6,6 @@
 #include <iostream>
 
 
-
 //#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,6 +14,7 @@
 //#include <vector>
 #include <thread>
 //#include <mutex>
+#include "CppTimer.h"
 
 #define I2C_PORT1 (char*)"/dev/i2c-1"//remove
 #define I2C_PORT2 (char*)"/dev/i2c-3"//remove
@@ -27,8 +27,11 @@ namespace {
 };
 */
 
+
+
+
 unsigned char global_buffer[4]={0};
-int main(){
+int main(int argc, const char* argv[] ){
 
 
   TemperatureAndHumidity th1(I2C_PORT1, ADDR_TEMP_AND_HUM);
@@ -49,22 +52,12 @@ int main(){
   sensorThread.join();
   delete r;
 
-  /*
-  1.start thread readI2CDevices
-      - wait til interruptet?
-      - read all the devices on the two buses
-      - send the reading somewhere
-  */
+  DemoTimer1 demoTimer1;
+	demoTimer1.start(250000000);
 
-  /*
-  2.Start Alarm thread
-      - create object of the alarm class
-      - listen to pin/sleep
-      - pin interrupted => wake readI2CDevices-thread
-      - sleep/wait for new interrupt on the pin
-  */
-
-
+  do {
+		sleep(1);
+	} while (1);
 
 
   printf("The program is running %d\n", i);
