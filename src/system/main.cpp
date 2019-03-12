@@ -60,7 +60,7 @@ int main(int argc, const char* argv[] ){
 
 
   DemoTimer1 demoTimer1;
-	demoTimer1.start(25000000000); //every 25sec
+	demoTimer1.start(2000000000); //every 2sec
 
   do {
 		sleep(1);

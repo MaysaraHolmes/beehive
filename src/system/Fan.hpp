@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <iostream>
-//#include <wiringPi.h>
+#include <wiringPi.h>
 
 
 class Fan {
