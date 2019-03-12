@@ -3,6 +3,7 @@
 
 #include "I2C.hpp" //remove?
 #include "TemperatureAndHumidity.hpp"// remove, include sensors instead
+#include "Pressure.hpp" //remove? just include sensor?
 #include "Sensor.hpp"
 
 #include <stdio.h>
