@@ -16,6 +16,11 @@
 #include <signal.h>
 #include <time.h>
 
+//testing demotimer
+#include "ReadI2CDevices.hpp"
+#include "Sensor.hpp"
+#include <thread>
+
 #define CLOCKID CLOCK_MONOTONIC
 #define SIG SIGRTMIN
 
@@ -77,8 +82,13 @@ public:
 };
 
 class DemoTimer1 : public CppTimer {
-
-	void timerEvent();
+	public:
+		DemoTimer1();
+		~DemoTimer1();
+	private:
+		ReadI2CDevices* r;
+		void timerEvent();
+		
 };
 
 #endif
