@@ -31,6 +31,8 @@ void ReadI2CDevices::writeAll(){
   //for all sensors in this-> list
     //sensor.writeI2C;
   int i = (this->th1)->writeI2C();
+  int i = (this->th2)->writeI2C();
+  int i = (this->PR)->writeI2C();
   /*for (Sensor* s : this->sensors){
     s->writeI2C();
   }*/
@@ -62,7 +64,7 @@ void ReadI2CDevices::readAll(){//make attribute instead
   std::cout << "temp: " << ((TemperatureAndHumidity*)th2)->getTemp() << std::endl;
   std::cout << "humidity: " << ((TemperatureAndHumidity*)th2)->getHum() << std::endl;
 
-  std::cout << "\n\n TEMPERATUR I2C1 " << std::endl;
+  std::cout << "\n\n PRESSURE " << std::endl;
   std::cout << "pressure: " << ((Pressure*)pr)->getPressure() << std::endl;
 
 
