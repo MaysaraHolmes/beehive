@@ -25,6 +25,7 @@ void Pressure::readI2C(unsigned char* global_buffer){
 
   //seperate the different bits read
   this->pressureBits = (((uint16_t)(global_buffer[0]) << 8) | (uint16_t)(global_buffer[1]) ) >> 6;
+  std::cout << "\n PRESSURE BITS: " <<  (int)this->pressureBits << std::endl;
   this->tempBits = (((uint16_t) (global_buffer[2]) << 8) | (uint16_t) (global_buffer[3])) >> 6;
 
 }
