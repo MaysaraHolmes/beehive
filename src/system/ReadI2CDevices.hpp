@@ -40,6 +40,8 @@ private:
   unsigned char global_buffer[4]={0};
   // NOTE Array/vector of all the sensors instead
   Sensor* th1;
+  Sensor* th2;
+  Sensor* pr;
   //std::vector<Sensor*> sensors;
   //Sensor* sensors[NB_DEVICES];
 
