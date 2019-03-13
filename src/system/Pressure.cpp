@@ -32,7 +32,7 @@ void Pressure::readI2C(unsigned char* global_buffer){
 
 
 double Pressure::getPressure() {
-  return (double) ( (this->pressureBits) * ((115-50)/1023) + 50);
+  return (double) ( ((unsigned int)this->pressureBits) * ((115-50)/1023) + 50);
 }
 
 double Pressure::getTemp() {
