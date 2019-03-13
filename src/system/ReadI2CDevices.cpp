@@ -31,8 +31,8 @@ void ReadI2CDevices::writeAll(){
   //for all sensors in this-> list
     //sensor.writeI2C;
   int i = (this->th1)->writeI2C();
-  int i = (this->th2)->writeI2C();
-  int i = (this->pr)->writeI2C();
+  int j = (this->th2)->writeI2C();
+  int k = (this->pr)->writeI2C();
   /*for (Sensor* s : this->sensors){
     s->writeI2C();
   }*/
