@@ -22,6 +22,8 @@ private:
 
     //reads 10bits???
     uint16_t pressureBits;
+    uint16_t tempBits;
+
 
 public:
     Pressure(char* portI2C, int addrI2C);
@@ -31,6 +33,7 @@ public:
 		//NOTE make const
     //returns kPa
     double getPressure();
+    double getTemp();
 
     ~Pressure();
 };

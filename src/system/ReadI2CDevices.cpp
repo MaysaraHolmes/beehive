@@ -66,6 +66,7 @@ void ReadI2CDevices::readAll(){//make attribute instead
 
   std::cout << "\n\n PRESSURE " << std::endl;
   std::cout << "pressure: " << ((Pressure*)pr)->getPressure() << std::endl;
+  std::cout << "temp: " << ((Pressure*)pr)->getTemp() << std::endl;
 
 
 }
