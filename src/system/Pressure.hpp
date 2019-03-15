@@ -23,6 +23,7 @@ private:
     //reads 10bits???
     uint16_t pressureBits;
     uint16_t tempBits;
+    float pressureComp;
 
 
 public:
