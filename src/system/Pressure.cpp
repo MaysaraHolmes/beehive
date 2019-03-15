@@ -24,19 +24,19 @@ void Pressure::readI2C(unsigned char* global_buffer){
   std::cout << "nbOfBytes " << nbOfBytes << std::endl;
 
   //seperate the different bits read
-  this->pressureBits = (((uint16_t)(global_buffer[0]) << 8) | (uint16_t)(global_buffer[1]) ) >> 6;
+  this->pressureBits = (((uint16_t)(global_buffer[0]) << 8) | (global_buffer[1]) ) >> 6;
   std::cout << "\n PRESSURE BITS: " <<  (int)this->pressureBits << std::endl;
-  this->tempBits = (((uint16_t) (global_buffer[2]) << 8) | (uint16_t) (global_buffer[3])) >> 6;
+  this->tempBits = ( ( (uint16_t)(global_buffer[2]) << 8) | (global_buffer[3]) ) >> 6;
 
 }
 
 
-double Pressure::getPressure() {
-  return (double) ( ((unsigned int)this->pressureBits) * ((115-50)/1023) + 50);
+float Pressure::getPressure() {
+  return ((unsigned int)this->pressureBits) * ((115-50)/1023) + 50;
 }
 
-double Pressure::getTemp() {
-  return (double) (  ((  (float)(this->tempBits) - 498.0  ) / (-5.35)  ) + 25.0  );
+float Pressure::getTemp() {
+  return (  ((float)(this->tempBits) - 498.0) / (-5.35)  ) + 25.0 ;
 }
 
 

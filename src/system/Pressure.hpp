@@ -32,8 +32,8 @@ public:
 
 		//NOTE make const
     //returns kPa
-    double getPressure();
-    double getTemp();
+    float getPressure();
+    float getTemp();
 
     ~Pressure();
 };
