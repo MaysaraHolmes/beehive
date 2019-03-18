@@ -1,10 +1,8 @@
-//#include "I2C.hpp"
-#include "TemperatureAndHumidity.hpp"//remove
+
+//#include "TemperatureAndHumidity.hpp"
 #include "ReadI2CDevices.hpp"
 #include "Sensor.hpp"
-//#include <bitset>
 #include <iostream>
-
 
 
 //#include <ctype.h>
@@ -15,6 +13,8 @@
 //#include <vector>
 #include <thread>
 //#include <mutex>
+#include "CppTimer.h"
+#include "Fan.hpp"
 
 #define I2C_PORT1 (char*)"/dev/i2c-1"//remove
 #define I2C_PORT2 (char*)"/dev/i2c-3"//remove
@@ -27,17 +27,12 @@ namespace {
 };
 */
 
+
+
+
 unsigned char global_buffer[4]={0};
-int main(){
+int main(int argc, const char* argv[] ){
 
-
-  TemperatureAndHumidity th1(I2C_PORT1, ADDR_TEMP_AND_HUM);
-  int i = th1.writeI2C();
-  th1.readI2C(global_buffer);
-  std::cout << "status: " << th1.getStatus() << std::endl;
-  std::cout << "temp: " << th1.getTemp() << std::endl;
-  std::cout << "humidity: " << th1.getHum() << std::endl;
-  std::cout << "\n\n\n" << std::endl;
 
 
 //NOTE:Inside thread:
@@ -49,25 +44,14 @@ int main(){
   sensorThread.join();
   delete r;
 
-  /*
-  1.start thread readI2CDevices
-      - wait til interruptet?
-      - read all the devices on the two buses
-      - send the reading somewhere
-  */
+  DemoTimer1 demoTimer1;
+	demoTimer1.start(25000000000); //every 25sec
 
-  /*
-  2.Start Alarm thread
-      - create object of the alarm class
-      - listen to pin/sleep
-      - pin interrupted => wake readI2CDevices-thread
-      - sleep/wait for new interrupt on the pin
-  */
+  do {
+		sleep(1);
+	} while (1);
 
 
-
-
-  printf("The program is running %d\n", i);
 
 
 }

@@ -3,6 +3,7 @@
 
 #include "I2C.hpp" //remove?
 #include "TemperatureAndHumidity.hpp"// remove, include sensors instead
+#include "Pressure.hpp" //remove? just include sensor?
 #include "Sensor.hpp"
 
 #include <stdio.h>
@@ -19,7 +20,7 @@
 #define NB_DEVICES 3
 
 #define PORT1_ADDR_TEMP_AND_HUM 0X27
-#define PORT1_ADDR_PRESSURE 0X00
+#define PORT2_ADDR_PRESSURE 0X60
 
 #define PORT2_ADDR_TEMP_AND_HUM 0X27
 

@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 2.8.9)
+project (main)
+add_executable(main main.cpp I2C.cpp TemperatureAndHumidity.cpp Pressure.cpp ReadI2CDevices.cpp Sensor.hpp CppTimer.h CppTimer.cpp Fan.hpp Fan.cpp)
+set (CMAKE_CXX_STANDARD 11)
+find_package(Threads)
+target_link_libraries (main ${CMAKE_THREAD_LIBS_INIT})
+TARGET_LINK_LIBRARIES(main rt)
