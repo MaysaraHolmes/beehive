@@ -12,70 +12,90 @@
   <link rel="stylesheet" href="stylesheets/style.css">
 
   <script>
-  window.onload = function () {
-  var itemp = JSON.parse(decodeURIComponent("{{{itemp}}}"));
-  var otemp = JSON.parse(decodeURIComponent("{{{otemp}}}"));
-  var ihum = JSON.parse(decodeURIComponent("{{{ihum}}}"));
-  var ohum = JSON.parse(decodeURIComponent("{{{ohum}}}"));
+      window.onload = function () {
+        var itemp = JSON.parse(decodeURIComponent("{{{itemp}}}"));
+        var otemp = JSON.parse(decodeURIComponent("{{{otemp}}}"));
+        var ihum = JSON.parse(decodeURIComponent("{{{ihum}}}"));
+        var ohum = JSON.parse(decodeURIComponent("{{{ohum}}}"));
+        
+        var tempchart = new CanvasJS.Chart("beehivetemp", {
+            title: {
+                text: "Temperature Data"
+            },
 
-  //Better to construct options first and then pass it as a parameter
-  var tempData = {
-    title: {
-      text: "Temperature Data"
-    },
-   
-    responsive: true,
-    animationEnabled: true,
-    exportEnabled: true,
-    
-    data: [
-      {
-        type: "line", //change it to line, area, column, pie, etc
-        dataPoints: otemp,
-        lineColor:"orange"
-      },
-      {
-        type: "line", //change it to line, area, column, pie, etc
-        dataPoints: itemp,
-        lineColor:"black"
+            responsive: true,
+            animationEnabled: true,
+            exportEnabled: true,
+
+            data: [
+                {
+                    type: "line", 
+                    dataPoints: otemp,
+                    lineColor:"orange"
+                },
+                {
+                    type: "line", //change it to line, area, column, pie, etc
+                    dataPoints: itemp,
+                    lineColor:"black"
+                }
+            ],
+        });
+
+        var humchart = new CanvasJS.Chart("beehivehumidity", {
+            title: {
+                text: "Humidity Data"
+            },
+
+            responsive: true,
+            animationEnabled: true,
+            exportEnabled: true,
+
+            data: [
+                {
+                    type: "line", 
+                    dataPoints: ohum,
+                    lineColor:"orange"
+                },
+                {
+                    type: "line", //change it to line, area, column, pie, etc
+                    dataPoints: ihum,
+                    lineColor:"black"
+                }
+            ],
+        });
+
+        tempchart.render();
+
+        humchart.render();
+
+        var updateChart = function (data) {
+            var counter = itemp[itemp.length-1].x + 1;
+            
+            itemp.push({x:counter,y:data.itemp});
+            otemp.push({x:counter,y:data.otemp});
+            ihum.push({x:counter,y:data.ihum});
+            ohum.push({x:counter,y:data.ohum});
+
+            tempchart.render();
+            humchart.render();    
+        };
+
+        var socket = io();
+        socket.on('new_data',(data)=>{
+            updateChart(data.result);
+        });
+
       }
-    ],
-  
-  };
-
-  var HumData = {
-    title: {
-      text: "Beehive Data"
-    },
-    responsive: true,
-    animationEnabled: true,
-    exportEnabled: true,
-    data: [
-    {
-      type: "line", //change it to line, area, column, pie, etc
-      dataPoints: ihum,
-      lineColor:"orange"
-    }, {
-      type: "line", //change it to line, area, column, pie, etc
-      dataPoints:ohum,
-      lineColor:"black"
-    }
-    ],
-  };
-  
-  $("#beehivetemp").CanvasJSChart(tempData);
-  $("#beehivehumidity").CanvasJSChart(HumData);
-
-  }
   </script>
+
 </head>
 
 <body>
-  <center><h1>Embedded Programming Coursework</h1></center>
-  <br/>
-  <br/>
+    <center><h1>Realtime Embedded Systems Programming Coursework</h1></center>
+    <br/>
+    <br/>
 
-  <div class="row">
+    <div class="row">
     <div class="hex slide snow">
       <div class="front">
         <h5>Outside temperature</h5>
@@ -89,16 +109,16 @@
         <h3>{{recentData.itemp}}°C</h3>
       </div>
     </div>
-  </div>
+    </div>
 
-  <div class="row">
+    <div class="row">
     <div class="hex slide rain">
       <div class="front">
         <h5>Outside humidity</h5>
         <h3>{{recentData.ohum}}°C</h3>
       </div>
     </div>
-    
+
     <div class="hex slide moon">
       <div class="front">
         <h5>Inside humidity</h5>
@@ -112,30 +132,26 @@
         <h3>10g</h3>
       </div>
     </div>
-  </div>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
+    </div>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 
 
-  <center><div id="beehivetemp" style="height: 370px; width: 50%;"></div></center>
-  <br>
-  <br>
-  <center><div id="beehivehumidity" style="height: 370px; width: 50%;"></div></center>
-  <br>
-  <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-  <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
-  <script src='https://use.fontawesome.com/97152d9c6b.js'></script>
-  <script src="/socket.io/socket.io.js"></script>
-  <script>
-    var socket = io();
-    console.log("done initing socket");
-    socket.on('new_data',(data)=>{
-      alert("hello maysara");
-      console.log("hello its me maysara I got the new deta");
-    });
-  </script>
+    <center><div id="beehivetemp" style="height: 370px; width: 50%;"></div></center>
+    <br>
+    <br>
+    <center><div id="beehivehumidity" style="height: 370px; width: 50%;"></div></center>
+    <br>
+
+    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+    <script src='https://use.fontawesome.com/97152d9c6b.js'></script>
+    <script src="/socket.io/socket.io.js"></script>
+
 </body>
+
 </html>

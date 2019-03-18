@@ -3,15 +3,15 @@ var path = require('path');
 var favicon = require('static-favicon');
 var bodyParser = require('body-parser');
 var hbs = require('express-hbs');
-var results = require('dotenv').config()
-console.log(results);
-require('./helpers/db_connection');
-// Use `.hbs` for extensions and find partials in `views/partials`.
+var results = require('dotenv').config();
 
-var routes = require('./routes/index');
+var udpserver = require('./helpers/udp_init');
+var udphandler = require('./routes/udp_handler');
+var index = require('./routes/index');
 
 var app = express();
 
+require('./helpers/db_connection');
 
 app.engine('hbs', hbs.express4({
   partialsDir: __dirname + '/views'
@@ -24,7 +24,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+app.use('/', index);
+
+udpserver.on('message', function (message, remote) {
+    console.log(remote.address + ':' + remote.port +' - ' + message);
+    udphandler.insertData(message);
+});
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
@@ -56,6 +61,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;
