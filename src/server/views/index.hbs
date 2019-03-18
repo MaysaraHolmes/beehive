@@ -71,13 +71,22 @@
         var updateChart = function (data) {
             var counter = itemp[itemp.length-1].x + 1;
             
-            itemp.push({x:counter,y:data.itemp});
-            otemp.push({x:counter,y:data.otemp});
-            ihum.push({x:counter,y:data.ihum});
-            ohum.push({x:counter,y:data.ohum});
+            itemp.push({x:counter,y:Number(data.itemp)});
+            otemp.push({x:counter,y:Number(data.otemp)});
+            ihum.push({x:counter,y:Number(data.ihum)});
+            ohum.push({x:counter,y:Number(data.ohum)});
 
             tempchart.render();
-            humchart.render();    
+            humchart.render();
+
+            console.log("new data");
+            console.log(data);
+            
+            $("#otemp_recent").text(data.otemp);
+            $("#itemp_recent").text(data.itemp);    
+            $("#ohum_recent").text(data.ohum);
+            $("#ihum_recent").text(data.ihum);
+        
         };
 
         var socket = io();
@@ -99,14 +108,14 @@
     <div class="hex slide snow">
       <div class="front">
         <h5>Outside temperature</h5>
-        <h3>{{recentData.otemp}}°C</h3>
+        <h3 id="otemp_recent">{{recentData.otemp}}°C</h3>
       </div>
     </div>
 
     <div class="hex slide storm">
       <div class="front">
         <h5>Inside temperature</h5>
-        <h3>{{recentData.itemp}}°C</h3>
+        <h3 id="itemp_recent">{{recentData.itemp}}°C</h3>
       </div>
     </div>
     </div>
@@ -115,14 +124,14 @@
     <div class="hex slide rain">
       <div class="front">
         <h5>Outside humidity</h5>
-        <h3>{{recentData.ohum}}°C</h3>
+        <h3 id="ohum_recent">{{recentData.ohum}}°C</h3>
       </div>
     </div>
 
     <div class="hex slide moon">
       <div class="front">
         <h5>Inside humidity</h5>
-        <h3>{{recentData.ihum}}°C</h3>
+        <h3 id="ihum_recent">{{recentData.ihum}}°C</h3>
       </div>
     </div>
 

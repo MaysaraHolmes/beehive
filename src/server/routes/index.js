@@ -6,7 +6,6 @@ var sql = require("../helpers/sql");
 router.get('/', function(req, res) {
     sql.getData().then((result)=>{
         console.log("done reading data");
-
         var recentData = result.length==0 ? {} : result[result.length-1];
         
         var otemp = [];
@@ -21,6 +20,7 @@ router.get('/', function(req, res) {
             ihum.push({x:((i+1)),y:result[i].ihum});
         }
 
+        console.log(otemp);
         res.render('index', {
             recentData:recentData,
             otemp: encodeURIComponent(JSON.stringify(otemp)),
