@@ -5,7 +5,7 @@
 Pressure::Pressure(char* portI2C, int addrI2C, unsigned char* global_buffer): Sensor(4,2, portI2C, addrI2C){
   //int addr[1] = {addrI2C};
   //bus = new I2C(portI2C, addr,1);
-  getCoefficients(global_buffer);
+  this->getCoefficients(global_buffer);
 
 }
 
@@ -32,7 +32,8 @@ void Pressure::getCoefficients(unsigned char* global_buffer){
   this->b2 = (float)b2coeff / 16384;
   this->c12 = (float)c12coeff;
   this->c12 /= 4194304.0;
-
+std::cout << "printing coefficienter:  " << this->a0 << "  " << this->b1 << "  "<< this->b2 << "  "<< this->c12 << std::endl;
+   std::cout << " " << std::endl;
 }
 int Pressure::writeI2C(){
   return bus->writeI2C(this->bytesToWrite);
@@ -58,19 +59,24 @@ void Pressure::readI2C(unsigned char* global_buffer){
   this->pressureComp = this->a0 +
                        (this->b1 + this->c12 * (this->temp)) * (this->pressure) +
                        (this->b2) * (this->temp);
+	std::cout << "pressureCOmp : " << this->pressureComp <<std::endl;
 }
 
 
 float Pressure::getPressure() {
   //return pressure in kiloPascals
-  return ((this->pressureComp) * ((115-50)/1023.0F)) + 50.0F;
-
+  float k =  ((this->pressureComp) * ((115-50)/1023.0F)) + 50.0F;
+  std::cout << "pressure i kPa: " << k << std::endl;
+  return k;
 }
 
 float Pressure::getTemp() {
   //return temp in celsius degrees
-  return (  ( (float)(this->temp) - 498.0F) / (-5.35F)  ) + 25.0F ;
+  float t =  (  ( (float)(this->temp) - 498.0F) / (-5.35F)  ) + 25.0F ;
+  std::cout << "temp : " << t << std::endl;
+  return t;
 }
+
 
 
 
