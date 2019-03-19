@@ -2,41 +2,41 @@
 #include "CppTimer.h"
 
 
-
-#include <sys/types.h>
+// Client side implementation of UDP client-server model
+#include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
-#include <netinet/in.h>
-#include <unistd.h>
 #include <arpa/inet.h>
-#include <netdb.h>
-#include <memory.h>
-#include <ifaddrs.h>
-#include <net/if.h>
-#include <errno.h>
-#include <stdlib.h>
-#include <iostream>
-int DemoTimer1::resolvehelper(const char* hostname, int family, const char* service, sockaddr_storage* pAddr)
-{
-    int result;
-    addrinfo* result_list = NULL;
-    addrinfo hints = {};
-    hints.ai_family = family;
-    hints.ai_socktype = SOCK_DGRAM; // without this flag, getaddrinfo will return 3x the number of addresses (one for each socket type).
-    result = getaddrinfo(hostname, service, &hints, &result_list);
-    if (result == 0)
-    {
-        //ASSERT(result_list->ai_addrlen <= sizeof(sockaddr_in));
-        memcpy(pAddr, result_list->ai_addr, result_list->ai_addrlen);
-        freeaddrinfo(result_list);
-    }
+#include <netinet/in.h>
+#define PORT     33333
+// we will change it later
+#define HOST    "192.168.1.2"
+#define MAXLINE 1024
 
-    return result;
-}
+
 
 DemoTimer1::DemoTimer1(){
 	this->r = new ReadI2CDevices();
+
+  // do this part just once, this part is to setup and configure the socket
+  int sockfd;
+  char buffer[MAXLINE];
+  struct sockaddr_in     servaddr;
+
+  if ( (sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0 ) {
+      perror("socket creation failed");
+      exit(EXIT_FAILURE);
+  }
+
+  memset(&servaddr, 0, sizeof(servaddr));
+
+  servaddr.sin_family = AF_INET;
+  servaddr.sin_port = htons(PORT);
+  servaddr.sin_addr.s_addr =  inet_addr(HOST);
+  // end of the first part
 }
 
 
@@ -47,37 +47,31 @@ void DemoTimer1::timerEvent() {
 
 
 	r->writeAll();
-	r->readAll();
+  r->readAll();
+	//std::thread sensorThread(&ReadI2CDevices::readAll, r);
+	//sensorThread.join();
 
+  // excute this part every time you want to send the data ( like every 200 ms or whatever)
+  // we will send the data as a string, here its called (hello)
+  // the data format is as following (inside_temp inside_hum outside_temp outside_hum)
+  // and we seperate them by spaces as shown
+  char *hello = "49 59 29 49";
 
-	int result = 0;
-  int sock = socket(AF_INET, SOCK_DGRAM, 0);
-  char szIP[100];
+  sendto(sockfd, (const char *)hello, strlen(hello),
+         MSG_CONFIRM, (const struct sockaddr *) &servaddr,
+              sizeof(servaddr));
+  printf("Hello message sent.\n");
+  // end of the second part
 
-  sockaddr_in addrListen = {}; // zero-int, sin_port is 0, which picks a random port for bind.
-  addrListen.sin_family = AF_INET;
-  result = bind(sock, (sockaddr*)&addrListen, sizeof(addrListen));
-  if (result == -1)
-  {
-     int lasterror = errno;
-     std::cout << "error: " << lasterror;
-     exit(1);
-  }
+  // this is uselss code, but keep it in case
+  // unsigned int n, len;
+  // n = recvfrom(sockfd, (char *)buffer, MAXLINE,
+  //             MSG_WAITALL, (struct sockaddr *) &servaddr,
+  //             &len);
+  // buffer[n] = '\0';
+  // printf("Server : %s\n", buffer);
 
-  sockaddr_storage addrDest = {};
-  result = resolvehelper("192.168.0.4", AF_INET, "9000", &addrDest);
-  if (result != 0)
-  {
-     int lasterror = errno;
-     std::cout << "error: " << lasterror;
-     exit(1);
-  }
-  const char* msg = "Jane Doe";
-  size_t msg_length = strlen(msg);
-
-  result = sendto(sock, msg, msg_length, 0, (sockaddr*)&addrDest, sizeof(addrDest));
-
-  std::cout << result << " bytes sent" << std::endl;
+  close(sockfd);
 
 
 
