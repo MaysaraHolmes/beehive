@@ -22,11 +22,11 @@ DemoTimer1::DemoTimer1(){
 	this->r = new ReadI2CDevices();
 
   // do this part just once, this part is to setup and configure the socket
-  int sockfd;
+  //int sockfd;
   char buffer[MAXLINE];
   struct sockaddr_in     servaddr;
 
-  if ( (sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0 ) {
+  if ( (this->sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0 ) {
       perror("socket creation failed");
       exit(EXIT_FAILURE);
   }
@@ -55,6 +55,7 @@ void DemoTimer1::timerEvent() {
   // we will send the data as a string, here its called (hello)
   // the data format is as following (inside_temp inside_hum outside_temp outside_hum)
   // and we seperate them by spaces as shown
+
   char *hello = "49 59 29 49";
 
   sendto(sockfd, (const char *)hello, strlen(hello),

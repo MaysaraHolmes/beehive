@@ -85,9 +85,9 @@ class DemoTimer1 : public CppTimer {
 	public:
 		DemoTimer1();
 		~DemoTimer1();
-		int resolvehelper(const char* hostname, int family, const char* service, sockaddr_storage* pAddr);
 	private:
 		ReadI2CDevices* r;
+		int sockfd;
 		void timerEvent();
 
 };
