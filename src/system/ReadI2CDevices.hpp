@@ -20,7 +20,7 @@
 #define NB_DEVICES 3
 
 #define PORT1_ADDR_TEMP_AND_HUM 0X27
-#define PORT1_ADDR_PRESSURE 0X00
+#define PORT2_ADDR_PRESSURE 0X60
 
 #define PORT2_ADDR_TEMP_AND_HUM 0X27
 
@@ -40,6 +40,8 @@ private:
   unsigned char global_buffer[4]={0};
   // NOTE Array/vector of all the sensors instead
   Sensor* th1;
+  Sensor* th2;
+  Sensor* pr;
   //std::vector<Sensor*> sensors;
   //Sensor* sensors[NB_DEVICES];
 
