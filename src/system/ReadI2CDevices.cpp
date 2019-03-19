@@ -12,7 +12,7 @@ void ReadI2CDevices::createSensorObjects(){
   //TemperatureAndHumidity th1(I2C_PORT1, ADDR_TEMP_AND_HUM);
   this->th1 = new TemperatureAndHumidity(I2C_PORT1, PORT1_ADDR_TEMP_AND_HUM);
   this->th2 = new TemperatureAndHumidity(I2C_PORT2, PORT2_ADDR_TEMP_AND_HUM);
-  this->pr = new Pressure(I2C_PORT2, PORT2_ADDR_PRESSURE);
+  this->pr = new Pressure(I2C_PORT2, PORT2_ADDR_PRESSURE, this->global_buffer);
 
   //sensors[0] = new TemperatureAndHumidity(I2C_PORT2, PORT1_ADDR_TEMP_AND_HUM);
 

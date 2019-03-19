@@ -37,7 +37,7 @@ private:
   //int bytesToRead =4;
 //NOTE above remove
 
-  unsigned char global_buffer[4]={0};
+  unsigned char global_buffer[20]={0};
   // NOTE Array/vector of all the sensors instead
   Sensor* th1;
   Sensor* th2;

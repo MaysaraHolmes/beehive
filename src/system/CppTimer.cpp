@@ -21,6 +21,7 @@
 DemoTimer1::DemoTimer1(){
 	this->r = new ReadI2CDevices();
 
+  /*
   // do this part just once, this part is to setup and configure the socket
   //int sockfd;
   char buffer[MAXLINE];
@@ -37,6 +38,7 @@ DemoTimer1::DemoTimer1(){
   servaddr.sin_port = htons(PORT);
   servaddr.sin_addr.s_addr =  inet_addr(HOST);
   // end of the first part
+  */
 }
 
 
@@ -51,6 +53,8 @@ void DemoTimer1::timerEvent() {
 	//std::thread sensorThread(&ReadI2CDevices::readAll, r);
 	//sensorThread.join();
 
+
+  /*
   // excute this part every time you want to send the data ( like every 200 ms or whatever)
   // we will send the data as a string, here its called (hello)
   // the data format is as following (inside_temp inside_hum outside_temp outside_hum)
@@ -73,7 +77,7 @@ void DemoTimer1::timerEvent() {
   // printf("Server : %s\n", buffer);
 
   close(sockfd);
-
+  */
 
 
 }
