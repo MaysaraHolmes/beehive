@@ -6,10 +6,10 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Beehive Sensor board"
-Date "2019-01-29"
-Rev "v2.1"
+Date "2019-03-20"
+Rev "v3.2"
 Comp "University of Glasgow"
-Comment1 ""
+Comment1 "ENG5220-RTEP"
 Comment2 ""
 Comment3 ""
 Comment4 ""

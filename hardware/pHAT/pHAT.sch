@@ -6,10 +6,10 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Beehive pHAT"
-Date "2019-03-12"
+Date "2019-03-20"
 Rev "v3.3"
 Comp "University of Glasgow"
-Comment1 ""
+Comment1 "ENG5220-RTEP"
 Comment2 ""
 Comment3 ""
 Comment4 ""
@@ -83,8 +83,6 @@ SCL0
 Wire Wire Line
 	3100 1300 2900 1300
 Connection ~ 3100 1700
-Text Notes 650  7600 0    50   ~ 0
-ID_SD and ID_SC PINS:\nThese pins are reserved for HAT ID EEPROM.\n\nAt boot time this I2C interface will be\ninterrogated to look for an EEPROM\nthat identifes the attached board and\nallows automagic setup of the GPIOs\n(and optionally, Linux drivers).\n\nDO NOT USE these pins for anything other\nthan attaching an I2C ID EEPROM. Leave\nunconnected if ID EEPROM not required.
 $Comp
 L pHAT-rescue:Mounting_Hole-Mechanical MK1
 U 1 1 5834FB2E

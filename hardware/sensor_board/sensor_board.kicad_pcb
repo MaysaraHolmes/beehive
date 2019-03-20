@@ -12,9 +12,10 @@
   (page A4)
   (title_block
     (title "Beehive Sensor board")
-    (date 2019-01-22)
-    (rev v2.1)
+    (date 2019-03-20)
+    (rev v3.2)
     (company "University of Glasgow")
+    (comment 1 ENG5220-RTEP)
   )
 
   (layers
