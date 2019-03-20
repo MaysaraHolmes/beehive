@@ -49,7 +49,7 @@ void DemoTimer1::timerEvent() {
   // and we seperate them by spaces as shown
 
   char *hello = "49 59 29 49";
-
+  printf("sending a message *****");
   sendto(sockfd, (const char *)hello, strlen(hello),
          MSG_CONFIRM, (const struct sockaddr *) &(this->servaddr),
               sizeof((this->servaddr)));
@@ -64,7 +64,6 @@ void DemoTimer1::timerEvent() {
   // buffer[n] = '\0';
   // printf("Server : %s\n", buffer);
 
-  close(sockfd);
 
 
 
