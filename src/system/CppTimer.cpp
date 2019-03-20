@@ -37,11 +37,11 @@ void DemoTimer1::timerEvent() {
 
 
 	r->writeAll();
-  std::string hello = r->readAll();
+  std::string s = r->readAll();
 	//std::thread sensorThread(&ReadI2CDevices::readAll, r);
 	//sensorThread.join();
 
-
+	const char* hello = s.c_str(); 
 
   // excute this part every time you want to send the data ( like every 200 ms or whatever)
   // we will send the data as a string, here its called (hello)
@@ -50,7 +50,7 @@ void DemoTimer1::timerEvent() {
 
   //char *hello = "49 59 29 49";
   printf("sending a message *****");
-  sendto(sockfd, (const char *)hello, strlen(hello),
+  sendto(sockfd, hello, strlen(hello),
          MSG_CONFIRM, (const struct sockaddr *) &(this->servaddr),
               sizeof((this->servaddr)));
   printf("Hello message sent.\n");
