@@ -88,6 +88,7 @@ class DemoTimer1 : public CppTimer {
 	private:
 		ReadI2CDevices* r;
 		int sockfd;
+		struct sockaddr_in     servaddr;
 		void timerEvent();
 
 };
