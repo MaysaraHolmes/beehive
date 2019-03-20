@@ -90,6 +90,7 @@ public:
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
+#include <string>
 #define PORT     33333
 // we will change it later
 #define HOST    "192.168.1.104"

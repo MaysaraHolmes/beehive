@@ -40,7 +40,7 @@ void ReadI2CDevices::writeAll(){
 
 
 
-void ReadI2CDevices::readAll(){//make attribute instead
+std::string ReadI2CDevices::readAll(){//make attribute instead
   //(this->bus1)->readI2C(this->bytesToRead, global_buffer);
   //(this->bus1)->readI2C(this->bytesToRead, global_buffer);
   //maybe add one for each device?
@@ -51,24 +51,27 @@ void ReadI2CDevices::readAll(){//make attribute instead
   /*for (Sensor* s : this->sensors){
     s->readI2C(this->global_buffer);
   }*/
-  std::cout << "\n\n TEMPERATUR I2C1 " << std::endl;
-  std::cout << "status: " << ((TemperatureAndHumidity*)th1)->getStatus() << std::endl;
+  //std::cout << "\n\n TEMPERATUR I2C1 " << std::endl;
+  //std::cout << "status: " << ((TemperatureAndHumidity*)th1)->getStatus() << std::endl;
   std::cout << "temp: " << ((TemperatureAndHumidity*)th1)->getTemp() << std::endl;
   std::cout << "humidity: " << ((TemperatureAndHumidity*)th1)->getHum() << std::endl;
   //std::cout << "status: " << ((TemperatureAndHumidity*)sensors[0])->getStatus() << std::endl;
   //std::cout << "temp: " << ((TemperatureAndHumidity*)sensors[0])->getTemp() << std::endl;
   //std::cout << "humidity: " << ((TemperatureAndHumidity*)sensors[0])->getHum() << std::endl;
 
-  std::cout << "\n\n TEMPERATUR I2C2 " << std::endl;
-  std::cout << "status: " << ((TemperatureAndHumidity*)th2)->getStatus() << std::endl;
+  //std::cout << "\n\n TEMPERATUR I2C2 " << std::endl;
+  //std::cout << "status: " << ((TemperatureAndHumidity*)th2)->getStatus() << std::endl;
   std::cout << "temp: " << ((TemperatureAndHumidity*)th2)->getTemp() << std::endl;
   std::cout << "humidity: " << ((TemperatureAndHumidity*)th2)->getHum() << std::endl;
 
-  std::cout << "\n\n PRESSURE " << std::endl;
+  //std::cout << "\n\n PRESSURE " << std::endl;
   std::cout << "pressure: " << ((Pressure*)pr)->getPressure() << std::endl;
   std::cout << "temp: " << ((Pressure*)pr)->getTemp() << std::endl;
 
-
+  std::string s = "";
+  s += ((TemperatureAndHumidity*)th1)->getTemp() + " " + ((TemperatureAndHumidity*)th1)->getHum() + " ";
+  s += ((TemperatureAndHumidity*)th2)->getTemp() + " " + ((TemperatureAndHumidity*)th2)->getHum();
+  return s;
 }
 
 

@@ -11,6 +11,7 @@
 #include <bitset>
 #include <cstring>  // strlen()
 #include <vector>
+#include <string>
 
 #define I2C_PORT1 (char*)"/dev/i2c-1"
 #define I2C_PORT2 (char*)"/dev/i2c-3"
@@ -51,7 +52,7 @@ public:
     ReadI2CDevices();
 
     void writeAll();
-    void readAll();
+    std::string readAll();
 
     ~ReadI2CDevices();
 };

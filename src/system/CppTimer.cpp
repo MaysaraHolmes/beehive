@@ -37,7 +37,7 @@ void DemoTimer1::timerEvent() {
 
 
 	r->writeAll();
-  r->readAll();
+  std::string hello = r->readAll();
 	//std::thread sensorThread(&ReadI2CDevices::readAll, r);
 	//sensorThread.join();
 
@@ -48,7 +48,7 @@ void DemoTimer1::timerEvent() {
   // the data format is as following (inside_temp inside_hum outside_temp outside_hum)
   // and we seperate them by spaces as shown
 
-  char *hello = "49 59 29 49";
+  //char *hello = "49 59 29 49";
   printf("sending a message *****");
   sendto(sockfd, (const char *)hello, strlen(hello),
          MSG_CONFIRM, (const struct sockaddr *) &(this->servaddr),
