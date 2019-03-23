@@ -37,7 +37,7 @@ private:
 
 public:
     Pressure(char* portI2C, int addrI2C, unsigned char* global_buffer);
-    void getCoefficients(unsigned char* global_buffer);
+    void readCoefficients(unsigned char* global_buffer);
     void readI2C(unsigned char* global_buffer);
     int writeI2C();
 
