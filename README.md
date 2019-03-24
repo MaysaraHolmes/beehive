@@ -27,6 +27,8 @@ This project is done in partnership with the [Glasgow University Beekeeping Soci
 This projects architecture diagram:
 
 <img src="https://github.com/MaysaraHolmes/beehive/blob/master/ArchitectureDiagram.png" title="Architecture" ></a>
+
+Instuction for installation can be found on the [installation wiki](https://github.com/MaysaraHolmes/beehive/wiki/Installation).
 	
 ## Technologies 
 
