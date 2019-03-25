@@ -8,7 +8,7 @@ var results = require('dotenv').config();
 var udpserver = require('./helpers/udp_init');
 var udphandler = require('./routes/udp_handler');
 var index = require('./routes/index');
-
+var sender = require('./helpers/email_sender');
 var app = express();
 
 require('./helpers/db_connection');
@@ -25,6 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+sender.send_email("maysara0598@gmail.com");
 
 udpserver.on('message', function (message, remote) {
     console.log(remote.address + ':' + remote.port +' - ' + message);
