@@ -17,26 +17,33 @@
         var otemp = JSON.parse(decodeURIComponent("{{{otemp}}}"));
         var ihum = JSON.parse(decodeURIComponent("{{{ihum}}}"));
         var ohum = JSON.parse(decodeURIComponent("{{{ohum}}}"));
-        
+        var pressure = JSON.parse(decodeURIComponent("{{{pressure}}}"));
+
         var tempchart = new CanvasJS.Chart("beehivetemp", {
             title: {
                 text: "Temperature Data"
             },
-
+            backgroundColor: "rgba(225,226,228,0.9)",
             responsive: true,
             animationEnabled: true,
             exportEnabled: true,
 
             data: [
                 {
+                    showInLegend: true, 
+                    name: "outside humidity",
+                    legendText: "outside humidity",
                     type: "line", 
                     dataPoints: otemp,
-                    lineColor:"orange"
+                    lineColor:"#4286f4",
                 },
                 {
+                    showInLegend: true, 
+                    name: "inside humidity",
+                    legendText: "inside humidity",
                     type: "line", //change it to line, area, column, pie, etc
                     dataPoints: itemp,
-                    lineColor:"black"
+                    lineColor:"red"
                 }
             ],
         });
@@ -49,24 +56,56 @@
             responsive: true,
             animationEnabled: true,
             exportEnabled: true,
+            backgroundColor: "rgba(225,226,228,0.9)",
 
             data: [
                 {
+                    showInLegend: true, 
+                    name: "outside humidity",
+                    legendText: "outside humidity",
                     type: "line", 
                     dataPoints: ohum,
-                    lineColor:"orange"
+                    lineColor:"#4286f4",
                 },
                 {
+                    showInLegend: true, 
+                    name: "inside humidity",
+                    legendText: "inside humidity",
                     type: "line", //change it to line, area, column, pie, etc
                     dataPoints: ihum,
-                    lineColor:"black"
+                    lineColor:"red"
                 }
             ],
         });
 
+        var pressurechart = new CanvasJS.Chart("beehivepressure", {
+            title: {
+                text: "Pressure Data"
+            },
+
+            responsive: true,
+            animationEnabled: true,
+            exportEnabled: true,
+            backgroundColor: "rgba(225,226,228,0.9)",
+
+            data: [
+                {
+                    showInLegend: true, 
+                    name: "outside humidity",
+                    legendText: "Pressure",
+                    type: "line", 
+                    dataPoints: pressure,
+                    lineColor:"#4286f4"
+                }
+            ],
+        });
+
+
         tempchart.render();
 
         humchart.render();
+
+        pressurechart.render();
 
         var updateChart = function (data) {
             var counter = itemp[itemp.length-1].x + 1;
@@ -75,9 +114,11 @@
             otemp.push({x:counter,y:Number(data.otemp)});
             ihum.push({x:counter,y:Number(data.ihum)});
             ohum.push({x:counter,y:Number(data.ohum)});
+            pressure.push({x:counter,y:Number(data.pressure)})
 
             tempchart.render();
             humchart.render();
+            pressurechart.render();
 
             console.log("new data");
             console.log(data);
@@ -139,7 +180,7 @@
     <div class="hex slide sunny">
       <div class="front">
         <h5>Pressure</h5>
-        <h3 id="pressure_recent">{{recentData.pressure}}</h3>
+        <h3 id="pressure_recent">{{recentData.pressure}} Pa</h3>
       </div>
     </div>
     </div>
@@ -150,11 +191,12 @@
     <br/>
     <br/>
 
+    <center><div id="beehivetemp" style="height: 500px; width: 60%;"></div></center>
+    <br>
+    <center><div id="beehivehumidity" style="height: 500px; width: 60%;"></div></center>
+    <br>
+    <center><div id="beehivepressure" style="height: 500px; width: 60%;"></div></center>
 
-    <center><div id="beehivetemp" style="height: 370px; width: 50%;"></div></center>
-    <br>
-    <br>
-    <center><div id="beehivehumidity" style="height: 370px; width: 50%;"></div></center>
     <br>
     <br>
     <br>
@@ -164,12 +206,12 @@
           <div class="container">
             <h2>Subscribe to get alerts notifications !</h2>
             <p>Beehive will send you notifications when there is critical readings</p>
-            <input type="text" placeholder="Email address" name="email" id="email" required>
+            <input type="email" placeholder="Email address" name="email" id="email" required>
           </div>
           <input type="submit" value="Subscribe">
         </center>
     </form>
-    
+    <br>
     <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
     <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
     <script src='https://use.fontawesome.com/97152d9c6b.js'></script>

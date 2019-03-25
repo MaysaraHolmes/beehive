@@ -134,10 +134,8 @@ html, body {
 
 body {
   padding: 35px 0;
-  background: url("https://i.imgur.com/unWKRax.jpg") no-repeat center center fixed;
   background-color: rgba(1, 1, 1, .21) !important;
   background-blend-mode: color;
-
 }
 
 
@@ -180,7 +178,7 @@ body {
 }
 
 /* Style the input elements and the submit button */
-input[type=text], input[type=submit] {
+input[type=email], input[type=submit] {
   width: 40%;
   padding: 10px;
   margin: 5px;
