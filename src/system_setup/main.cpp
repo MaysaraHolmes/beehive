@@ -19,7 +19,7 @@ int main(int argc, const char* argv[] ){
 
   global_buffer[0] = 0x00;
   global_buffer[1] = 0x00;
-  global_buffer[2] = 0x18;
+  global_buffer[2] = 0xA0;
 
 
   digitalWrite (11, HIGH);
