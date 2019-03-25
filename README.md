@@ -16,6 +16,7 @@ Monitoring your beehive and get real-time measurements on the [website](https://
 
 This project is done in partnership with the [Glasgow University Beekeeping Society](https://www.facebook.com/GUBeekeepingSociety/)
 
+Instuction for installation can be found on the [installation wiki](https://github.com/MaysaraHolmes/beehive/wiki/Installation).
 
 ## Table of contents
 * [General info](#general-info)

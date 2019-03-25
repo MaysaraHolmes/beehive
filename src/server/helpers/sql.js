@@ -12,10 +12,21 @@ exports.getData = function (argument) {
 
 exports.insertData = function(data){
 	return new Promise((resolve,reject)=>{
-		var sql = "INSERT INTO readings (itemp,ihum,otemp,ohum) VALUES ("+data.itemp+","+data.ihum+","+data.otemp+","+data.ohum+")";
+		var sql = "INSERT INTO readings (itemp,ihum,otemp,ohum,pressure) VALUES ("+data.itemp+","+data.ihum+","+data.otemp+","+data.ohum+","+data.pressure+")";
 		connection.query(sql,(err,result)=>{
 			if(err) return reject(err);
 			resolve(data);
+		})
+	});
+}
+
+exports.insertEmail = function(email){
+	console.log(email);
+	return new Promise((resolve,reject)=>{
+		var sql = 'INSERT INTO emails (email) VALUES ("'+email+'")';
+		connection.query(sql,(err,result)=>{
+			if(err) return reject(err);
+			resolve(result);
 		})
 	});
 }

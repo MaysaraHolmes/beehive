@@ -9,7 +9,13 @@ var con = mysql.createConnection({
 
 con.connect(function(err) {
   if (err) throw err;
-  console.log("Connected!");
+  console.log("Database is connected successfully");
 });
+
+// to keep the connection alive
+setInterval(function () {
+    con.query('SELECT 1');
+}, 5000);
+
 
 module.exports = con;

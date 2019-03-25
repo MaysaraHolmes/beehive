@@ -134,10 +134,8 @@ html, body {
 
 body {
   padding: 35px 0;
-  background: url("https://i.imgur.com/unWKRax.jpg") no-repeat center center fixed;
   background-color: rgba(1, 1, 1, .21) !important;
   background-blend-mode: color;
-
 }
 
 
@@ -172,6 +170,33 @@ body {
     text-decoration: none;
     transition: all 0.7s;
   }
+
+/* Add some padding and a grey background color to containers */
+.container {
+  padding: 5px;
+  margin: 5px;
+}
+
+/* Style the input elements and the submit button */
+input[type=email], input[type=submit] {
+  width: 40%;
+  padding: 10px;
+  margin: 5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Style the submit button */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+}
+
+input[type=submit]:hover {
+  opacity: 0.8;
+}
 
 /*.view-collection a:hover, .view-collection a:focus {
       color: #81A8B8;
