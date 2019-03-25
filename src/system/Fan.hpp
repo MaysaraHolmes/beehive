@@ -39,7 +39,7 @@ public:
       helper_func0,
       helper_func1
     };*/
-    void Fan::readAlarmPin();
+    void readAlarmPin();
     void onInterrupt();
     ~Fan();
 };
