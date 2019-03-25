@@ -1,8 +1,12 @@
 #include "Fan.hpp"
 
+static void(*helper_function[2])() = {
+  helper_func0,
+  helper_func1
+};
 
 Fan::Fan(int gpio, int interruptPin){
-  saved_Input_pointer[0] = this;
+  saved_Fan_pointer[0] = this;
   this->gpio = gpio;
   this->interruptPin = interruptPin;
   wiringPiSetupGpio();
@@ -35,12 +39,9 @@ static void helper_func0()
 static void helper_func1()
 {
   cout << "in helper_func for pin 1: ";
-  saved_Input_pointer[1]->interruptEdge();
+  saved_Fan_pointer[1]->interruptEdge();
 }
-static void(*helper_function[2])() = {
-  helper_func0,
-  helper_func1
-};
+
 void Fan::onInterrupt(){
   if (digitalRead(this->interruptPin) == HIGH){
     start();

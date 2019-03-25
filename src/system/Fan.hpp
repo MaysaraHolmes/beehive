@@ -23,6 +23,7 @@ public:
     void start();
     void stop();
     static void helper_func0();
+    static void helper_func1();
     void onInterrupt();
     ~Fan();
 };
