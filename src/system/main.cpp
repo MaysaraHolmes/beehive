@@ -55,7 +55,7 @@ int main(int argc, const char* argv[] ){
   DemoTimer1 demoTimer1;
 	demoTimer1.start(2000000000); //every 2sec
 
-  Fan* f = new Fan();
+  //Fan* f = new Fan();
   //std::thread fanThread()
 
   do {
