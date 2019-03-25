@@ -12,21 +12,23 @@ router.get('/', function(req, res) {
         var itemp = [];
         var ohum = [];
         var ihum  = [];
-    
+        var pressure = [];
+
         for( var i = 0;i<result.length;i++){
             otemp.push({x:((i+1)),y:result[i].otemp});
             itemp.push({x:((i+1)),y:result[i].itemp});
             ohum.push({x:((i+1)),y:result[i].ohum});
             ihum.push({x:((i+1)),y:result[i].ihum});
+            pressure.push({x:((i+1)),y:result[i].pressure});
         }
 
-        console.log(otemp);
         res.render('index', {
             recentData:recentData,
             otemp: encodeURIComponent(JSON.stringify(otemp)),
             itemp:encodeURIComponent(JSON.stringify(itemp)),
             ihum:encodeURIComponent(JSON.stringify(ihum)),
             ohum:encodeURIComponent(JSON.stringify(ohum)),
+            pressure:encodeURIComponent(JSON.stringify(pressure)),
             title:"BeeHive" 
         });
     
