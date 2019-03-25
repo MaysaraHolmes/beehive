@@ -34,7 +34,9 @@ void Fan::stop(){
   pwmWrite(this->gpio, 0);
 }
 
-
+void Fan::readAlarmPin(){
+	std::cout << digitalRead(this->interruptPin) <<std::endl;
+}
 void Fan::onInterrupt(){
   if (digitalRead(this->interruptPin) == HIGH){
     start();

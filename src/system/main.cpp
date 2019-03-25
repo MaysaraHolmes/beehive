@@ -60,6 +60,7 @@ int main(int argc, const char* argv[] ){
 
   do {
 		sleep(1);
+    f->readAlarmPin();
 	} while (1);
 
 

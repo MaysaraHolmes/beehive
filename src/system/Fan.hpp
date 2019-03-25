@@ -20,7 +20,7 @@ static int x;
 public:
     Fan(int gpio = 18, int interruptPin=7);
 //	void setFanPointer();
-    
+
 	void setPwm(int pwm_value);
     void start();
     void stop();
@@ -39,6 +39,7 @@ public:
       helper_func0,
       helper_func1
     };*/
+    void Fan::readAlarmPin();
     void onInterrupt();
     ~Fan();
 };
