@@ -2,7 +2,7 @@
 
 
 Fan::Fan(int gpio, int interruptPin){
-  saved_Fan_pointer[0] = this;
+  saved_Fan_pointer = this;
   this->gpio = gpio;
   this->interruptPin = interruptPin;
   wiringPiSetupGpio();
@@ -13,8 +13,6 @@ Fan::Fan(int gpio, int interruptPin){
   //wiringPiISR(this->interruptPin, INT_EDGE_FALLING, &stop);
 }
 
-saved_Input_pointer[num] = this;
-state = wiringPiISR(num, 1, helper_function[num]);
 
 //range is 0-1024
 void Fan::setPwm(int pwm_value){
@@ -31,8 +29,8 @@ void Fan::stop(){
 
 static void helper_func0()
 {
-  cout << "in helper_func for pin 0: ";
-  saved_Fan_pointer[0]->onInterrupt();
+	std::cout << "in helper_func for pin 0: "<<std::endl;
+  saved_Fan_pointer->onInterrupt();
 }
 
 void Fan::onInterrupt(){
