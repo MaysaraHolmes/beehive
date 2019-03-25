@@ -86,7 +86,8 @@
             $("#itemp_recent").text(data.itemp);    
             $("#ohum_recent").text(data.ohum);
             $("#ihum_recent").text(data.ihum);
-        
+            $("#pressure_recent").text(data.pressure);
+
         };
 
         var socket = io();
@@ -137,8 +138,8 @@
 
     <div class="hex slide sunny">
       <div class="front">
-        <h5>Beehive weight</h5>
-        <h3>10g</h3>
+        <h5>Pressure</h5>
+        <h3 id="pressure_recent">{{recentData.pressure}}</h3>
       </div>
     </div>
     </div>
@@ -155,11 +156,48 @@
     <br>
     <center><div id="beehivehumidity" style="height: 370px; width: 50%;"></div></center>
     <br>
+    <br>
+    <br>
 
+    <form method="POST" action="/email_sub" id="email_form"> 
+        <center>
+          <div class="container">
+            <h2>Subscribe to get alerts notifications !</h2>
+            <p>Beehive will send you notifications when there is critical readings</p>
+            <input type="text" placeholder="Email address" name="email" id="email" required>
+          </div>
+          <input type="submit" value="Subscribe">
+        </center>
+    </form>
+    
     <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
     <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
     <script src='https://use.fontawesome.com/97152d9c6b.js'></script>
     <script src="/socket.io/socket.io.js"></script>
+    <script type='text/javascript'>
+        /* attach a submit handler to the form */
+        $("#email_form").on('submit',function(event) {
+              /* stop form from submitting normally */
+              event.preventDefault();
+
+              /* get the action attribute from the <form action=""> element */
+              var $form = $( this ),
+                  url = $form.attr( 'action' );
+
+              /* Send the data using post with element id name and name2*/
+              var posting = $.post( url, 
+                { email: $('#email').val()} );
+
+              /* Alerts the results */
+              posting.done(function( data ) {
+                alert('you have been subscribed successfully !');
+                $('#email').val('')
+              }).fail(function(xhr,status,error){
+                alert("there was an error, please try again and make sure you use a valid email");
+                $('#email').val('')
+              });
+        });
+    </script>
 
 </body>
 

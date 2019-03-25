@@ -35,4 +35,21 @@ router.get('/', function(req, res) {
     });
 });
 
+router.post('/email_sub',function(req,res){
+    if(!validateEmail(req.body.email)){
+        return res.sendStatus(402);
+    }
+    sql.insertEmail(req.body.email).then(()=>{
+        res.sendStatus(200);
+    }).catch((err)=>{
+        console.log(err);
+        res.sendStatus(500);
+    });
+}); 
+
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
 module.exports = router;

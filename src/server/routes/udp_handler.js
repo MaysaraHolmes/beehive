@@ -37,7 +37,11 @@ function validateData(data) {
     if(data_array[3] && Number(data_array[3])){
         validData.ohum = data_array[3];
     }
-    if(validData.otemp && validData.ohum && validData.itemp && validData.ihum){
+    if(data_array[4] && Number(data_array[4])){
+        validData.pressure = data_array[4];
+    }
+
+    if(validData.otemp && validData.ohum && validData.itemp && validData.ihum && validData.pressure){
         return validData;
     }
     return null;
