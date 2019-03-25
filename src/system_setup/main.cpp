@@ -26,7 +26,7 @@ int main(int argc, const char* argv[] ){
 
 	global_buffer[2]= 0x00;
 	global_buffer[1]= 0x00;
-	global_buffer[0]= 0x1C;
+	global_buffer[0]= 0x18;
 	bus->writeI2C(3, global_buffer);
 
 bus->readI2C(3, global_buffer);
@@ -40,15 +40,15 @@ std::cout << (int)global_buffer[2] << std::endl;
   // Set Set Alarm_High_On = 80% Humidity.
   //(Write 0x3333 to EEPROM Location 0x18).
   global_buffer[0] = 0x58;
-  global_buffer[1] = 0x0C;
-  global_buffer[2] = 0xCC;
+  global_buffer[1] = 0x26;
+  global_buffer[2] = 0x65;
   bus->writeI2C(3, global_buffer);
 
   //Set Alarm_High_Off = 75% Humidity.
   //(Write 0x3000 to EEPROM Location 0x19).
   global_buffer[0] = 0x59;
-  global_buffer[1] = 0x09;
-  global_buffer[2] = 0x99;
+  global_buffer[1] = 0x1F;
+  global_buffer[2] = 0xFF;
   bus->writeI2C(3, global_buffer);
 
 /*
