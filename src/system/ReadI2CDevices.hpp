@@ -11,6 +11,7 @@
 #include <bitset>
 #include <cstring>  // strlen()
 #include <vector>
+#include <string>
 
 #define I2C_PORT1 (char*)"/dev/i2c-1"
 #define I2C_PORT2 (char*)"/dev/i2c-3"
@@ -37,9 +38,11 @@ private:
   //int bytesToRead =4;
 //NOTE above remove
 
-  unsigned char global_buffer[4]={0};
+  unsigned char global_buffer[20]={0};
   // NOTE Array/vector of all the sensors instead
   Sensor* th1;
+  Sensor* th2;
+  Sensor* pr;
   //std::vector<Sensor*> sensors;
   //Sensor* sensors[NB_DEVICES];
 
@@ -49,7 +52,7 @@ public:
     ReadI2CDevices();
 
     void writeAll();
-    void readAll();
+    std::string readAll();
 
     ~ReadI2CDevices();
 };

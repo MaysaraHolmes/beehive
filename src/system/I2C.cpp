@@ -36,14 +36,14 @@ void I2C::readI2C(int bytesToRead, unsigned char* global_buffer){
 	}
 	else
 	{
-		std::bitset<8> bitset1(global_buffer[0]);
-		std::bitset<8> bitset2(global_buffer[1]);
-		std::bitset<8> bitset3(global_buffer[2]);
-		std::bitset<8> bitset4(global_buffer[3]);
-		std::cout << "\nbitset1: " << bitset1 << std::endl;
-		std::cout << "bitset2: " << bitset2 << std::endl;
-		std::cout << "bitset3: " << bitset3 << std::endl;
-		std::cout << "bitset4: " << bitset4 << std::endl;
+		//std::bitset<8> bitset1(global_buffer[0]);
+		//std::bitset<8> bitset2(global_buffer[1]);
+		//std::bitset<8> bitset3(global_buffer[2]);
+		//std::bitset<8> bitset4(global_buffer[3]);
+		//std::cout << "\nbitset1: " << bitset1 << std::endl;
+		//std::cout << "bitset2: " << bitset2 << std::endl;
+		//std::cout << "bitset3: " << bitset3 << std::endl;
+		//std::cout << "bitset4: " << bitset4 << std::endl;
 	}
 }
 
@@ -53,6 +53,23 @@ int I2C::writeI2C(int length){//NOTE set default values if not sent in
 	//----- WRITE BYTES -----
 	buffer[0] = 0x01;
 	buffer[1] = 0x02;
+	//int length = 2;			//<<< Number of bytes to write
+	if (write(file_i2c, buffer, length) != length)		//write() returns the number of bytes actually written, if it doesn't match then an error occurred (e.g. no response from the device)
+	{
+		/* ERROR HANDLING: i2c transaction failed */
+		printf("Failed to write to the i2c bus.\n");
+		return -1;
+	}
+	//printf("Succeeded writing");
+	return 1;
+
+}
+
+int I2C::writeI2C(int length, unsigned char* buffer){//NOTE set default values if not sent in
+
+	//----- WRITE BYTES -----
+	//buffer[0] = 0x01;
+	//buffer[1] = 0x02;
 	//int length = 2;			//<<< Number of bytes to write
 	if (write(file_i2c, buffer, length) != length)		//write() returns the number of bytes actually written, if it doesn't match then an error occurred (e.g. no response from the device)
 	{

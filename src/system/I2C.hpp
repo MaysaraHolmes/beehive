@@ -25,6 +25,7 @@ class I2C{
 
     void readI2C(int bytesToRead, unsigned char* global_buffer);
     int writeI2C(int length); //NOTE instead overload function?
+		int writeI2C(int length, unsigned char* buffer);
 
 };
 

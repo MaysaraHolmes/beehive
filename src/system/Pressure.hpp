@@ -21,16 +21,30 @@ private:
     //int bytesToWrite = 2;
 
     //reads 10bits???
-    uint16_t pressureBits;
+
+    // variables to hold the floating point coefficients
+    float a0;
+    float b1;
+    float b2;
+    float c12;
+
+    //uint16_t pressureBits;
+    //uint16_t tempBits;
+    int pressure;
+    int temp;
+    float pressureComp;
+
 
 public:
-    Pressure(char* portI2C, int addrI2C);
+    Pressure(char* portI2C, int addrI2C, unsigned char* global_buffer);
+    void readCoefficients(unsigned char* global_buffer);
     void readI2C(unsigned char* global_buffer);
     int writeI2C();
 
 		//NOTE make const
     //returns kPa
-    double getPressure();
+    float getPressure();
+    float getTemp();
 
     ~Pressure();
 };
