@@ -14,6 +14,7 @@ class Fan {
 private:
     int gpio;
     int interruptPin;
+    static Fan *saved_Fan_pointer[1];
 
 public:
     Fan(int gpio = 18, int interruptPin=17);
@@ -21,6 +22,7 @@ public:
     void setPwm(int pwm_value);
     void start();
     void stop();
+    static void helper_func0();
     void onInterrupt();
     ~Fan();
 };
