@@ -43,6 +43,7 @@ int main(int argc, const char* argv[] ){
 
   //TESTING FAN
   Fan* f = new Fan();
+  f->readAlarmPin();
   std::cout << "start fan" << std::endl;
   f->setPwm(1023);
   unsigned int microseconds = 5000000;
