@@ -38,8 +38,8 @@ void Pressure::readCoefficients(unsigned char* global_buffer){
   this->b2 = (float)b2coeff / 16384;
   this->c12 = (float)c12coeff;
   this->c12 /= 4194304.0;
-  std::cout << "printing coefficienter:  " << this->a0 << "  " << this->b1 << "  "<< this->b2 << "  "<< this->c12 << std::endl;
-  std::cout << " " << std::endl;
+ // std::cout << "printing coefficienter:  " << this->a0 << "  " << this->b1 << "  "<< this->b2 << "  "<< this->c12 << std::endl;
+ // std::cout << " " << std::endl;
 }
 
 
@@ -52,33 +52,33 @@ void Pressure::readI2C(unsigned char* global_buffer){
 
   //NOTE go to bookmark to see example
   bus->readI2C(this->bytesToRead, global_buffer);
-  int nbOfBytes = strlen((char*)global_buffer);
-  std::cout << "nbOfBytes " << nbOfBytes << std::endl;
+  //int nbOfBytes = strlen((char*)global_buffer);
+  //std::cout << "nbOfBytes " << nbOfBytes << std::endl;
 
   //seperate the different bits read
   this->pressure = (( (uint16_t)(global_buffer[0]) << 8) | (global_buffer[1]) ) >> 6;
-  std::cout << "\n PRESSURE BITS: " <<  (int)this->pressure << std::endl;
+  //std::cout << "\n PRESSURE BITS: " <<  (int)this->pressure << std::endl;
   this->temp = (( (uint16_t)(global_buffer[2]) << 8) | (global_buffer[3]) ) >> 6;
 
 
   this->pressureComp = this->a0 +
                        (this->b1 + this->c12 * (this->temp)) * (this->pressure) +
                        (this->b2) * (this->temp);
-	std::cout << "pressureCOmp : " << this->pressureComp <<std::endl;
+	//	std::cout << "pressureCOmp : " << this->pressureComp <<std::endl;
 }
 
 
 float Pressure::getPressure() {
   //return pressure in kiloPascals
   float k =  ((this->pressureComp) * ((115-50)/1023.0F)) + 50.0F;
-  std::cout << "pressure i kPa: " << k << std::endl;
+  //std::cout << "pressure i kPa: " << k << std::endl;
   return k;
 }
 
 float Pressure::getTemp() {
   //return temp in celsius degrees
   float t =  (  ( (float)(this->temp) - 498.0F) / (-5.35F)  ) + 25.0F ;
-  std::cout << "temp : " << t << std::endl;
+  //std::cout << "temp : " << t << std::endl;
   return t;
 }
 

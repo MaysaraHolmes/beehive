@@ -16,7 +16,7 @@ int TemperatureAndHumidity::writeI2C(){
 void TemperatureAndHumidity::readI2C(unsigned char* global_buffer){
   bus->readI2C(this->bytesToRead, global_buffer);
   int nbOfBytes = strlen((char*)global_buffer);
-  std::cout << "nbOfBytes " << nbOfBytes << std::endl;
+  //std::cout << "nbOfBytes " << nbOfBytes << std::endl;
 
   //seperate the different bits read
   this->status = ((uint8_t) (global_buffer[0] & 0xC0) >> 6);

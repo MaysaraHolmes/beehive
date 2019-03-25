@@ -32,8 +32,8 @@ DemoTimer1::DemoTimer1(){
 
 void DemoTimer1::timerEvent() {
   //call function ReadI2Cdevices
-	fprintf(stdout,"Buh! ");
-	fflush(stdout);
+	//fprintf(stdout,"Buh! ");
+	//fflush(stdout);
 
 
 	r->writeAll();
@@ -49,11 +49,11 @@ void DemoTimer1::timerEvent() {
   // and we seperate them by spaces as shown
 
   //char *hello = "49 59 29 49";
-  printf("sending a message *****");
+  //printf("sending a message *****");
   sendto(sockfd, hello, strlen(hello),
          MSG_CONFIRM, (const struct sockaddr *) &(this->servaddr),
               sizeof((this->servaddr)));
-  printf("Hello message sent.\n");
+  printf(" message sent to server.\n\n\n");
   // end of the second part
 
   // this is uselss code, but keep it in case

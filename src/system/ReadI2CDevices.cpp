@@ -70,7 +70,8 @@ std::string ReadI2CDevices::readAll(){//make attribute instead
 
   std::string s = "";
   s += std::to_string( ((TemperatureAndHumidity*)th1)->getTemp()) + " " + std::to_string(((TemperatureAndHumidity*)th1)->getHum()) + " ";
-  s += std::to_string(((TemperatureAndHumidity*)th2)->getTemp()) + " " +std::to_string( ((TemperatureAndHumidity*)th2)->getHum());
+  s += std::to_string(((TemperatureAndHumidity*)th2)->getTemp()) + " " +std::to_string( ((TemperatureAndHumidity*)th2)->getHum()) + " ";
+	s+= std::to_string(((Pressure*)pr)->getPressure());
   return s;
 }
 
