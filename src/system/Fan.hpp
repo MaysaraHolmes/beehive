@@ -14,7 +14,7 @@ class Fan {
 public:
     int gpio;
     int interruptPin;
-    static Fan *saved_Fan_pointer;
+    static Fan *saved_Fan_pointer[2];
 
 //:public:
     Fan(int gpio = 18, int interruptPin=17);
