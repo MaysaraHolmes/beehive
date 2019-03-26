@@ -15,21 +15,20 @@ private:
     int gpio;
     int interruptPin;
     static Fan *saved_Fan_pointer;
-//static int x;
 
 public:
     Fan(int gpio = 18, int interruptPin=7);
-	void setFanPointer();
 
-	void setPwm(int pwm_value);
+    void setFanPointer();
+    void setPwm(int pwm_value);
     void start();
     void stop();
-
+    /*
     static void helper_func0()
     {
     	std::cout << "in helper_func for pin 0: "<<std::endl;
      // saved_Fan_pointer->onInterrupt();
-    }/*
+    }
     static void helper_func1()
     {
       std::cout << "in helper_func for pin 1: ";
@@ -39,8 +38,9 @@ public:
       helper_func0,
       helper_func1
     };*/
+
     void readAlarmPin();
-    void onInterrupt();
+    static void onInterrupt();
     ~Fan();
 };
 
