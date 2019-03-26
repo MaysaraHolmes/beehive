@@ -4,7 +4,8 @@
 #include "Sensor.hpp"
 #include <iostream>
 
-
+#include <stdio.h>
+#include <wiringPi.h>
 //#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -43,6 +44,7 @@ int main(int argc, const char* argv[] ){
 
   //TESTING FAN
   Fan* f = new Fan();
+  f->readAlarmPin();
   std::cout << "start fan" << std::endl;
   f->setPwm(1023);
   unsigned int microseconds = 5000000;
@@ -58,11 +60,17 @@ int main(int argc, const char* argv[] ){
   //Fan* f = new Fan();
   //std::thread fanThread()
 
+wiringPiSetupGpio();
+pinMode(7,INPUT);
+int status = digitalRead(7);
+printf("Pin input = %d\n", status);
   do {
 		sleep(1);
+
+   // f->readAlarmPin();
 	} while (1);
 
 
-
+return 0;
 
 }

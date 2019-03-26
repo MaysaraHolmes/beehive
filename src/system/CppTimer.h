@@ -93,7 +93,7 @@ public:
 #include <string>
 #define PORT     33333
 // we will change it later
-#define HOST    "192.168.1.104"
+#define HOST    "127.0.0.1"
 #define MAXLINE 1024
 
 class DemoTimer1 : public CppTimer {
