@@ -44,7 +44,7 @@ private:
   Sensor* th1;
   Sensor* th2;
   Sensor* pr;
-  Fan* f;
+  //Fan* f;
   //std::vector<Sensor*> sensors;
   //Sensor* sensors[NB_DEVICES];
 

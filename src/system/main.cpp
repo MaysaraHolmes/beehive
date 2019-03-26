@@ -41,7 +41,7 @@ int main(int argc, const char* argv[] ){
   sensorThread.join();
   delete r;
 */
-/*
+
   //TESTING FAN
   Fan* f = new Fan();
   f->readAlarmPin();
@@ -51,7 +51,7 @@ int main(int argc, const char* argv[] ){
   usleep(microseconds);
   std::cout << "stop fan" << std::endl;
   f->stop();
-  */
+ 
 
 
 
@@ -62,13 +62,13 @@ int main(int argc, const char* argv[] ){
   //std::thread fanThread()
 
 wiringPiSetupGpio();
-pinMode(7,INPUT);
-int status = digitalRead(7);
+pinMode(22,INPUT);
+int status = digitalRead(22);
 printf("Pin input = %d\n", status);
   do {
 		sleep(1);
 
-   // f->readAlarmPin();
+    //f->readAlarmPin();
 	} while (1);
 
 

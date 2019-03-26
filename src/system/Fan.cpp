@@ -9,7 +9,7 @@ Fan::Fan(int gpio, int interruptPin){
   this->interruptPin = interruptPin;
   wiringPiSetupGpio();
   pinMode(this->gpio, PWM_OUTPUT);
-  pinMode(7, INPUT);
+  pinMode(22, INPUT);
   int state = wiringPiISR(this->interruptPin, INT_EDGE_BOTH, onInterrupt);
   //wiringPiISR(this->interruptPin, INT_EDGE_RISING, &start);
   //wiringPiISR(this->interruptPin, INT_EDGE_FALLING, &stop);
@@ -34,9 +34,10 @@ void Fan::stop(){
 
 void Fan::readAlarmPin(){
 	std::cout << "interruptpin: " << this->interruptPin <<std::endl;
-	std::cout << "gpio 7: " << ( digitalRead(7)) <<std::endl;
+	std::cout << "gpio 22: " << ( digitalRead(22)) <<std::endl;
 }
 void Fan::onInterrupt(){
+	std::cout<< "Interrup!!!!! \n " << std::endl;
   if (digitalRead(saved_Fan_pointer->interruptPin) == HIGH){
     saved_Fan_pointer->start();
   }

@@ -17,7 +17,7 @@ private:
     static Fan *saved_Fan_pointer;
 
 public:
-    Fan(int gpio = 18, int interruptPin=7);
+    Fan(int gpio = 18, int interruptPin=22);
 
     void setFanPointer();
     void setPwm(int pwm_value);
