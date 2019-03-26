@@ -35,7 +35,8 @@ void Fan::stop(){
 }
 
 void Fan::readAlarmPin(){
-	std::cout <<( digitalRead(7)) <<std::endl;
+	std::cout << "interruptpin: " << this->interruptPin <<std::endl;
+	std::cout << "gpio 7: " << ( digitalRead(7)) <<std::endl;
 }
 void Fan::onInterrupt(){
   if (digitalRead(this->interruptPin) == HIGH){
