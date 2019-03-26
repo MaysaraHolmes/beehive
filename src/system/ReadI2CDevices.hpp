@@ -12,6 +12,7 @@
 #include <cstring>  // strlen()
 #include <vector>
 #include <string>
+#include "Fan.hpp"
 
 #define I2C_PORT1 (char*)"/dev/i2c-1"
 #define I2C_PORT2 (char*)"/dev/i2c-3"
@@ -43,6 +44,7 @@ private:
   Sensor* th1;
   Sensor* th2;
   Sensor* pr;
+  Fan* f;
   //std::vector<Sensor*> sensors;
   //Sensor* sensors[NB_DEVICES];
 

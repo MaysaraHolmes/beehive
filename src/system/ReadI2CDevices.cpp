@@ -21,6 +21,8 @@ void ReadI2CDevices::createSensorObjects(){
   //sensors.push_back(s);
   //sensors.push_back(new TemperatureAndHumidity(I2C_PORT2, PORT1_ADDR_TEMP_AND_HUM));
 //std::cout << "size of vector : " << sensors.size() << std::endl;
+
+  this->f - new Fan();
 }
 
 
@@ -58,6 +60,13 @@ std::string ReadI2CDevices::readAll(){//make attribute instead
   //std::cout << "status: " << ((TemperatureAndHumidity*)sensors[0])->getStatus() << std::endl;
   //std::cout << "temp: " << ((TemperatureAndHumidity*)sensors[0])->getTemp() << std::endl;
   //std::cout << "humidity: " << ((TemperatureAndHumidity*)sensors[0])->getHum() << std::endl;
+
+  if ( ((TemperatureAndHumidity*)th1)->getHum() > 60){
+    this->f->start();
+  }
+  else if ( ((TemperatureAndHumidity*)th1)->getHum() <40 ){
+    this->f->stop();
+  }
 
   //std::cout << "\n\n TEMPERATUR I2C2 " << std::endl;
   //std::cout << "status: " << ((TemperatureAndHumidity*)th2)->getStatus() << std::endl;
