@@ -22,7 +22,7 @@ void ReadI2CDevices::createSensorObjects(){
   //sensors.push_back(new TemperatureAndHumidity(I2C_PORT2, PORT1_ADDR_TEMP_AND_HUM));
 //std::cout << "size of vector : " << sensors.size() << std::endl;
 
-  this->f - new Fan();
+  this->f = new Fan();
 }
 
 
