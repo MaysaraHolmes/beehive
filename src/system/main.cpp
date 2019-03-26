@@ -41,7 +41,7 @@ int main(int argc, const char* argv[] ){
   sensorThread.join();
   delete r;
 */
-
+/*
   //TESTING FAN
   Fan* f = new Fan();
   f->readAlarmPin();
@@ -51,6 +51,7 @@ int main(int argc, const char* argv[] ){
   usleep(microseconds);
   std::cout << "stop fan" << std::endl;
   f->stop();
+  */
 
 
 
