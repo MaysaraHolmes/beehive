@@ -14,12 +14,12 @@ class Fan {
 private:
     int gpio;
     int interruptPin;
-    //static Fan *saved_Fan_pointer;
-static int x;
+    static Fan *saved_Fan_pointer;
+//static int x;
 
 public:
     Fan(int gpio = 18, int interruptPin=7);
-//	void setFanPointer();
+	void setFanPointer();
 
 	void setPwm(int pwm_value);
     void start();

@@ -1,12 +1,12 @@
 #include "Fan.hpp"
 
 
-//Fan Fan::*saved_Fan_pointer = NULL;
-int Fan::x =0;
+Fan* Fan::saved_Fan_pointer = NULL;
+//int Fan::x =0;
 Fan::Fan(int gpio, int interruptPin){
-  //setFanPointer();
+  setFanPointer();
  // Fan::saved_Fan_pointer = this;
-	Fan::x=10;
+//	Fan::x=10;
 	this->gpio = gpio;
   this->interruptPin = interruptPin;
   wiringPiSetupGpio();
@@ -16,10 +16,10 @@ Fan::Fan(int gpio, int interruptPin){
   //wiringPiISR(this->interruptPin, INT_EDGE_RISING, &start);
   //wiringPiISR(this->interruptPin, INT_EDGE_FALLING, &stop);
 }
-/*
+
 void Fan::setFanPointer(){
 	this->saved_Fan_pointer = this;
-}*/
+}
 
 //range is 0-1024
 void Fan::setPwm(int pwm_value){
