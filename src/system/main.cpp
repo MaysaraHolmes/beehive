@@ -4,7 +4,8 @@
 #include "Sensor.hpp"
 #include <iostream>
 
-
+#include <stdio.h>
+#include <wiringPi.h>
 //#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -59,12 +60,17 @@ int main(int argc, const char* argv[] ){
   //Fan* f = new Fan();
   //std::thread fanThread()
 
+wiringPiSetupGpio();
+pinMode(7,INPUT);
+int status = digitalRead(7);
+printf("Pin input = %d\n", status);
   do {
 		sleep(1);
-    f->readAlarmPin();
+
+   // f->readAlarmPin();
 	} while (1);
 
 
-
+return 0;
 
 }

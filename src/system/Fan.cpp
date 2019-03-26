@@ -38,10 +38,10 @@ void Fan::readAlarmPin(){
 }
 void Fan::onInterrupt(){
   if (digitalRead(saved_Fan_pointer->interruptPin) == HIGH){
-    start();
+    saved_Fan_pointer->start();
   }
   else{
-    stop();
+    saved_Fan_pointer->stop();
   }
 }
 
