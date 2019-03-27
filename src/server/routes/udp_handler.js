@@ -18,9 +18,9 @@ exports.insertData = function(data){
             console.log("alarm !!");
             sql.getEmails().then((results)=>{
                 console.log("emails");
-                console.log(emails);
-                for(var i =0;i<emails.length;i++){
-                    emails_sender.send_email(emails[i]);
+                console.log(results);
+                for(var i =0;i<results.length;i++){
+                    emails_sender.send_email(results[i]);
                 }
             }).catch((err)=>{
                 console.log(err);
