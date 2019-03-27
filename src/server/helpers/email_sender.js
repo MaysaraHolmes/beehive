@@ -16,9 +16,8 @@ exports.send_email = function (account) {
 	var mailOptions = {
 		from: 'beehiveprojectglasgow@gmail.com', // sender address
 		to: account, // list of receivers
-		subject: "Hello ✔", // Subject line
-		text: "Hello world?", // plain text body
-		html: "<b>Hello world?</b>" // html body
+		subject: "Beehive readings alaram!", // Subject line
+		text: "The readings have reached a critical point, please check the website for more info" // plain text body
 	};
 
 	transporter.sendMail(mailOptions, function(error, info){

@@ -20,7 +20,7 @@ exports.insertData = function(data){
                 console.log("emails");
                 console.log(results);
                 for(var i =0;i<results.length;i++){
-                    emails_sender.send_email(results[i]);
+                    emails_sender.send_email(results[i].email);
                 }
             }).catch((err)=>{
                 console.log(err);
