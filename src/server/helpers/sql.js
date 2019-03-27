@@ -30,3 +30,12 @@ exports.insertEmail = function(email){
 		})
 	});
 }
+
+exports.getEmails = function(){
+	return new Promise((resolve,reject)=>{
+		connection.query("SELECT * FROM emails",(err,result,fields)=>{
+			if(err) return reject(err);
+			resolve(result);
+		});
+	});
+}

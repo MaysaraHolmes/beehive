@@ -1,4 +1,5 @@
 var sql = require("../helpers/sql");
+var emails_sender = require('../helpers/email_sender');
 
 exports.insertData = function(data){
     console.log("posting data");
@@ -13,13 +14,21 @@ exports.insertData = function(data){
         console.log(result);
         var io = require('../helpers/socket')();
         io.emit('new_data', { result:result });
+        if(result.ihum > 60){
+            console.log("alarm !!");
+            sql.getEmails().then((results)=>{
+                console.log("emails");
+                console.log(emails);
+                for(var i =0;i<emails.length;i++){
+                    emails_sender.send_email(emails[i]);
+                }
+            }).catch((err)=>{
+                console.log(err);
+            });   
+        }
     }).catch((err)=>{
         console.log(err);
     });
-}
-
-exports.sendAlarm = function(data){
-    // TODO
 }
     
 function validateData(data) {
