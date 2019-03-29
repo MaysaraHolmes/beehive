@@ -2,10 +2,9 @@ var express = require('express');
 var router = express.Router();
 var sql = require("../helpers/sql");
 
-/* GET home page. */
 router.get('/', function(req, res) {
+    
     sql.getData().then((result)=>{
-        console.log("done reading data");
         var recentData = result.length==0 ? {} : result[result.length-1];
         
         var otemp = [];
@@ -35,11 +34,12 @@ router.get('/', function(req, res) {
     }).catch((err)=>{
         console.log(err);
     });
+
 });
 
 router.post('/email_sub',function(req,res){
     if(!validateEmail(req.body.email)){
-        return res.sendStatus(402);
+        return res.sendStatus(406);
     }
     sql.insertEmail(req.body.email).then(()=>{
         res.sendStatus(200);

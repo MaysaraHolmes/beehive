@@ -3,21 +3,22 @@ var path = require('path');
 var favicon = require('static-favicon');
 var bodyParser = require('body-parser');
 var hbs = require('express-hbs');
-var results = require('dotenv').config();
+
+require('dotenv').config();
+require('./helpers/db_connection');
 
 var udpserver = require('./helpers/udp_init');
 var udphandler = require('./routes/udp_handler');
 var index = require('./routes/index');
+
 var app = express();
 
-require('./helpers/db_connection');
 
 app.engine('hbs', hbs.express4({
   partialsDir: __dirname + '/views'
 }));
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
-
 app.use(favicon());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

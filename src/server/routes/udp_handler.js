@@ -2,23 +2,18 @@ var sql = require("../helpers/sql");
 var emails_sender = require('../helpers/email_sender');
 
 exports.insertData = function(data){
-    console.log("posting data");
-    console.log(data.toString('utf8'));
+
     var validData = validateData(data.toString('utf8'));
     if(validData==null){
         console.log("not a valid data");
         return;
     }
     sql.insertData(validData).then((result)=>{
-        console.log("done inserting data");
-        console.log(result);
         var io = require('../helpers/socket')();
         io.emit('new_data', { result:result });
         if(result.ihum > 60){
             console.log("alarm !!");
             sql.getEmails().then((results)=>{
-                console.log("emails");
-                console.log(results);
                 for(var i =0;i<results.length;i++){
                     emails_sender.send_email(results[i].email);
                 }
@@ -29,6 +24,7 @@ exports.insertData = function(data){
     }).catch((err)=>{
         console.log(err);
     });
+
 }
     
 function validateData(data) {
@@ -49,7 +45,6 @@ function validateData(data) {
     if(data_array[4] && Number(data_array[4])){
         validData.pressure = data_array[4];
     }
-
     if(validData.otemp && validData.ohum && validData.itemp && validData.ihum && validData.pressure){
         return validData;
     }

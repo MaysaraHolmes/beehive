@@ -13,6 +13,7 @@
 
   <script>
       window.onload = function () {
+        
         var itemp = JSON.parse(decodeURIComponent("{{{itemp}}}"));
         var otemp = JSON.parse(decodeURIComponent("{{{otemp}}}"));
         var ihum = JSON.parse(decodeURIComponent("{{{ihum}}}"));
@@ -31,16 +32,16 @@
             data: [
                 {
                     showInLegend: true, 
-                    name: "outside humidity",
-                    legendText: "outside humidity",
+                    name: "outside temperature",
+                    legendText: "outside temperature",
                     type: "line", 
                     dataPoints: otemp,
                     lineColor:"#4286f4",
                 },
                 {
                     showInLegend: true, 
-                    name: "inside humidity",
-                    legendText: "inside humidity",
+                    name: "inside temperature",
+                    legendText: "inside temperature",
                     type: "line", //change it to line, area, column, pie, etc
                     dataPoints: itemp,
                     lineColor:"red"
@@ -91,8 +92,8 @@
             data: [
                 {
                     showInLegend: true, 
-                    name: "outside humidity",
-                    legendText: "Pressure",
+                    name: "pressure",
+                    legendText: "pressure",
                     type: "line", 
                     dataPoints: pressure,
                     lineColor:"#4286f4"
@@ -119,9 +120,6 @@
             tempchart.render();
             humchart.render();
             pressurechart.render();
-
-            console.log("new data");
-            console.log(data);
             
             $("#otemp_recent").text(data.otemp);
             $("#itemp_recent").text(data.itemp);    
@@ -137,6 +135,7 @@
         });
 
       }
+
   </script>
 
 </head>
@@ -211,10 +210,11 @@
           <input type="submit" value="Subscribe">
         </center>
     </form>
+
     <br>
+    
     <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
     <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
-    <script src='https://use.fontawesome.com/97152d9c6b.js'></script>
     <script src="/socket.io/socket.io.js"></script>
     <script type='text/javascript'>
         /* attach a submit handler to the form */
