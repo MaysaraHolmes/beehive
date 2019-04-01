@@ -3,10 +3,9 @@
 
 
 ReadI2CDevices::ReadI2CDevices(){
-  //this->bus1 = new I2C(I2C_PORT1, deviceAddrsPort1, NB_DEVICES_PORT1);
-  //this->bus2 = new I2C(I2C_PORT2, deviceAddrsPort2, NB_DEVICES_PORT2);
   createSensorObjects();
 }
+
 void ReadI2CDevices::createSensorObjects(){
   //save to private list?
   //TemperatureAndHumidity th1(I2C_PORT1, ADDR_TEMP_AND_HUM);
@@ -21,8 +20,6 @@ void ReadI2CDevices::createSensorObjects(){
   //sensors.push_back(s);
   //sensors.push_back(new TemperatureAndHumidity(I2C_PORT2, PORT1_ADDR_TEMP_AND_HUM));
 //std::cout << "size of vector : " << sensors.size() << std::endl;
-
-  //this->f = new Fan();
 }
 
 
@@ -42,10 +39,8 @@ void ReadI2CDevices::writeAll(){
 
 
 
-std::string ReadI2CDevices::readAll(){//make attribute instead
-  //(this->bus1)->readI2C(this->bytesToRead, global_buffer);
-  //(this->bus1)->readI2C(this->bytesToRead, global_buffer);
-  //maybe add one for each device?
+std::string ReadI2CDevices::readAll(){
+
   (this->th1)->readI2C(this->global_buffer);
   (this->th2)->readI2C(this->global_buffer);
   (this->pr)->readI2C(this->global_buffer);
@@ -57,23 +52,8 @@ std::string ReadI2CDevices::readAll(){//make attribute instead
   //std::cout << "status: " << ((TemperatureAndHumidity*)th1)->getStatus() << std::endl;
   std::cout << "temp: " << ((TemperatureAndHumidity*)th1)->getTemp() << std::endl;
   std::cout << "humidity: " << ((TemperatureAndHumidity*)th1)->getHum() << std::endl;
-  //std::cout << "status: " << ((TemperatureAndHumidity*)sensors[0])->getStatus() << std::endl;
-  //std::cout << "temp: " << ((TemperatureAndHumidity*)sensors[0])->getTemp() << std::endl;
-  //std::cout << "humidity: " << ((TemperatureAndHumidity*)sensors[0])->getHum() << std::endl;
-/*
-  if ( ((TemperatureAndHumidity*)th1)->getHum() > 60){
-    this->f->start();
-  }
-  else if ( ((TemperatureAndHumidity*)th1)->getHum() <40 ){
-    this->f->stop();
-  }*/
-
-  //std::cout << "\n\n TEMPERATUR I2C2 " << std::endl;
-  //std::cout << "status: " << ((TemperatureAndHumidity*)th2)->getStatus() << std::endl;
   std::cout << "temp: " << ((TemperatureAndHumidity*)th2)->getTemp() << std::endl;
   std::cout << "humidity: " << ((TemperatureAndHumidity*)th2)->getHum() << std::endl;
-
-  //std::cout << "\n\n PRESSURE " << std::endl;
   std::cout << "pressure: " << ((Pressure*)pr)->getPressure() << std::endl;
   std::cout << "temp: " << ((Pressure*)pr)->getTemp() << std::endl;
 
@@ -86,10 +66,6 @@ std::string ReadI2CDevices::readAll(){//make attribute instead
 
 
 ReadI2CDevices::~ReadI2CDevices(){
-  //delete this->bus1;
-  //delete this->bus2;
-
-  //delete s i sensors;
   delete th1;
   delete th2;
   delete pr;

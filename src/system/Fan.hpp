@@ -23,23 +23,6 @@ public:
     void setPwm(int pwm_value);
     void start();
     void stop();
-    /*
-    static void helper_func0()
-    {
-    	std::cout << "in helper_func for pin 0: "<<std::endl;
-     // saved_Fan_pointer->onInterrupt();
-    }
-    static void helper_func1()
-    {
-      std::cout << "in helper_func for pin 1: ";
-      saved_Fan_pointer->onInterrupt();
-    }
-    static constexpr void (*helper_function[2])() = {
-      helper_func0,
-      helper_func1
-    };*/
-
-    void readAlarmPin();
     static void onInterrupt();
     ~Fan();
 };

@@ -5,10 +5,8 @@
 #include <fcntl.h>				//Needed for I2C port
 #include <sys/ioctl.h>			//Needed for I2C port
 #include <linux/i2c-dev.h>		//Needed for I2C port
-
 #include <stdio.h>
 #include <iostream>
-#include <bitset> //remove?
 
 
 class I2C{
@@ -18,7 +16,7 @@ class I2C{
 		int file_i2c;
 
 		//data buffer
-		unsigned char buffer[60] = {0}; //NOTE change to 4?
+		unsigned char buffer[5] = {0}; //NOTE change to 4?
 
 		//Constructor, open the I2C bus and tell the kernel the address of the slave
 		I2C(char* portI2C, int slaveAddr[], int length);

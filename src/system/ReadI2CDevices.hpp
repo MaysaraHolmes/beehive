@@ -8,12 +8,9 @@
 
 #include <stdio.h>
 #include <iostream>
-#include <bitset>
 #include <cstring>  // strlen()
 #include <vector>
 #include <string>
-#include "Fan.hpp"
-
 #define I2C_PORT1 (char*)"/dev/i2c-1"
 #define I2C_PORT2 (char*)"/dev/i2c-3"
 
@@ -23,7 +20,6 @@
 
 #define PORT1_ADDR_TEMP_AND_HUM 0X27
 #define PORT2_ADDR_PRESSURE 0X60
-
 #define PORT2_ADDR_TEMP_AND_HUM 0X27
 
 
@@ -44,7 +40,6 @@ private:
   Sensor* th1;
   Sensor* th2;
   Sensor* pr;
-  //Fan* f;
   //std::vector<Sensor*> sensors;
   //Sensor* sensors[NB_DEVICES];
 
