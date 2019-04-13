@@ -40,19 +40,19 @@ class I2C{
 		I2C(char* portI2C, int slaveAddr);
 		//! Read data from the peripheral .
     /*!
-      \param bytesToRead an integer gving numbers of bytes to read.
+      \param bytesToRead an integer giving numbers of bytes to read.
       \param global_buffer an unsigned char pointer where the data read is saved.
     */
     void readI2C(int bytesToRead, unsigned char* global_buffer);
 		/*!
-			\param length an integer gving numbers of bytes to write.
+			\param length an integer giving numbers of bytes to write.
 			\param buffer an unsigned char pointer pointing to the data to write.
 		*/
 		int writeI2C(int length, unsigned char* buffer);
 		//! Write data to the peripheral .
 		/*!
 			Using the private buffer in the object to write default value
-			\param length an integer gving numbers of bytes to write.
+			\param length an integer giving numbers of bytes to write.
 		*/
     int writeI2C(int length);
 

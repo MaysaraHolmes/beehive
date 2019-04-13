@@ -7,56 +7,37 @@ ReadI2CDevices::ReadI2CDevices(){
 }
 
 void ReadI2CDevices::createSensorObjects(){
-  //save to private list?
-  //TemperatureAndHumidity th1(I2C_PORT1, ADDR_TEMP_AND_HUM);
   this->th1 = new TemperatureAndHumidity(I2C_PORT1, PORT1_ADDR_TEMP_AND_HUM);
   this->th2 = new TemperatureAndHumidity(I2C_PORT2, PORT2_ADDR_TEMP_AND_HUM);
   this->pr = new Pressure(I2C_PORT2, PORT2_ADDR_PRESSURE, this->global_buffer);
-
-  //sensors[0] = new TemperatureAndHumidity(I2C_PORT2, PORT1_ADDR_TEMP_AND_HUM);
-
-  //std::cout << "size of vector : " << sensors.size() << std::endl;
-  //Sensor* s = new TemperatureAndHumidity(I2C_PORT2, PORT1_ADDR_TEMP_AND_HUM);
-  //sensors.push_back(s);
   //sensors.push_back(new TemperatureAndHumidity(I2C_PORT2, PORT1_ADDR_TEMP_AND_HUM));
-//std::cout << "size of vector : " << sensors.size() << std::endl;
 }
 
-
-
-
-
 void ReadI2CDevices::writeAll(){
-  //for all sensors in this-> list
-    //sensor.writeI2C;
-  int i = (this->th1)->writeI2C();
-  int j = (this->th2)->writeI2C();
-  int k = (this->pr)->writeI2C();
+  (this->th1)->writeI2C();
+  (this->th2)->writeI2C();
+  (this->pr)->writeI2C();
   /*for (Sensor* s : this->sensors){
     s->writeI2C();
   }*/
 }
 
-
-
 std::string ReadI2CDevices::readAll(){
-
   (this->th1)->readI2C(this->global_buffer);
   (this->th2)->readI2C(this->global_buffer);
   (this->pr)->readI2C(this->global_buffer);
-
   /*for (Sensor* s : this->sensors){
     s->readI2C(this->global_buffer);
   }*/
-  //std::cout << "\n\n TEMPERATUR I2C1 " << std::endl;
-  //std::cout << "status: " << ((TemperatureAndHumidity*)th1)->getStatus() << std::endl;
-  std::cout << "temp: " << ((TemperatureAndHumidity*)th1)->getTemp() << std::endl;
-  std::cout << "humidity: " << ((TemperatureAndHumidity*)th1)->getHum() << std::endl;
-  std::cout << "temp: " << ((TemperatureAndHumidity*)th2)->getTemp() << std::endl;
-  std::cout << "humidity: " << ((TemperatureAndHumidity*)th2)->getHum() << std::endl;
-  std::cout << "pressure: " << ((Pressure*)pr)->getPressure() << std::endl;
-  std::cout << "temp: " << ((Pressure*)pr)->getTemp() << std::endl;
 
+  /* Printing all the values:
+  std::cout << "temp1: " << ((TemperatureAndHumidity*)th1)->getTemp() << std::endl;
+  std::cout << "humidity1: " << ((TemperatureAndHumidity*)th1)->getHum() << std::endl;
+  std::cout << "temp2: " << ((TemperatureAndHumidity*)th2)->getTemp() << std::endl;
+  std::cout << "humidity2: " << ((TemperatureAndHumidity*)th2)->getHum() << std::endl;
+  std::cout << "pressure: " << ((Pressure*)pr)->getPressure() << std::endl;
+  std::cout << "temp_pressureSensor: " << ((Pressure*)pr)->getTemp() << std::endl;
+  */
   std::string s = "";
   s += std::to_string( ((TemperatureAndHumidity*)th1)->getTemp()) + " " + std::to_string(((TemperatureAndHumidity*)th1)->getHum()) + " ";
   s += std::to_string(((TemperatureAndHumidity*)th2)->getTemp()) + " " +std::to_string( ((TemperatureAndHumidity*)th2)->getHum()) + " ";
@@ -69,7 +50,6 @@ ReadI2CDevices::~ReadI2CDevices(){
   delete th1;
   delete th2;
   delete pr;
-
   //for (Sensor* s : sensors){
     //delete s;
   //}
