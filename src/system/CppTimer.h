@@ -16,10 +16,6 @@
 #include <signal.h>
 #include <time.h>
 
-//testing demotimer
-#include "ReadI2CDevices.hpp"
-#include "Sensor.hpp"
-#include <thread>
 
 #define CLOCKID CLOCK_MONOTONIC
 #define SIG SIGRTMIN
@@ -81,31 +77,5 @@ public:
 
 };
 
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
-#include <netinet/in.h>
-#include <string>
-#define PORT     33333
-// we will change it later
-#define HOST    "127.0.0.1"
-#define MAXLINE 1024
-
-class DemoTimer1 : public CppTimer {
-	public:
-		DemoTimer1();
-		~DemoTimer1();
-	private:
-		ReadI2CDevices* r;
-		int sockfd;
-		struct sockaddr_in     servaddr;
-		void timerEvent();
-
-};
 
 #endif
