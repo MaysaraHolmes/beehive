@@ -39,6 +39,7 @@ class TemperatureAndHumidity: public Sensor{
 			Call the Sensor constructor
 			\param portI2C a char pointer holding the which I2C bus on the Raspberry the peripheral is connected to.
 			\param addrI2C an integer holding the address to the peripheral.
+			\sa Sensor(int bytesToRead, int bytesToWrite, char* portI2C, int addrI2C)
 		*/
     TemperatureAndHumidity(char* portI2C, int addrI2C);
 		//! Call the I2C-object read function
