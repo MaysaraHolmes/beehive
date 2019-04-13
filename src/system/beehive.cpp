@@ -1,3 +1,4 @@
+/// \file
 //! Project start
 /*!
    Create a Fan object so the interrupt bin is set to the default value

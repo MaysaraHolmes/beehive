@@ -1,23 +1,17 @@
-//! A  class which is triggered by the CppTimer.h
+//! A class which is triggered by the CppTimer.h
 /*!
    Get the combined data read from sensors and send it through UDP to display
    Includes the client side implementation of UDP client-server model
-
 */
 #ifndef TIMEREVENT_HPP
 #define TIMEREVENT_HPP
 
 #include "CppTimer.h"
 #include "ReadI2CDevices.hpp"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
-#include <string>
 
 #define PORT     33333
 #define HOST    "127.0.0.1"

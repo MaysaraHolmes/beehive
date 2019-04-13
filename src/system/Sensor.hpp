@@ -7,7 +7,9 @@
 #define SENSOR_HPP
 
 #include "I2C.hpp"
-#include <stdio.h>
+#include <cmath>
+#include <cstring>  // strlen()
+#include <cstdint>
 
 class Sensor{
 

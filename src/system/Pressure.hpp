@@ -1,4 +1,4 @@
-//! A  class for the MPL115A2 Barometer sensor
+//! A class for the MPL115A2 Barometer sensor
 /*!
 	 Handling communication with the sensor,
 	 and converting the sensor measurements to human readable values
@@ -8,9 +8,6 @@
 #define PRESSURE_HPP
 
 #include "Sensor.hpp"
-#include <stdio.h>
-#include <string>
-#include <cmath>
 
 
 

@@ -8,10 +8,6 @@
 #define TEMPERATUREANDHUMIDITY_HPP
 
 #include "Sensor.hpp"
-#include <stdio.h>
-#include <cstring>  // strlen()
-#include <string>
-#include <cmath>
 
 
 class TemperatureAndHumidity: public Sensor{

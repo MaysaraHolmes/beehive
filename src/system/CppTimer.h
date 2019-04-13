@@ -1,14 +1,14 @@
+//! Abtract class
+/*!
+ GNU GENERAL PUBLIC LICENSE
+ Version 3, 29 June 2007
+
+ (C) 2018, Bernd Porr <mail@bernporr.me.uk>
+
+ This is inspired by the timer_create man page.
+ */
 #ifndef __CPP_TIMER_H_
 #define __CPP_TIMER_H_
-
-/**
- * GNU GENERAL PUBLIC LICENSE
- * Version 3, 29 June 2007
- *
- * (C) 2018, Bernd Porr <mail@bernporr.me.uk>
- *
- * This is inspired by the timer_create man page.
- **/
 
 #include <stdlib.h>
 #include <unistd.h>

@@ -1,9 +1,10 @@
-//! A  class to gather all the readings from the different sensors.
+//! Class to gather all the readings form the diff sensors
 /*!
    Hold all the addresses for the different sensors we want to read/write to.
    Gather the human readable values from the sensors,
    for easy use outside the class.
 */
+
 
 #ifndef READI2CDEVICES_HPP
 #define READI2CDEVICES_HPP
@@ -11,11 +12,6 @@
 #include "TemperatureAndHumidity.hpp"
 #include "Pressure.hpp"
 #include "Sensor.hpp"
-
-#include <stdio.h>
-#include <iostream>
-#include <cstring>  // strlen()
-#include <vector>
 #include <string>
 
 #define I2C_PORT1 (char*)"/dev/i2c-1"
