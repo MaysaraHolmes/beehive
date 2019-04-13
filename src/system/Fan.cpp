@@ -17,7 +17,6 @@ void Fan::setFanPointer(){
 	this->saved_Fan_pointer = this;
 }
 
-//range is 0-1024
 void Fan::setPwm(int pwm_value){
   pwmWrite(this->gpio, pwm_value);
 }
@@ -31,7 +30,6 @@ void Fan::stop(){
 }
 
 void Fan::onInterrupt(){
-	std::cout<< "Interrup!!!!! \n " << std::endl;
   if (digitalRead(saved_Fan_pointer->interruptPin) == HIGH){
     saved_Fan_pointer->start();
   }
@@ -41,6 +39,5 @@ void Fan::onInterrupt(){
 }
 
 Fan::~Fan(){
-  //stop fan
   this->stop();
 }
