@@ -21,8 +21,7 @@ class Sensor{
     Sensor(int bytesToRead, int bytesToWrite, char* portI2C, int addrI2C) {
 			this->bytesToRead = bytesToRead;
 			this->bytesToWrite=bytesToWrite;
-			int addr[1] = {addrI2C};
-			this->bus = new I2C(portI2C, addr, 1);
+			this->bus = new I2C(portI2C, addrI2C);
 		}
 
     virtual void readI2C(unsigned char* global_buffer)  = 0;

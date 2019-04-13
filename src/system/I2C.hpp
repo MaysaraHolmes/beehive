@@ -1,3 +1,10 @@
+//! A I2C class handling the I2C bus
+/*!
+   Handling I2C bus intended to allow multiple "slave"
+	 digital chips to communicate with the master i.e Raspberry PI.
+	 Every sensor connected to the bus has their own I2C-object.
+*/
+
 #ifndef I2C_HPP
 #define I2C_HPP
 
@@ -11,19 +18,44 @@
 
 class I2C{
 
-	public:
-
+	private:
+		//! A private variable.
+    /*!
+      To communicate with the I2C bus
+    */
 		int file_i2c;
+		//! A private variable.
+		/*!
+			Used if you want to write to a peripheral, starting a conversation
+		*/
+		unsigned char buffer[5] = {0};
 
-		//data buffer
-		unsigned char buffer[5] = {0}; //NOTE change to 4?
-
-		//Constructor, open the I2C bus and tell the kernel the address of the slave
-		I2C(char* portI2C, int slaveAddr[], int length);
-
+	public:
+		//! A constructor.
+    /*!
+      Open the I2C bus and tell the kernel the I2C address of the slave.
+      \param portI2C a char pointer holding the which I2C bus on the Raspberry the peripheral is connected to.
+      \param slaveAddr an integer holding the address to the peripheral.
+    */
+		I2C(char* portI2C, int slaveAddr);
+		//! Read data from the peripheral .
+    /*!
+      \param bytesToRead an integer gving numbers of bytes to read.
+      \param global_buffer an unsigned char pointer where the data read is saved.
+    */
     void readI2C(int bytesToRead, unsigned char* global_buffer);
-    int writeI2C(int length); //NOTE instead overload function?
+		/*!
+			\param length an integer gving numbers of bytes to write.
+			\param buffer an unsigned char pointer pointing to the data to write.
+		*/
 		int writeI2C(int length, unsigned char* buffer);
+		//! Write data to the peripheral .
+		/*!
+			Using the private buffer in the object to write default value
+			\param length an integer gving numbers of bytes to write.
+		*/
+    int writeI2C(int length);
+
 
 };
 
