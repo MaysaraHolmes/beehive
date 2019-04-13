@@ -1,0 +1,4 @@
+<map id="TemperatureAndHumidity" name="TemperatureAndHumidity">
+<area shape="rect" id="node2" href="$classSensor.html" title="An abstract class. " alt="" coords="59,95,122,121"/>
+<area shape="rect" id="node3" href="$classI2C.html" title="A I2C class handling the I2C bus. " alt="" coords="69,5,112,32"/>
+</map>
