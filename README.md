@@ -1,8 +1,8 @@
-** This repository is under construction**
+
 
 <p align="center">
 	<a href="https://beehiveproject.herokuapp.com/">
-	<img src="https://github.com/MaysaraHolmes/beehive/blob/master/bee_pic.jpg"
+	<img src="bee_pic.jpg"
 	 title="Bee" alt="FVCproductions" width="500" height="500" ></a></p>
 
 
@@ -29,7 +29,7 @@ Instructions for installation can be found on the [installation wiki](https://gi
 ## General info
 This projects architecture diagram:
 
-<img src="https://github.com/MaysaraHolmes/beehive/blob/master/ArchitectureDiagram.png" title="Architecture" ></a>
+<img src="ArchitectureDiagram.png" title="Architecture" ></a>
 
 ## Technologies
 
@@ -49,4 +49,4 @@ Project is created with:
 
 * **Maysara Alhindi**  - [Github](https://github.com/MaysaraHolmes)
 
-* **Trine Ødegård Olsen**  - [Github](https://github.com/trineoo)
+* **Trine Ødegård Olsen, 2420036**  - [Github](https://github.com/trineoo)
