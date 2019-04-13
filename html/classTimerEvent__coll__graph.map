@@ -1,6 +1,0 @@
-<map id="TimerEvent" name="TimerEvent">
-<area shape="rect" id="node2" href="$classCppTimer.html" title="CppTimer" alt="" coords="5,213,84,240"/>
-<area shape="rect" id="node3" href="$classReadI2CDevices.html" title="ReadI2CDevices" alt="" coords="109,213,231,240"/>
-<area shape="rect" id="node4" href="$classSensor.html" title="An abstract class. " alt="" coords="139,95,201,121"/>
-<area shape="rect" id="node5" href="$classI2C.html" title="A I2C class handling the I2C bus. " alt="" coords="149,5,191,32"/>
-</map>

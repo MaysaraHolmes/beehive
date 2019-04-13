@@ -1,5 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classSensor.html" title="An abstract class. " alt="" coords="5,31,68,57"/>
-<area shape="rect" id="node2" href="$classPressure.html" title="A class for the MPL115A2 Barometer sensor. " alt="" coords="164,5,239,32"/>
-<area shape="rect" id="node3" href="$classTemperatureAndHumidity.html" title="A class for the HIH6131 Temperatur &amp; Humidity sensor. " alt="" coords="116,56,287,83"/>
-</map>

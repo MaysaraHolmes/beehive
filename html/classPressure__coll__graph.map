@@ -1,4 +1,0 @@
-<map id="Pressure" name="Pressure">
-<area shape="rect" id="node2" href="$classSensor.html" title="An abstract class. " alt="" coords="11,95,74,121"/>
-<area shape="rect" id="node3" href="$classI2C.html" title="A I2C class handling the I2C bus. " alt="" coords="21,5,64,32"/>
-</map>
