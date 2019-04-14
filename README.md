@@ -60,7 +60,7 @@ Project is created with:
 	* MPL115A2 Barometer
 	* P82B96 I2C Shifter
 * Node Js/express Js server
-* MySQl database.
+* MySQL database.
 * [WiringPi](http://wiringpi.com/reference/core-functions/) 
 * [CppTimer.h](https://github.com/berndporr/cppTimer) 
 
