@@ -8,6 +8,6 @@ udpserver.on('listening', function () {
     console.log('UDP Server listening on ' + address.port);
 });
 
-udpserver.bind(process.env.UDP_PORT);
+udpserver.bind(33333);
 
 module.exports = udpserver;
