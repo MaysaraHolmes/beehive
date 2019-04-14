@@ -33,6 +33,8 @@ This projects architecture diagram:
 
 Dependency graph for the C++ code:
 <img src="dependency_graph.png" title="Dependency_graph" ></a>
+The doxygen generated c++ documentation can be found here: [beehive_code_documentation](https://github.com/MaysaraHolmes/beehive/blob/master/documentation/beehive_code_documentation.pdf)
+
 
 ## Technologies
 
