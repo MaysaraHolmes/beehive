@@ -28,6 +28,15 @@ This project is done in partnership with the [Glasgow University Beekeeping Soci
 Instructions for installation can be found on the [installation wiki](https://github.com/MaysaraHolmes/beehive/wiki/Installation).
 
 ## General info
+The code is simplified divided into three. Client, server and Fan. <br />
+* The client is inteerupt by a timer every x millisecond reading the sensor data and sending it via udp to the server. <br />
+* The server publish the data to our [webpage](https://beehiveproject.herokuapp.com/) and saves the data to a database.
+Additionally the server will send an email to registrered email-addresses everytime the humidity inside the beehive is too high. <br />
+* The Fan is run depending on only one input pin. The pin is connected to the alarm on the humidity sensor inside the fan and will toggle if the humidity goes above 80% humidity and off if it goes under 75% humidity. If the pin toggles it triggers an thread which will start or stop the fan depending if the pin goes high or low respectively. <br />
+
+By this architecture the fan will be triggered even if the main code/i2c bus fails to read the sensors. Making the code responsive and reliable. On the other hand if the alarm pin is disconnected you will still get an email/display on the webpage that the humidity inside the beehive is too high.
+<br />
+<br />
 This projects architecture diagram:
 
 <img src="ArchitectureDiagram.png" title="Architecture" ></a>
