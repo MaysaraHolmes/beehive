@@ -21,6 +21,7 @@ This project is done in partnership with the [Glasgow University Beekeeping Soci
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Authors](#authors)
+* [Images](#images)
 
 ## Setup
 
@@ -47,6 +48,7 @@ Project is created with:
 	* P82B96 I2C Shifter
 * Node Js/express Js server
 * MySQl database.
+* [WiringPi](http://wiringpi.com/reference/core-functions/) 
 
 ## Authors
 
@@ -55,3 +57,19 @@ Project is created with:
 * **Maysara Alhindi, 2417665**  - [Github](https://github.com/MaysaraHolmes) (Main responsibility: Front end)
 
 * **Trine Ødegård Olsen, 2420036**  - [Github](https://github.com/trineoo) (Main responsibility: C++ code)
+
+## Images
+
+
+<p align="center">
+	<a href="https://beehiveproject.herokuapp.com/">
+	<img src="beehive.jpg"
+	 title="hive" alt="beehive" width="500" height="500" ></a></p>
+	 
+<p align="center">
+	<a href="https://beehiveproject.herokuapp.com/">
+	<img src="hardware.jpg"
+	 title="hw" alt="hardware" width="500" height="500" ></a></p>
+
+
+
