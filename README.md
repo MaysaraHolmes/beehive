@@ -31,6 +31,9 @@ This projects architecture diagram:
 
 <img src="ArchitectureDiagram.png" title="Architecture" ></a>
 
+Dependency graph for the C++ code:
+<img src="dependency_graph.png" title="Dependency_graph" ></a>
+
 ## Technologies
 
 Project is created with:
@@ -45,8 +48,8 @@ Project is created with:
 
 ## Authors
 
-* **Remy Chatel**  - [Github](https://github.com/RemyChatel)
+* **Remy Chatel, 2411062**  - [Github](https://github.com/RemyChatel)
 
-* **Maysara Alhindi**  - [Github](https://github.com/MaysaraHolmes)
+* **Maysara Alhindi, 2417665**  - [Github](https://github.com/MaysaraHolmes)
 
 * **Trine Ødegård Olsen, 2420036**  - [Github](https://github.com/trineoo)
