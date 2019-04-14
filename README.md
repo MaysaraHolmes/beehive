@@ -60,16 +60,17 @@ Project is created with:
 
 ## Images
 
-
+The beehives in the backyard in the university of Glasgow
 <p align="center">
 	<a href="https://beehiveproject.herokuapp.com/">
 	<img src="beehive.jpg"
-	 title="hive" alt="beehive" width="500" height="500" ></a></p>
+	 title="hive" alt="beehive" width="800" height="500" ></a></p>
 	 
+Picture of the hardware, without the fan, soldered
 <p align="center">
 	<a href="https://beehiveproject.herokuapp.com/">
 	<img src="hardware.jpg"
-	 title="hw" alt="hardware" width="500" height="500" ></a></p>
+	 title="hw" alt="hardware" width="800" height="500" ></a></p>
 
 
 
