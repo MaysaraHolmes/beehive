@@ -24,7 +24,7 @@ The website was displaying the value every 2 seconds while the fan was starting 
 * [Technologies](#technologies)
 * [Authors](#authors)
 * [Images](#images)
-
+* [Social media](#social-media)
 ## Setup
 
 Instructions for installation can be found on the [installation wiki](https://github.com/MaysaraHolmes/beehive/wiki/Installation).
@@ -87,3 +87,7 @@ Picture of the hardware, without the fan, soldered
 
 
 
+## Social media
+* [Hackster](https://www.hackster.io/maysara-alhindi/real-time-beehive-monitoring-glasgow-university-5a986c?fbclid=IwAR0-vXvfKS6yhzB5cdmx6wDfkbD9QhEtdo_F_e8NovsFujnpzO1nPfwy76o)
+* [Hackaday](https://hackaday.io/project/164984-real-time-beehive-monitoring-glasgow-university)
+* [Glasgow University Beekeeping Society](https://www.facebook.com/GUBeekeepingSociety/)
