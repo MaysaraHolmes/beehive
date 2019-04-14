@@ -50,8 +50,8 @@ Project is created with:
 
 ## Authors
 
-* **Remy Chatel, 2411062**  - [Github](https://github.com/RemyChatel)
+* **Remy Chatel, 2411062**  - [Github](https://github.com/RemyChatel) (Main responsibility: Hardware)
 
-* **Maysara Alhindi, 2417665**  - [Github](https://github.com/MaysaraHolmes)
+* **Maysara Alhindi, 2417665**  - [Github](https://github.com/MaysaraHolmes) (Main responsibility: Front end)
 
-* **Trine Ødegård Olsen, 2420036**  - [Github](https://github.com/trineoo)
+* **Trine Ødegård Olsen, 2420036**  - [Github](https://github.com/trineoo) (Main responsibility: C++ code)
