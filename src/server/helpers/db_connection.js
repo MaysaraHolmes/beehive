@@ -12,6 +12,17 @@ var con = mysql.createConnection({
 con.connect(function(err) {
   if (err) throw err;
   console.log("Database is connected successfully");
+  
+  var readings_table = "CREATE TABLE if not exists readings (itemp float,ihum float,otemp float,ohum float,pressure float)";
+  var emails_table = "CREATE TABLE if not exists emails (email varchar(50))";
+
+  con.query(readings_table, function (err, result) {
+    if (err) throw err;
+  });
+  con.query(emails_table, function (err, result) {
+	if (err) throw err;
+  });
+
 });
 
 // to keep the connection alive

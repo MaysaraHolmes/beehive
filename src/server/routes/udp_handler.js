@@ -41,7 +41,7 @@ function validateData(data) {
     if(data_array[1] && Number(data_array[1])){
         validData.ihum = data_array[1];
     }
-    if(data_array[2] &&Number(data_array[2])){
+    if(data_array[2] && Number(data_array[2])){
         validData.otemp = data_array[2];
     }
     if(data_array[3] && Number(data_array[3])){
