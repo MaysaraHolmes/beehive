@@ -1,4 +1,4 @@
-// initing the DB connection and read values from the evnironment
+// initing the DB connection and read values from the evnironment and creating tables
 
 var mysql = require('mysql');
 
