@@ -16,7 +16,7 @@ This project is done in partnership with the [Glasgow University Beekeeping Soci
 
 It was a success ! The Pi was able to make measurement of the ambiant temperature, pressure and humidity, as well as start the fan when the humidity got too high.
 
-The website was displaying the value every 30 seconds while the fan was starting in as soon as the sensors triggered the alarm through a processor interrupt.
+The website was displaying the value every 2 seconds while the fan was starting in as soon as the sensors triggered the alarm through a processor interrupt. Note, however, that the sensor provide data at more than 50Hz but it was decided the cap it to 2 second to avoid high traffic on the server (if hosted on the cloud).
 
 ## Table of contents
 * [Setup](#setup)
