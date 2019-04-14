@@ -1,6 +1,10 @@
+// handling the UDP requests from the PI
+
 var sql = require("../helpers/sql");
 var emails_sender = require('../helpers/email_sender');
 
+
+// insert new readings
 exports.insertData = function(data){
 
     var validData = validateData(data.toString('utf8'));
@@ -26,7 +30,8 @@ exports.insertData = function(data){
     });
 
 }
-    
+
+// check if the readings are valid before inserting them to the database    
 function validateData(data) {
     var data_array = data.split(" ");
     var validData = {};

@@ -1,3 +1,5 @@
+// initing the UDP connection
+
 var dgram = require('dgram');
 var udpserver = dgram.createSocket('udp4');
 

@@ -1,3 +1,5 @@
+// initing the sockets 
+
 const socketIo = require('socket.io');
 
 let io;

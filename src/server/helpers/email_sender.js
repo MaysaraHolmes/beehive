@@ -1,3 +1,5 @@
+// this script is used to send emails 
+
 var nodemailer = require("nodemailer");
 var Promose = require("promise");
 

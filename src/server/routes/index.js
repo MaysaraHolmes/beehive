@@ -1,7 +1,11 @@
+// this script is used to server the front-end to the client side, also to handel the requests from the client side
+
 var express = require('express');
 var router = express.Router();
 var sql = require("../helpers/sql");
 
+
+// get the readings from the database and return them in JSON format
 router.get('/', function(req, res) {
     
     sql.getData().then((result)=>{
@@ -37,6 +41,8 @@ router.get('/', function(req, res) {
 
 });
 
+
+// add new subscriber email to the database
 router.post('/email_sub',function(req,res){
     if(!validateEmail(req.body.email)){
         return res.sendStatus(406);
@@ -49,6 +55,8 @@ router.post('/email_sub',function(req,res){
     });
 }); 
 
+
+// check the email format if it is correct
 function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());

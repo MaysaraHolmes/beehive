@@ -1,3 +1,5 @@
+// this script is used to setup the server and the libraries, also to start the UDP,TCP and DB connections
+
 var express = require('express');
 var path = require('path');
 var favicon = require('static-favicon');

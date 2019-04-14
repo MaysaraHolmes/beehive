@@ -1,3 +1,5 @@
+// initing the DB connection and read values from the evnironment
+
 var mysql = require('mysql');
 
 var con = mysql.createConnection({
