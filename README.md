@@ -10,8 +10,7 @@
 
 We want to help beekeepers to keep an eye on their bees. By giving them insight on critical measurements we can monitor different events such as too low temperature, too high moisture, sufficient weight to harvest honey, as well as giving an estimate of how many bees went out of the beehive harvesting.
 
-This project aims to set up a weather station with sensors and a fan to control the atmosphere inside the hive. The sensors output can be visualized through a website that can be hosted either locally on the Raspberry Pi, or hosted on the cloud (example [here](https://beehiveproject.herokuapp.com/)), please note that this is an example page for the server, you can set up the server locally or configure it and run it on the cloud easily to receive real-time measurements from the raspberry pi.
-
+This project aims to set up a weather station with sensors and a fan to control the atmosphere inside the hive. The sensors output can be visualized through a website that can be hosted either locally on the Raspberry Pi, or hosted on the cloud (example [here](https://beehiveproject.herokuapp.com/)).
 This project is done in partnership with the [Glasgow University Beekeeping Society](https://www.facebook.com/GUBeekeepingSociety/)
 
 It was a success ! The Pi was able to make measurement of the ambiant temperature, pressure and humidity, as well as start the fan when the humidity got too high.
